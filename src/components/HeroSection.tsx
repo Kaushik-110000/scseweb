@@ -1,7 +1,6 @@
 "use client";
 
 import { Jost, Libre_Baskerville } from "next/font/google";
-import { BackgroundBeams } from "@/components/ui/background-beams";
 import { motion } from "framer-motion";
 
 const jost = Jost({ subsets: ["latin"], weight: ["100", "400", "700", "900"] });
@@ -15,7 +14,6 @@ export default function HeroSection() {
     <>
       {/* Main Content (Text & Logo) */}
       <div className="relative min-h-[100vh] mt-20 z-10 flex flex-col items-center justify-center h-full px-6 md:flex-row md:justify-between text-white md:ml-15 md:mt-0">
-        
         {/* Text Reveal Animation (Appearing from Left, No Position Shift) */}
         <motion.div
           className={`mb-8 w-full md:w-1/2 md:mb-0 ${jost.className}`}
@@ -47,7 +45,6 @@ export default function HeroSection() {
           />
         </motion.div>
       </div>
-      <BackgroundBeams />
     </>
   );
 }
