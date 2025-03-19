@@ -10,11 +10,16 @@
   },
   "dependencies": {
     "@tabler/icons-react": "^3.31.0",
+    "axios": "^1.8.3",
     "clsx": "^2.1.1",
     "framer-motion": "^12.5.0",
+    "googleapis": "^146.0.0",
+    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.482.0",
+    "mongoose": "^8.12.1",
     "motion": "^12.5.0",
     "next": "15.2.2",
+    "razorpay": "^2.9.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.0.2"
@@ -22,6 +27,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
