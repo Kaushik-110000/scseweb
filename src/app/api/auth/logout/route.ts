@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
 export async function POST(req: NextRequest) {
   try {
     const token = req.cookies.get("logtok")?.value;
     if (!token) {
       const response = NextResponse.json(
-        { error: "Login token missing" },
+        { error: "Login token missing", status: 401 },
         { status: 401 }
       );
       return response;

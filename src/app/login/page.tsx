@@ -1,12 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { UserContext } from "@/context/UserContext";
 
 function Login() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const router = useRouter();
+  const { setUserData } = useContext(UserContext);
 
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -18,12 +20,18 @@ function Login() {
     try {
       const response = await axios.post("/api/auth/login", formData);
       if (response.status === 200) {
-        router.push("/dashboard"); 
-        
+        const userResponse = await axios.get("/api/users/getCurrent");
+        if (userResponse.data.data.status === 200) {
+          console.log("kand",userResponse.data.data)
+          setUserData(userResponse.data.data._doc);
+        }
+        router.push("/dashboard");
       }
     } catch (err: any) {
       setError(
-        err.response?.data?.message || "Login failed. Please try again."
+        err.response?.data?.message ||
+          err.response?.data?.error ||
+          "Login failed. Please try again."
       );
     }
   };

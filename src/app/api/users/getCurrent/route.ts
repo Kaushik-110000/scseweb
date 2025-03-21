@@ -8,21 +8,32 @@ export async function GET(req: NextRequest) {
     const token = req.cookies.get("logtok")?.value;
     if (!token) {
       const response = NextResponse.json(
-        { error: "Login token missing" },
-        { status: 401 }
+        {
+          message: "Login token missing, No user ",
+          data: { fullName: "Please login" },
+          status: 210,
+        },
+        { status: 210 }
       );
       return response;
     }
     try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET!);
-      console.log(decoded);
-      const response = NextResponse.json({ data: decoded }, { status: 200 });
+      const decoded: any = jwt.verify(token, process.env.JWT_SECRET!);
+      console.log("decoded");
+      const user = await User.findOne({ email: decoded.email }).select(
+        "-password"
+      );
+      const response = NextResponse.json(
+        { data: { ...user, status: 200 }, status: 200 },
+        { status: 200 }
+      );
       return response;
     } catch (error) {
       const response = NextResponse.json(
-        { error: "Login token error" },
+        { error: "Login token error", status: 401 },
         { status: 401 }
       );
+      response.cookies.delete("logtok");
       return response;
     }
   } catch (error) {

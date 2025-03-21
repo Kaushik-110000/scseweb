@@ -2,6 +2,7 @@
 
 import { Jost, Libre_Baskerville } from "next/font/google";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const jost = Jost({ subsets: ["latin"], weight: ["100", "400", "700", "900"] });
 const libreBaskerville = Libre_Baskerville({
@@ -38,10 +39,12 @@ export default function HeroSection() {
           transition={{ duration: 1.2, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.2 }}
         >
-          <img
+          <Image
             src="/SCSElogo.svg"
             alt="SCSE Logo"
-            className="w-70 h-70 object-contain"
+            width={300} 
+            height={300}
+            className="object-contain"
           />
         </motion.div>
       </div>

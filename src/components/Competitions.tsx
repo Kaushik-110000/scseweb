@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useEffect, useState, useMemo, useRef } from "react";
+import React, {
+  useEffect,
+  useState,
+  useMemo,
+  useRef,
+  useCallback,
+} from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -92,7 +98,7 @@ const comps = [
 ];
 
 export default function Competitions() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [cardWidth, setCardWidth] = useState(300);
   const [gap, setGap] = useState(16);
@@ -100,11 +106,17 @@ export default function Competitions() {
 
   const duplicatedcomps = useMemo(() => [...comps, ...comps], []);
 
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => {
+      if (prev >= duplicatedcomps.length - 3) return 0;
+      return prev + 1;
+    });
+  }, [duplicatedcomps]);
+
   useEffect(() => {
     const handleResize = () => {
       if (!containerRef.current) return;
       const containerWidth = containerRef.current.offsetWidth;
-
       // Adjust card width based on viewport
       if (containerWidth < 768) {
         // Mobile
@@ -116,18 +128,10 @@ export default function Competitions() {
         setGap(16);
       }
     };
-
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => {
-      if (prev >= duplicatedcomps.length - 3) return 0;
-      return prev + 1;
-    });
-  };
+  }, [handleNext]);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => {
@@ -141,7 +145,7 @@ export default function Competitions() {
       handleNext();
     }, 1500);
     return () => clearInterval(interval);
-  }, []);
+  }, [handleNext]);
 
   return (
     <div className="relative min-h-screen z-10 mt-20 h-full mx-5 px-2 text-white md:mx-12 flex flex-col items-center md:mt-0">

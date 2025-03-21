@@ -4,6 +4,7 @@ import Eauth from "@/models/eAuthModel";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import User from "@/models/userModel";
 
 export async function GET(req: NextRequest) {
   try {
@@ -27,9 +28,6 @@ export async function GET(req: NextRequest) {
     const { tokens } = await oauth2Client.getToken(code);
     oauth2Client.setCredentials(tokens);
 
-    console.log("tok", tokens);
-
-    // Fetch user info from Google
     const { data } = await axios.get(
       `https://www.googleapis.com/oauth2/v2/userinfo?access_token=${tokens.access_token}`
     );
@@ -43,9 +41,33 @@ export async function GET(req: NextRequest) {
       );
     }
 
+    //same as login start
+    const user = await User.findOne({ email: email });
+    if (user) {
+      const logtokPayload = {
+        userID: user.userID,
+        email: user.email,
+        fullName: user.fullName,
+      };
+      const logtok = await jwt.sign(logtokPayload, process.env.JWT_SECRET!, {
+        expiresIn: "60d",
+      });
+      const response = NextResponse.json(
+        { error: "User already exists, logging in", status: 405 },
+        { status: 405 }
+      );
+      response.cookies.set("logtok", logtok, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        path: "/",
+        maxAge: 60 * 24 * 60 * 60, // 60 days in seconds
+      });
+      return response;
+    }
+    //same as login ends
+
     //now creating the instance for the proper authentication
     let instance = await Eauth.findOne({ email });
-
     if (!instance) {
       instance = new Eauth({ email, token: tokens.access_token });
       await instance.save();
@@ -62,15 +84,15 @@ export async function GET(req: NextRequest) {
       { email, message: "Proceed to set up credentials" },
       { status: 200 }
     );
+
     response.cookies.set("eAuthToken", jwtToken, {
       httpOnly: true,
       // secure: true,
       path: "/",
-      maxAge: 60 * 60 * 2 * 24, // 1 hour in seconds
+      maxAge: 60 * 60 * 2 * 24, // 2 days in seconds
     });
     return response;
   } catch (error) {
-    console.error("Google OAuth Error:", error);
     return NextResponse.json(
       { error: "Internal Server Error" },
       { status: 500 }

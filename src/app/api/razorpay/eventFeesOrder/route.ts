@@ -1,0 +1,40 @@
+import Razorpay from "razorpay";
+import { NextResponse, NextRequest } from "next/server";
+import jwt from "jsonwebtoken";
+
+export async function POST(request: NextRequest) {
+  try {
+    
+    const { eventName }: any = await request.json();
+    console.log("You are registering for ", eventName);
+    if (!eventName) {
+      return NextResponse.json(
+        { success: false, message: "Missing event name" },
+        { status: 500 }
+      );
+    }
+
+    //can be dynamic easily, just change to let and call for the event and its registration fees from database
+    const amount = 100;
+
+    const instance = new Razorpay({
+      key_id: process.env.RAZORPAY_API_KEY!,
+      key_secret: process.env.RAZORPAY_API_SECRET!,
+    });
+
+    const options = {
+      amount: amount * 100,
+      currency: "INR",
+      receipt: "receipt_order_" + Math.floor(Math.random() * 1000000),
+    };
+
+    const order = await instance.orders.create(options);
+    return NextResponse.json({ success: true, order });
+  } catch (error: any) {
+    console.error("Razorpay Order Creation Error:", error);
+    return NextResponse.json(
+      { success: false, message: error.message },
+      { status: 500 }
+    );
+  }
+}

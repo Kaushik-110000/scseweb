@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         hostname: "plus.unsplash.com",
         pathname: "/premium_photo-*", // Allow premium photos
       },
+      {
+        protocol: "https",
+        hostname: "unsplash.com",
+        pathname: "/photo*", // Allow premium photos
+      },
     ],
   },
 };

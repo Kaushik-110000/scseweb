@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react"; 
+import React from "react";
 
 // We only do Google sign-up here. The user will be redirected to Google OAuth.
 export default function RegisterPage() {
@@ -11,14 +11,37 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <h1 className="text-2xl font-bold mb-4">Register with Google</h1>
-      <button
-        onClick={handleGoogleSignup}
-        className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
-      >
-        Sign Up with Google
-      </button>
+    <div className="min-h-screen flex items-center bg-black justify-center bg-cover bg-center">
+      <div className=" bg-opacity-75 p-8 rounded-lg shadow-lg text-center">
+        <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-2">
+          Authenticate Yourself
+        </h2>
+        <p className="text-gray-300 mb-6">
+          Register with your Google account to continue.
+        </p>
+        <button
+          onClick={handleGoogleSignup}
+          className="
+            px-6 
+            py-3 
+            text-white 
+            rounded-md 
+            font-semibold
+            shadow-md
+            transition-all 
+            duration-300 
+            ease-in-out
+            hover:opacity-90
+            focus:outline-none
+          "
+          style={{
+            background:
+              "linear-gradient(to right, #4285F4, #34A853)",
+          }}
+        >
+          Sign Up with Google
+        </button>
+      </div>
     </div>
   );
 }

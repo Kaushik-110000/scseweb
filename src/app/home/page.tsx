@@ -6,7 +6,7 @@ import AboutUs from "@/components/AboutUs";
 import Competitions from "@/components/Competitions";
 import Footer from "@/components/Footer";
 import Events from "@/components/Events";
-function page() {
+function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     if (videoRef.current) {
@@ -39,4 +39,4 @@ function page() {
   );
 }
 
-export default page;
+export default Home;

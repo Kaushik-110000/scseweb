@@ -31,7 +31,7 @@ export default function Navbar() {
     <>
       <nav
         className={`
-          fixed top-0 left-0 w-full z-50 
+          fixed top-0 left-0 w-full z-1000 
           text-white py-4 px-6 flex justify-between items-center
           shadow-lg transition-colors duration-300
           ${
@@ -127,6 +127,31 @@ export default function Navbar() {
           >
             Contact
           </Link>
+          {!userData ? (
+            <div className="mt-5 flex flex-col">
+              <Link
+                href="/login"
+                className="text-white text-2xl mb-6 hover:text-blue-400"
+              >
+                Login
+              </Link>
+              <Link
+                href="/register"
+                className="text-white text-2xl mb-6 hover:text-blue-400"
+              >
+                Register
+              </Link>
+            </div>
+          ) : (
+            <div className="mt-5">
+              <Link
+                href="/dashboard"
+                className="text-white text-2xl mb-6 hover:text-blue-400"
+              >
+                Dashboard
+              </Link>
+            </div>
+          )}
         </div>
       )}
     </>

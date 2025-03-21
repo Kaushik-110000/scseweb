@@ -1,8 +1,7 @@
-"use client"; 
+"use client";
 
 import { createContext, useState, useEffect, ReactNode } from "react";
 import axios from "axios";
-
 
 interface UserData {
   email: string;
@@ -16,18 +15,15 @@ interface UserData {
   exp: number;
 }
 
-
 interface UserContextValue {
   userData: UserData | null;
   setUserData: (userData: UserData | null) => void;
 }
 
-
 export const UserContext = createContext<UserContextValue>({
   userData: null,
   setUserData: () => {},
 });
-
 
 export function UserProvider({ children }: { children: ReactNode }) {
   const [userData, setUserData] = useState<UserData | null>(null);
@@ -36,13 +32,12 @@ export function UserProvider({ children }: { children: ReactNode }) {
     const fetchUserData = async () => {
       try {
         const response = await axios.get("/api/users/getCurrent");
-        setUserData(response.data.data);
+        if (response.data.data.status === 200) setUserData(response.data.data);
+        else setUserData(null);
       } catch (error) {
-        console.error("Error fetching user data:", error);
         setUserData(null);
       }
     };
-
     fetchUserData();
   }, []);
 
