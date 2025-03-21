@@ -132,12 +132,14 @@ export default function Navbar() {
               <Link
                 href="/login"
                 className="text-white text-2xl mb-6 hover:text-blue-400"
+                onClick={() => setIsOpen(false)}
               >
                 Login
               </Link>
               <Link
                 href="/register"
                 className="text-white text-2xl mb-6 hover:text-blue-400"
+                onClick={() => setIsOpen(false)}
               >
                 Register
               </Link>
@@ -147,6 +149,7 @@ export default function Navbar() {
               <Link
                 href="/dashboard"
                 className="text-white text-2xl mb-6 hover:text-blue-400"
+                onClick={() => setIsOpen(false)}
               >
                 Dashboard
               </Link>
