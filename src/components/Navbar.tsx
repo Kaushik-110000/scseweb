@@ -49,7 +49,7 @@ export default function Navbar() {
           <Link href="/home" className="hover:text-blue-400">
             Home
           </Link>
-          <Link href="/aboutUs" className="hover:text-blue-400">
+          <Link href="/about" className="hover:text-blue-400">
             About
           </Link>
           <Link href="/events" className="hover:text-blue-400">
@@ -114,7 +114,7 @@ export default function Navbar() {
             Home
           </Link>
           <Link
-            href="/aboutUs"
+            href="/about"
             className="text-white text-2xl mb-6 hover:text-blue-400"
             onClick={() => setIsOpen(false)}
           >
