@@ -13,6 +13,14 @@ export async function POST(request: NextRequest) {
       razorpay_signature,
       email,
     } = await request.json();
+    console.log(
+      razorpay_payment_id,
+      "da",
+      razorpay_payment_id,
+      'da',
+      razorpay_signature,
+      email
+    );
     const user = await User.findOne({ email });
 
     if (!user) {

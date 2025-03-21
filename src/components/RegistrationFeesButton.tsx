@@ -22,13 +22,21 @@ export default function RegistrationFeesButton({
   const handlePayment = async () => {
     try {
       await loadRazorpayScript();
-      const response = await axios.post("/api/razorpay/registrationFeesOrder");
-      const data = await response.data;
+
+      const { data } = await axios.post("/api/razorpay/registrationFeesOrder");
+
       if (!data.success) {
-        alert("Failed to create order: " + data.message + "Retry Later");
+        alert("Failed to create order: " + data.message + ". Retry Later");
         return;
       }
+
       const { order } = data;
+
+      if (!(window as any).Razorpay) {
+        alert("Razorpay SDK failed to load. Check your internet connection.");
+        return;
+      }
+
       const options = {
         key: process.env.NEXT_PUBLIC_RAZORPAY_API_KEY!,
         amount: order.amount,
@@ -51,6 +59,7 @@ export default function RegistrationFeesButton({
           color: "#3399cc",
         },
       };
+
       const rzp1 = new (window as any).Razorpay(options);
       rzp1.open();
     } catch (error) {
@@ -58,12 +67,13 @@ export default function RegistrationFeesButton({
       alert("Something went wrong. Try later");
     }
   };
+
   return (
-    <div
-      className="bg-red-400 w-50 h-10 flex justify-center items-center mt-5 rounded-2xl"
+    <button
+      className="bg-red-400 px-4 py-2 text-white rounded-2xl mt-5"
       onClick={handlePayment}
     >
       Pay registration fees
-    </div>
+    </button>
   );
 }
