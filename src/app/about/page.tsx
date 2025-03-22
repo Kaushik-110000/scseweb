@@ -7,6 +7,8 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+
+
 const teamMembers = [
   { name: "Harshit Shrivastav", role: "President", image: "/useravatar.png" },
   { name: "Harish Kumar", role: "Vice President", image: "/useravatar.png" },
@@ -15,6 +17,8 @@ const teamMembers = [
   { name: "Sunil Kumar Behera", role: "Joint Secretary", image: "/useravatar.png" },
   
 ];
+
+
 
 const previousEvents = [
   {
@@ -38,6 +42,8 @@ const previousEvents = [
     image:  "/contest.webp",
   },
 ];
+
+
 
 export default function Page() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -84,10 +90,16 @@ export default function Page() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+
+
+
   const getIndex = (offset: number): number => {
     return (currentIndex + offset + teamMembers.length) % teamMembers.length;
   };
 
+
+
+  
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-900 via-black to-blue-900 text-white px-6 py-12">
       {/* Title Section */}
