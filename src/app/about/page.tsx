@@ -89,7 +89,7 @@ export default function Page() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-900 via-black to-blue-900 text-white px-6 py-12">
+    <div className="min-h-screen  background-grid2 text-white px-6 py-12">
       {/* Title Section */}
       <motion.h1
         initial={{ opacity: 0, y: 40 }}
