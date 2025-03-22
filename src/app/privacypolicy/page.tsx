@@ -118,7 +118,7 @@ const PrivacyPolicy: NextPage = () => {
           </p>
           <p>
             <button className="bg-blue-300 rounded-2xl w-30 h-10">
-              <Link href={"/contactus"}>Contact Us</Link>
+              <Link href={"/contact"}>Contact Us</Link>
             </button>
           </p>
         </section>
