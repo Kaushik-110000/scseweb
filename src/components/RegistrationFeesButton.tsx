@@ -70,10 +70,10 @@ export default function RegistrationFeesButton({
 
   return (
     <button
-      className="bg-red-400 px-4 py-2 text-white rounded-2xl mt-5"
-      onClick={handlePayment}
-    >
-      Pay registration fees
-    </button>
+    className="w-full mb-2 bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-semibold py-3 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20 border border-purple-500/30 mt-5"
+    onClick={handlePayment}
+  >
+    Pay Registration Fees
+  </button>
   );
 }
