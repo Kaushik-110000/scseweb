@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^10.0.4",
+    "@react-three/fiber": "^9.1.0",
     "@tabler/icons-react": "^3.31.0",
     "axios": "^1.8.3",
     "class-variance-authority": "^0.7.1",
@@ -17,6 +19,7 @@
     "googleapis": "^146.0.0",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.482.0",
+    "maath": "^0.10.8",
     "mongoose": "^8.12.1",
     "motion": "^12.5.0",
     "next": "15.2.2",
@@ -24,7 +27,8 @@
     "razorpay": "^2.9.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwind-merge": "^3.0.2"
+    "tailwind-merge": "^3.0.2",
+    "three": "^0.174.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
