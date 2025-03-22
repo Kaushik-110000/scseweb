@@ -74,7 +74,7 @@ function Page() {
 
   return (
     <div
-      className="flex justify-center mt-9 items-center min-h-screen bg-black bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-900 to-black"
+      className="flex justify-center mt-14 items-center min-h-screen bg-black bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-900 to-black"
       style={{
         backgroundImage: `url('https://images.pexels.com/photos/4814061/pexels-photo-4814061.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`,
         backgroundSize: "cover",
