@@ -1,21 +1,29 @@
 import Razorpay from "razorpay";
 import { NextResponse, NextRequest } from "next/server";
 import jwt from "jsonwebtoken";
+import Event from "@/models/eventModel";
 
 export async function POST(request: NextRequest) {
   try {
-    
     const { eventName }: any = await request.json();
     console.log("You are registering for ", eventName);
     if (!eventName) {
       return NextResponse.json(
-        { success: false, message: "Missing event name" },
+        { success: false, message: "Missing event name in req" },
+        { status: 500 }
+      );
+    }
+    console.log("Event is", eventName.trim());
+    const event = await Event.findOne({ name: eventName.trim() });
+    if (!event) {
+      return NextResponse.json(
+        { success: false, message: "Missing event name in db" },
         { status: 500 }
       );
     }
 
     //can be dynamic easily, just change to let and call for the event and its registration fees from database
-    const amount = 100;
+    const amount: number = event?.regFees;
 
     const instance = new Razorpay({
       key_id: process.env.RAZORPAY_API_KEY!,
