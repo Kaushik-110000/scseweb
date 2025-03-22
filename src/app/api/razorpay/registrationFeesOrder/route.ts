@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       process.env.JWT_SECRET!
     ) as MyTokenPayload;
     const response = NextResponse.json({ data: decoded }, { status: 200 });
-    let amount = 1250;
+    let amount = 1;
     if (!response) {
       const response = NextResponse.json(
         { error: "Login token missing, Please login" },
@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
       
       //change the code here to change amount based on branch ar something
       const isFromCse =  /^[0-9]{4}ugcs[0-9]{3}@nitjsr\.ac\.in$/i.test(decoded.email);
-      if (isFromCse) amount = 650;
+      if (isFromCse) amount = 2;
     }
 
     const instance = new Razorpay({
