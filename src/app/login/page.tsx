@@ -3,7 +3,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import axios from "axios";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Eye, EyeOff } from "lucide-react";
 import { motion } from "framer-motion";
 import { clsx, type ClassValue } from "clsx";
@@ -23,10 +23,14 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input hover:bg-accent hover:text-accent-foreground",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        default:
+          "bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
@@ -44,7 +48,9 @@ const buttonVariants = cva(
   }
 );
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
+interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
   asChild?: boolean;
 }
 
@@ -62,23 +68,23 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button";
 
 // Input Component
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, ...props }, ref) => {
-    return (
-      <input
-        type={type}
-        className={cn(
-          "flex h-10 w-full rounded-md border border-gray-600 bg-gray-800 text-white px-3 py-2 text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-          className
-        )}
-        ref={ref}
-        {...props}
-      />
-    );
-  }
-);
+const Input = React.forwardRef<
+  HTMLInputElement,
+  React.InputHTMLAttributes<HTMLInputElement>
+>(({ className, type, ...props }, ref) => {
+  return (
+    <input
+      type={type}
+      className={cn(
+        "flex h-10 w-full rounded-md border border-gray-600 bg-gray-800 text-white px-3 py-2 text-sm placeholder:text-gray-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+        className
+      )}
+      ref={ref}
+      {...props}
+    />
+  );
+});
 Input.displayName = "Input";
 
 // Label Component
@@ -104,7 +110,8 @@ const alertVariants = cva(
     variants: {
       variant: {
         default: "bg-gray-800 text-white border-gray-600",
-        destructive: "border-red-500/50 text-red-400 dark:border-red-500 [&>svg]:text-red-400",
+        destructive:
+          "border-red-500/50 text-red-400 dark:border-red-500 [&>svg]:text-red-400",
       },
     },
     defaultVariants: {
@@ -141,28 +148,12 @@ AlertDescription.displayName = "AlertDescription";
 // Main LoginPage Component
 export default function Login() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const registered = searchParams.get("registered");
-
   const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const { setUserData } = useContext(UserContext);
-
-  useEffect(() => {
-    setMounted(true);
-    document.body.classList.add("dark");
-
-    if (registered === "true") {
-      setShowSuccessMessage(true);
-      const timer = setTimeout(() => setShowSuccessMessage(false), 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [registered]);
-
-  if (!mounted) return null;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -234,7 +225,9 @@ export default function Login() {
             className="mb-4"
           >
             <Alert className="bg-green-900/50 border-green-500/50 text-green-300">
-              <AlertDescription>Account created successfully! Please sign in.</AlertDescription>
+              <AlertDescription>
+                Account created successfully! Please sign in.
+              </AlertDescription>
             </Alert>
           </motion.div>
         )}
@@ -311,6 +304,7 @@ export default function Login() {
                   onChange={handleChange}
                   placeholder="••••••••"
                 />
+
                 <button
                   type="button"
                   className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-200"
@@ -319,6 +313,13 @@ export default function Login() {
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
+              <Link
+                href="/register"
+                className="font-medium mt-3 text-purple-400 hover:text-purple-300 transition-colors"
+              >
+                <p className="text-gray-400"></p>
+                Forgot your password?{" "}
+              </Link>
             </motion.div>
 
             <motion.div variants={item}>
@@ -335,8 +336,11 @@ export default function Login() {
             className="text-center text-sm"
           >
             <p className="text-gray-400">
-              Don't have an account?{" "}
-              <Link href="/register" className="font-medium text-purple-400 hover:text-purple-300 transition-colors">
+              Don&apos;t have an account?{" "}
+              <Link
+                href="/register"
+                className="font-medium text-purple-400 hover:text-purple-300 transition-colors"
+              >
                 Sign up
               </Link>
             </p>

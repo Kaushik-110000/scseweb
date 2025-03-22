@@ -196,7 +196,7 @@ export default function ContactPage() {
               Contact Us
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Get in touch with the team behind this year's most exciting college fest!
+              Get in touch with the team behind this year&apos;s most exciting college fest!
             </p>
           </div>
 
@@ -350,7 +350,7 @@ export default function ContactPage() {
 
             {submitSuccess && (
               <div className="mb-8 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/50 text-green-100 px-6 py-4 rounded-xl">
-                <p className="text-center font-medium">Thank you for your feedback! We'll get back to you soon.</p>
+                <p className="text-center font-medium">Thank you for your feedback! We&apos;ll get back to you soon.</p>
               </div>
             )}
 
