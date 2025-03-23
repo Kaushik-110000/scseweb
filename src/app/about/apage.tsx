@@ -7,6 +7,48 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Mail, Phone, Linkedin } from "lucide-react";
 
+
+
+const professors = [
+  {
+    name: "Jitesh Pradhan",
+    role: "Assistant Professor",
+    image: "/images/jiteshSir.png", 
+  },
+  {
+    name: "Dinesh Kumar",
+    role: "Professor",
+    image: "/images/dineshSir.jpg", 
+  },
+  {
+    name: "Koushlendra Kumar Singh",
+    role: "Assistant Professor",
+    image: "/images/kksir.jpeg", 
+  },
+  {
+    name: "Dr Chandradshekhar Azad",
+    role: "Assistant Professor",
+    image: "/images/chandrashekhar.jpg", 
+  },
+  {
+    name: " Dr Danish Ali Khan",
+    role: "Professor",
+    image: "/images/danishalisir.png", 
+  },
+  {
+    name: "Dr Dilip Kumar",
+    role: "Assistant Professor",
+    image: "/images/dilip.jpg", 
+  },
+];
+
+
+
+
+
+
+
+
 const teamMembers = [
   {
     name: "Harshit Shrivastav",
@@ -19,10 +61,10 @@ const teamMembers = [
   {
     name: "Harish Kumar",
     role: "Vice President",
-    image: "/useravatar.png",
-    contact: "+91 9876543210",
+    image: "/images/harish.jpg",
+    contact: "+91 8178800344",
     linkedin: "https://www.linkedin.com/in/harish-kumar-b7b739218/",
-    email: "harish@example.com",
+    email:  "harrythe454@gmail.com ",
   },
   {
     name: "Murli Dharan",
@@ -36,51 +78,30 @@ const teamMembers = [
   {
     name: "Rishav Kumar",
     role: "Treasurer",
-    image: "/useravatar.png",
-    contact: "+91 7061494994",
+    image: "/images/rishav.jpg",
+    contact: "+91 7061494994 ",
     linkedin: "https://www.linkedin.com/in/rishav-kumar",
-    email: "rishav@example.com",
+    email: "rishav943132@gmail.com",
   },
   {
     name: "Sunil Kumar Behera",
     role: "Joint Secretary",
-    image: "/useravatar.png",
-    contact: "+91 6677889900",
+    image: "/images/sunilbehra.jpg",
+    contact: "+91 7992752573",
     linkedin: "https://www.linkedin.com/in/sunil-kumar07/",
-    email: "sunil@example.com",
+    email: "sunilbehera672@gmail.com",
   },
 ];
 
-const previousEvents = [
-  {
-    title: "Hackathon 2023",
-    description:
-      "A 24-hour coding marathon where participants built innovative projects.",
-    image: "/contest.webp",
-  },
-  {
-    title: "Kodi Yatva",
-    description:
-      "A competitive programming event to test problem-solving skills.",
-    image: "/contest.webp",
-  },
-  {
-    title: "Scavenger Hunt",
-    description: "A fun and interactive event combining tech and teamwork.",
-    image: "/contest.webp",
-  },
-  {
-    title: "Hackathons",
-    description:
-      "Invited industry experts to share insights on emerging technologies.",
-    image: "/contest.webp",
-  },
-];
+
+
+
+
 
 export default function Page() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [eventIndex, setEventIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0); 
   const [isMobile, setIsMobile] = useState(false);
+ 
 
   const handlePrev = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
@@ -90,31 +111,7 @@ export default function Page() {
     setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
   }, []);
 
-  const handleEventPrev = useCallback(() => {
-    setEventIndex((prev) =>
-      prev === 0 ? previousEvents.length - 1 : prev - 1
-    );
-  }, []);
-
-  const handleEventNext = useCallback(() => {
-    setEventIndex((prev) =>
-      prev === previousEvents.length - 1 ? 0 : prev + 1
-    );
-  }, []);
-
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     handleNext();
-  //   }, 2000);
-  //   return () => clearInterval(interval);
-  // }, [handleNext]);
-
-  // useEffect(() => {
-  //   const eventInterval = setInterval(() => {
-  //     handleEventNext();
-  //   }, 3000);
-  //   return () => clearInterval(eventInterval);
-  // }, [handleEventNext]);
+ 
 
   useEffect(() => {
     const handleResize = () => {
@@ -130,9 +127,16 @@ export default function Page() {
     return (currentIndex + offset + teamMembers.length) % teamMembers.length;
   };
 
+
+ 
+
+
+
+
   return (
     <>
-      <div className="min-h-screen  background-grid2 text-white px-6 py-12">
+      <div className="min-h-screen  background-grid2 text-white "  >
+      <div className="px-6 py-12 ">
         {/* Title Section */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
@@ -198,6 +202,14 @@ export default function Page() {
           </motion.div>
         </motion.div>
 
+
+
+
+
+
+
+
+
         {/* About Xavenir Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -221,7 +233,7 @@ export default function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-gray-300 text-lg text-center mb-8"
+            className="text-gray-300 mx-10 text-lg text-center mb-8"
           >
             Xavenir is the premier tech fest of the CSE Department at NIT
             Jamshedpur, designed to bring together the brightest tech minds from
@@ -257,6 +269,77 @@ export default function Page() {
           </div>
         </motion.div>
 
+         
+
+
+          {/* Meet Our Deemed Professors Section */}
+          <motion.div
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8, ease: "easeOut" }}
+  className="mt-16"
+>
+  <motion.h2
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+    className="text-5xl font-bold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400"
+  >
+    Meet Our Deemed Professors
+  </motion.h2>
+
+  <motion.p
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8, delay: 0.2 }}
+    className="text-gray-300 text-lg text-center mb-10"
+  >
+    Our esteemed professors bring a wealth of knowledge and experience to guide
+    and inspire the next generation of tech innovators.
+  </motion.p>
+
+  {/* Centered Grid */}
+  <div className="flex justify-center items-center">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl ">
+      {professors.map((professor, index) => (
+        <motion.div
+          key={professor.name}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.2 }}
+          className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg shadow-white/30 flex flex-col items-center border w-72 border-white/20"
+        >
+          <div className="relative w-36 h-36 mb-4">
+            <Image
+              src={professor.image}
+              alt={professor.name}
+              fill
+              className="object-cover rounded-full"
+            />
+          </div>
+          <h3 className="text-xl font-semibold text-center">
+            {professor.name}
+          </h3>
+          <p className="text-purple-400 mb-2 text-center">
+            {professor.role}
+          </p>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</motion.div>
+
+
+
+
+
+
+
+
         {/* Meet Our Team Section */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -280,7 +363,7 @@ export default function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-gray-300 text-lg text-center mb-10"
+            className="text-gray-300 text-lg mx-10 text-center mb-10"
           >
             Introducing the backbone of SCSE - the leaders driving innovation
             and excellence! From steering creative ideas to managing tech
@@ -438,6 +521,7 @@ export default function Page() {
         </motion.div>
       </div>
       <Footer />
+      </div>
     </>
   );
 }
