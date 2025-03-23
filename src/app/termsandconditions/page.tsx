@@ -3,6 +3,7 @@ import Head from "next/head";
 
 const TermsAndConditions: React.FC = () => {
   return (
+    <div className="relative min-h-screen bg-black text-white bg-[url(https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGJsYWNrJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D)]">
     <div className="mt-10">
       <Head >
         <title>Terms and Conditions - SCSE Fest</title>
@@ -113,6 +114,7 @@ const TermsAndConditions: React.FC = () => {
         </section>
       </div>
     </div>
+  </div>
   );
 };
 

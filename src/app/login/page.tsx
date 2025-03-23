@@ -323,7 +323,7 @@ export default function Login() {
             </motion.div>
 
             <motion.div variants={item}>
-              <Button type="submit" className="w-full" size="lg">
+              <Button type="submit" className="w-full cursor-pointer" size="lg">
                 Sign In
               </Button>
             </motion.div>
