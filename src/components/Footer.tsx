@@ -174,7 +174,7 @@ export default function Page() {
 
           {/* Copyright Section */}
           <div className="border-t border-gray-800 mt-8 pt-6 text-center text-sm text-gray-400">
-            © 2025 TechFest. All rights reserved. | Designed with SCSE Web Team
+            © 2025 TechFest. All rights reserved. | Designed by SCSE Web Team
           </div>
         </div>
       </footer>
