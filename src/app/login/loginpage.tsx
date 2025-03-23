@@ -11,7 +11,7 @@ import { twMerge } from "tailwind-merge";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { UserContext } from "@/context/UserContext";
-
+import Loading from "@/components/Loading"
 // Utility function for class names
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -147,6 +147,7 @@ AlertDescription.displayName = "AlertDescription";
 
 // Main LoginPage Component
 export default function Login() {
+  const [loader, setLoader] = useState(false);
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -163,12 +164,13 @@ export default function Login() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-
+    setLoader(true);
     try {
       const response = await axios.post("/api/auth/login", formData);
       if (response.status === 200) {
         const userResponse = await axios.get("/api/users/getCurrent");
         if (userResponse.data.data.status === 200) {
+          setLoader(false);
           console.log("kand", userResponse.data.data);
           setUserData(userResponse.data.data._doc);
         }
@@ -196,7 +198,7 @@ export default function Login() {
     show: { opacity: 1, y: 0 },
   };
 
-  return (
+  return !loader ? (
     <main className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden font-poppins">
       {/* Background with image */}
       <div className="absolute inset-0 w-screen h-screen">
@@ -348,5 +350,7 @@ export default function Login() {
         </motion.div>
       </motion.div>
     </main>
+  ) : (
+    <Loading />
   );
 }

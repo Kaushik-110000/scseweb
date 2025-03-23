@@ -96,7 +96,7 @@ function Dashboard() {
   // by Priya raj
 
   return (
-    <>
+    <React.Fragment>
       <div className="relative min-h-screen bg-black text-white">
         {/* Background Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80 z-0 " />
@@ -365,7 +365,7 @@ function Dashboard() {
           <Footer />
         </div>
       </div>
-    </>
+    </React.Fragment>
   );
 }
 
