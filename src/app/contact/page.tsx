@@ -17,6 +17,7 @@ import {
   AtSign,
 } from "lucide-react";
 import Image from "next/image";
+import Footer from "@/components/Footer";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -54,7 +55,7 @@ const teamMembers = [
     image: "/images/harshit.jpg",
     linkedin: "https://www.linkedin.com/in/harshit-shrivastav-8b513127a",
     phone: "+91 89571 44430",
-    email: "harshitshrivastav2609@collegefest.edu",
+    email: "harshitshrivastav2609@gmail.com",
     bio: "You may contact him for any general purpose query, maybe related to the event or maybe.He is there to help you thorough all.",
   },
   {
@@ -73,7 +74,7 @@ const teamMembers = [
     linkedin:
       "https://www.linkedin.com/in/murli-dharan-614b89298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     phone: "+91 62016 68754",
-    email: "murlidharan93103@collegefest.edu",
+    email: "murlidharan93103@gmail.com",
     bio: "Confused with so many events ? Contact him for any event related queries. The answer of many of your queries are also in the events section, do visit !.",
   },
 ];
@@ -620,6 +621,7 @@ export default function ContactPage() {
           </motion.div>
         </motion.div>
       </div>
+      <Footer/>
     </div>
   );
 }
