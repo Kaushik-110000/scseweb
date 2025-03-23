@@ -238,7 +238,7 @@ export default function Page() {
           {/* PDF Placeholder */}
           <div className="flex justify-center">
             <a
-              href="/SCSE_Brochure.pdf"
+              href="/SCSE_brochure.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
