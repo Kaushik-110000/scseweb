@@ -243,7 +243,7 @@ export default function Competitions() {
         </div>
       </div>
       <Link href={"/about"}>
-        <button className=" bg-gradient-to-r from-blue-400 to-purple-500 w-40 h-10 rounded-2xl mt-5">
+        <button className=" bg-gradient-to-r from-blue-400 to-purple-500 w-40 h-10 rounded-2xl mt-5 cursor-pointer">
           Know more
         </button>
       </Link>
