@@ -27,10 +27,10 @@ const teamMembers = [
   {
     name: "Harish Kumar",
     role: "Vice President",
-    image: "/useravatar.png",
-    contact: "+91 9876543210",
+    image: "/images/harish.jpg",
+    contact: "+91 8178800344",
     linkedin: "https://www.linkedin.com/in/harish-kumar-b7b739218/",
-    email: "harish@example.com",
+    email: "harrythe454@gmail.com ",
   },
   {
     name: "Murli Dharan",
@@ -43,18 +43,18 @@ const teamMembers = [
   {
     name: "Rishav Kumar",
     role: "Treasurer",
-    image: "/useravatar.png",
-    contact: "+91 7061494994",
+    image: "/images/rishav.jpg",
+    contact: "+91 7061494994 ",
     linkedin: "https://www.linkedin.com/in/rishav-kumar",
-    email: "rishav@example.com",
+    email: "rishav943132@gmail.com",
   },
   {
     name: "Sunil Kumar Behera",
     role: "Joint Secretary",
-    image: "/useravatar.png",
-    contact: "+91 6677889900",
+    image: "/images/sunilbehra.jpg",
+    contact: "+91 7992752573",
     linkedin: "https://www.linkedin.com/in/sunil-kumar07/",
-    email: "sunil@example.com",
+    email: "sunilbehera672@gmail.com",
   },
 ];
 
@@ -143,10 +143,13 @@ export default function Page() {
 
 
 
+  
+
 
   return (
     <>
-      <div className="min-h-screen  background-grid2 text-white px-6 py-12">
+    <div className="min-h-screen  background-grid2 text-white "  >
+      <div className="px-6 py-12">
         {/* Title Section */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
@@ -220,7 +223,7 @@ export default function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-gray-300 text-lg text-center mb-8"
+            className="text-gray-300 px-5 text-lg text-center mb-8"
           >
             Xavenir is the premier tech fest of the CSE Department at NIT Jamshedpur, designed to bring together the brightest tech minds from across the country. It is a fusion of coding, innovation, AI, cybersecurity, and gaming. Xavenir is the perfect platform to showcase your skills, learn from industry experts, and compete for exciting prizes.
           </motion.p>
@@ -266,7 +269,7 @@ export default function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-5xl font-bold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400"
+            className="text-5xl font-bold text-center  mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400"
           >
             Meet Our Team
           </motion.h2>
@@ -276,7 +279,7 @@ export default function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-gray-300 text-lg text-center mb-10"
+            className="text-gray-300 text-lg text-center px-5 mb-10"
           >
             Introducing the backbone of SCSE - the leaders driving innovation and excellence! From steering creative ideas to managing tech innovations, PR strategies, and corporate outreach, each team plays a vital role in shaping our journey ahead. Together, we aim to inspire, innovate, and elevate!
           </motion.p>
@@ -412,9 +415,11 @@ export default function Page() {
             </button>
           </div>
         </motion.div>
-
+       
       </div>
       <Footer />
+      </div>
+     
     </>
   );
 }
