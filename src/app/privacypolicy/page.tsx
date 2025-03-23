@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import Link from "next/link";
 const PrivacyPolicy: NextPage = () => {
   return (
+    <div className="relative min-h-screen bg-black text-white bg-[url(https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGJsYWNrJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D)]">
     <div className="mx-auto max-w-4xl p-6 mt-10">
       <h1 className="mb-6 text-center text-3xl font-bold">Privacy Policy</h1>
       <div className="space-y-6">
@@ -123,6 +124,7 @@ const PrivacyPolicy: NextPage = () => {
           </div>
         </section>
       </div>
+    </div>
     </div>
   );
 };
