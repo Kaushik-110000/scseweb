@@ -407,7 +407,7 @@ export default function ParticleBackground() {
           }}
         >
           <span className="relative z-10">Enter The System</span>
-        </Li>
+        </Link>
       </motion.section>
     </>
   );
