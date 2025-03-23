@@ -158,7 +158,7 @@ export default function ParticleBackground() {
       };
       
       // For modern browsers supporting the Navigation Timing API
-      if (typeof window !== "undefined" && performance.getEntriesByType) {
+      if (typeof window !== "undefined" ) {
   handleInitialLoad();
 }
 
