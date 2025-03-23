@@ -17,6 +17,7 @@ import {
   AtSign,
 } from "lucide-react";
 import Image from "next/image";
+import Footer from "@/components/Footer";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -620,6 +621,7 @@ export default function ContactPage() {
           </motion.div>
         </motion.div>
       </div>
+      <Footer/>
     </div>
   );
 }
