@@ -181,7 +181,7 @@ export default function RegisterForEvent({
     <div>
       <button
         onClick={handleOpenOverlay}
-        className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700"
+        className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 cursor-pointer"
       >
         Register for {eventName}
       </button>
@@ -191,13 +191,13 @@ export default function RegisterForEvent({
           <div className="relative w-full max-w-2xl rounded p-6 shadow-lg ">
             <button
               onClick={handleCloseOverlay}
-              className="hidden md:inline-block absolute right-4 top-4 text-red-500 hover:text-red-700"
+              className="hidden md:inline-block absolute right-4 top-4 text-red-500 hover:text-red-700 cursor-pointer"
             >
               Close ✕
             </button>
             <button
               onClick={handleCloseOverlay}
-              className="md:hidden absolute right-4 top-4 text-red-500 hover:text-red-700"
+              className="md:hidden absolute right-4 top-4 text-red-500 hover:text-red-700 cursor-pointer"
             >
               ✕
             </button>
@@ -249,7 +249,7 @@ export default function RegisterForEvent({
                       <button
                         type="button"
                         onClick={() => handleRemoveParticipant(i)}
-                        className="rounded bg-red-600 px-2 py-1 font-semibold text-white hover:bg-red-700"
+                        className="rounded bg-red-600 px-2 py-1 font-semibold text-white hover:bg-red-700 cursor-pointer"
                       >
                         Remove
                       </button>
@@ -263,7 +263,7 @@ export default function RegisterForEvent({
                 <button
                   type="button"
                   onClick={handleAddParticipant}
-                  className="mr-2 rounded bg-green-600 px-3 py-2 font-semibold text-white hover:bg-green-700"
+                  className="mr-2 rounded bg-green-600 px-3 py-2 font-semibold text-white hover:bg-green-700 cursor-pointer"
                 >
                   + Add Participant
                 </button>
@@ -271,7 +271,7 @@ export default function RegisterForEvent({
 
               <button
                 type="submit"
-                className="rounded bg-purple-600 px-4 py-2 font-semibold text-white hover:bg-purple-700"
+                className="rounded bg-purple-600 px-4 py-2 font-semibold text-white hover:bg-purple-700 cursor-pointer"
               >
                 Submit
               </button>

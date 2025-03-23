@@ -239,7 +239,7 @@ export default function Page() {
               <div className="mt-4">
                 <Link href={`eventDetails/${event.name}`}>
                   <motion.button
-                    className="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 w-full"
+                    className="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 w-full cursor-pointer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
