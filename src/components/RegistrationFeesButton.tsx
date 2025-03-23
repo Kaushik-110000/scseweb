@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const loadRazorpayScript = () => {
   return new Promise<void>((resolve, reject) => {
@@ -19,6 +20,7 @@ interface RegistrationFeesButtonProps {
 export default function RegistrationFeesButton({
   email,
 }: RegistrationFeesButtonProps) {
+  const router = useRouter();
   const handlePayment = async () => {
     try {
       await loadRazorpayScript();
@@ -45,12 +47,15 @@ export default function RegistrationFeesButton({
         description: "Test Transaction",
         order_id: order.id,
         handler: async function (response: any) {
-          alert("Payment successful!");
           console.log(response);
           await axios.post("/api/razorpay/verifyRegistrationPayment", {
             ...response,
             email,
           });
+          alert("Payment successful!");
+          // router.refresh();
+          window.location.reload()
+          router.push("/dashboard");
         },
         prefill: {
           email,
@@ -67,13 +72,12 @@ export default function RegistrationFeesButton({
       alert("Something went wrong. Try later");
     }
   };
-
   return (
     <button
-    className="w-full mb-2 bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-semibold py-3 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20 border border-purple-500/30 mt-5"
-    onClick={handlePayment}
-  >
-    Pay Registration Fees
-  </button>
+      className="w-full mb-2 bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-semibold py-3 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20 border border-purple-500/30 mt-5"
+      onClick={handlePayment}
+    >
+      Pay Registration Fees
+    </button>
   );
 }

@@ -95,7 +95,7 @@ export default function RegisterForEvent({
         description: "Test Transaction",
         order_id: order.id,
         handler: async function (response: any) {
-          alert("Payment successful!");
+          alert("Payment successful! See your registration in dashboard");
           router.push("/dashboard");
           console.log(response);
           const formData = {
