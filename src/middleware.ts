@@ -19,7 +19,32 @@ export function middleware(request: NextRequest) {
   if (path === "/fillCredentials" && !eauthtok) {
     return NextResponse.redirect(new URL("/register", request.url));
   }
+
+  // if (!pageExists(path)) {
+  //   return NextResponse.redirect(new URL("/", request.url));
+  // }
+
 }
+
+
+
+// function pageExists(path: string): boolean {
+//   const existingRoutes = [
+//     "/",
+//     "/dashboard",
+//     "/login",
+//     "/register",
+//     "/fillCredentials",
+//     "/contact",
+//     "/about",
+//     "/services", // 
+//   ];
+//   return existingRoutes.includes(path);
+// }
+// export const config = {
+//   matcher: ["/:path*"], // Match all paths
+// };
+
 
 // See "Matching Paths" below to learn more
 export const config = {
