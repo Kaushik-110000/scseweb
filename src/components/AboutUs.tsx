@@ -25,7 +25,6 @@ function AboutUs() {
         >
           About Us
         </h2>
-
         {/* Embedded YouTube Video & Content */}
         <div className="flex flex-col md:flex-row items-center justify-center md:space-x-10 w-full">
           {/* Video Section (Left) */}

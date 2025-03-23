@@ -1,6 +1,12 @@
 "use client";
 import React from "react";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
+import { Dancing_Script } from "next/font/google";
+import Link from "next/link";
+const dancingScript = Dancing_Script({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
 export default function Events() {
   const events = [
     {
@@ -42,10 +48,17 @@ export default function Events() {
   return (
     <>
       <div className="relative min-h-screen mb-15 flex flex-col items-center px-6 py-10 text-white">
-        <h2 className="text-center text-3xl md:text-6xl font-bold mb-20 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-          <pre>⧼E̼⧽⧼v̼⧽⧼e̼⧽⧼n̼⧽⧼t̼⧽⧼s̼⧽</pre>
+        <h2
+          className={`text-center text-3xl md:text-6xl font-bold mb-20 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 ${dancingScript.className}`}
+        >
+          Events
         </h2>
         <AnimatedTestimonials testimonials={events} />
+        <Link href={"/events"}>
+          <button className=" bg-gradient-to-r from-blue-400 to-purple-500 w-40 h-10 rounded-2xl mt-5">
+            Show more
+          </button>
+        </Link>
       </div>
     </>
   );
