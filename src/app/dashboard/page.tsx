@@ -117,7 +117,7 @@ function Dashboard() {
           )}
 
           <StarsCanvas />
-          
+
           <div className="h-full mb-2 p-0 flex flex-col md:flex-row items-center justify-between w-full">
   <div className="w-full h-[24.5rem] sm:h-[30.5rem]  md:w-1/2 flex justify-start">
     <Earth />
@@ -147,7 +147,7 @@ function Dashboard() {
                     <li>Goodies for everyone</li>
                   </ul>
                   <button
-                    className="mt-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-2 px-4 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20"
+                    className="mt-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-2 px-4 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20 cursor-pointer"
                     onClick={handlePrimeMemberClick}
                   >
                     Get Prime Now
@@ -158,7 +158,7 @@ function Dashboard() {
           )}
   </div>
 </div>
-        
+
 
           {/* User Info */}
           {userData ? (
@@ -237,7 +237,7 @@ function Dashboard() {
             </p>
           )}
 
-         
+
 
           {/* Events Section */}
           <div className="mb-12">
@@ -289,7 +289,7 @@ function Dashboard() {
           <div className="flex justify-end">
             <p className="text-black">By Priya Raj</p>
             <button
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-3 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20"
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-3 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20 cursor-pointer"
               onClick={handleLogOut}
             >
               Log Out
