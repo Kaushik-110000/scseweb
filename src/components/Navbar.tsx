@@ -54,7 +54,8 @@ export default function Navbar() {
     "scale-105 ring-1 ring-white rounded-full px-2 py-1";
 
   // Hover effect for non-active links
-  const hoverContainerClasses = "hover:scale-120 hover:p-2 hover:rounded-2xl  hover:bg-white/10";
+  const hoverContainerClasses =
+    "hover:scale-120 hover:p-2 hover:rounded-2xl  hover:bg-white/10";
 
   // Icon color changes if active; text remains white
   const getIconClass = (active: any) =>
@@ -81,6 +82,7 @@ export default function Navbar() {
           fixed top-0 left-0 w-full z-5000 
           text-white py-4 px-6 flex justify-between items-center
           transition-colors duration-300
+          
           ${
             isScrolled
               ? "bg-gradient-to-b from-transparent to-black/40 backdrop-blur-md"
@@ -93,7 +95,7 @@ export default function Navbar() {
           <h1 className="text-2xl font-bold tracking-wider">SCSE</h1>
 
           {/* DESKTOP LINKS */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden lg:flex space-x-8">
             {navItems.map(({ href, label, Icon }) => {
               const active = isActiveLink(href);
               return (
@@ -111,7 +113,7 @@ export default function Navbar() {
               );
             })}
           </div>
-          <div className="flex flex-row justify-between w-47">
+          <div className="hidden lg:flex lg:flex-row justify-between w-48">
             {/* Conditionally render userData-based links */}
             {!userData ? (
               <>
@@ -177,7 +179,7 @@ export default function Navbar() {
         </div>
 
         {/* MOBILE MENU ICON (Hamburger) */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <Image
             src="/navbar.svg"
             alt="Menu"
@@ -191,7 +193,7 @@ export default function Navbar() {
 
       {/* MOBILE MENU OVERLAY */}
       {isOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black/90 z-[9999] flex flex-col items-center justify-center md:hidden">
+        <div className="fixed top-0 left-0 w-full h-full bg-black/90 z-[9999] flex flex-col items-center justify-center lg:hidden">
           {/* CLOSE BUTTON */}
           <button
             className="absolute top-6 right-6 text-white text-3xl"

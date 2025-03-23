@@ -1,0 +1,54 @@
+/* events.module.css */
+
+/* Override pattern stroke colors */
+#patt1 path {
+  stroke: #ff509e; /* magenta */
+}
+#patt2 path {
+  stroke: #95d13c; /* lime */
+}
+#patt3 path {
+  stroke: #00b6cb; /* aqua */
+}
+#patt4 path {
+  stroke: #9753e1; /* purple */
+}
+
+/* Animation settings for the masks */
+#mask1 rect {
+  animation: pulse 1.90476s infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+#mask2 rect {
+  animation: pulse 1.90476s infinite cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation-delay: 0.47619s; /* 1/4 of duration */
+}
+
+/* Squiggle layers blend mode */
+#squiggle1,
+#squiggle2,
+#squiggle3,
+#squiggle4 {
+  background-blend-mode: multiply;
+}
+
+/* Pulse keyframes */
+@keyframes pulse {
+  0% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(-50px);
+  }
+}
+
+/* Card container styling */
+.card {
+  position: relative;
+  background-color: #15ad343e;
+  border: 4px solid white;
+  border-radius: 1rem;
+  overflow: hidden;
+}

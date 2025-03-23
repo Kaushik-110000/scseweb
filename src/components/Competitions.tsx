@@ -8,7 +8,13 @@ import React, {
   useCallback,
 } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, Link } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Dancing_Script } from "next/font/google";
+import Link from "next/link";
+const dancingScript = Dancing_Script({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
 
 const comps = [
   {
@@ -149,10 +155,10 @@ export default function Competitions() {
 
   return (
     <div className="relative min-h-screen z-10 mt-20 h-full mx-5 px-2 text-white md:mx-12 flex flex-col items-center md:mt-0">
-      <h2 className="text-center text-5xl md:text-6xl font-bold mb-15 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-        <span className="hidden lg:inline">
-          ⧼C̼⧽⧼o̼⧽⧼m̼⧽⧼p̼⧽⧼e̼⧽⧼t̼⧽⧼i̼⧽⧼t̼⧽⧼i̼⧽⧼o̼⧽⧼n̼⧽⧼s̼⧽
-        </span>
+      <h2
+        className={`text-center text-5xl md:text-6xl font-bold mb-15 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 ${dancingScript.className}`}
+      >
+        <span className="hidden lg:inline">Competitions</span>
         <span className="lg:hidden">Competitions</span>
       </h2>
 
@@ -235,12 +241,12 @@ export default function Competitions() {
             />
           ))}
         </div>
-        <Link href={"/about"}>
-          <button className="absolute bg-gradient-to-r from-blue-400 to-purple-500 w-40 h-10 rounded-2xl mt-5">
-            Know more
-          </button>
-        </Link>
       </div>
+      <Link href={"/about"}>
+        <button className=" bg-gradient-to-r from-blue-400 to-purple-500 w-40 h-10 rounded-2xl mt-5">
+          Know more
+        </button>
+      </Link>
     </div>
   );
 }
