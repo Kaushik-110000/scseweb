@@ -55,6 +55,9 @@ export default function Navbar() {
           <Link href="/events" className="hover:text-blue-400">
             Events
           </Link>
+          <Link href="/gallery" className="hover:text-blue-400">
+            Gallery
+          </Link>
           <Link href="/team" className="hover:text-blue-400">
             Our Team
           </Link>
