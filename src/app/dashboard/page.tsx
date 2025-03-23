@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { checkIsFromCse, checkIsFromNit } from "@/utils/paychecker";
 import StarsCanvas from "@/components/StarCanvas";
 import Earth from "@/components/Earth";
+import Footer from "@/components/Footer";
 
 interface UserData {
   userID: string;
@@ -91,7 +92,7 @@ function Dashboard() {
   return (
     <div className="relative min-h-screen bg-black text-white">
       {/* Background Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80 z-0 " />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-16">
@@ -101,7 +102,7 @@ function Dashboard() {
             <h2 className="text-5xl mt-2 font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
               Dashboard
             </h2>
-           {/* { !userData?.isPrime?<button
+            {/* { !userData?.isPrime?<button
               className="mt-4 sm:mt-0 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-3 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20"
               onClick={handlePrimeMemberClick}
             >
@@ -117,48 +118,56 @@ function Dashboard() {
           )}
 
           <StarsCanvas />
-          
+
           <div className="h-full mb-2 p-0 flex flex-col md:flex-row items-center justify-between w-full">
-  <div className="w-full h-[24.5rem] sm:h-[30.5rem]  md:w-1/2 flex justify-start">
-    <Earth />
-  </div>
-  <div className="w-full h-full flex flex-row items-center mb-2   md:w-1/2  justify-end text-center md:text-left pr-4">
-    {/* Prime Benefits Section */}
-    {userData && (
-            <div className=" h-full p-6 rounded-2xl  mb-12">
-              <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
-                {userData.isPrime ? "You are a Prime Member" : "Unlock Prime Benefits"}
-              </h3>
-              {userData.isPrime ? (
-                <>
-                <p className="text-purple-400 text-lg mb-2">
-                  Enjoy all the exclusive perks of being a Prime Member!
-                </p>
-                <ul className="list-disc list-inside text-gray-300 space-y-2">
-                <li>Register in all events with no extra charge</li>
-                <li>Accommodation (For students not belonging to the college)</li>
-                <li>Goodies for everyone</li>
-              </ul></>
-              ) : (
-                <>
-                  <ul className="list-disc list-inside text-gray-300 space-y-2">
-                    <li>Register in all events with no extra charge</li>
-                    <li>Accommodation (For students not belonging to the college)</li>
-                    <li>Goodies for everyone</li>
-                  </ul>
-                  <button
-                    className="mt-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-2 px-4 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20"
-                    onClick={handlePrimeMemberClick}
-                  >
-                    Get Prime Now
-                  </button>
-                </>
+            <div className="w-full h-[24.5rem] sm:h-[30.5rem]  md:w-1/2 flex justify-start">
+              <Earth />
+            </div>
+            <div className="w-full h-full flex flex-row items-center mb-2   md:w-1/2  justify-end text-center md:text-left pr-4">
+              {/* Prime Benefits Section */}
+              {userData && (
+                <div className=" h-full p-6 rounded-2xl  mb-12">
+                  <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
+                    {userData.isPrime
+                      ? "You are a Prime Member"
+                      : "Unlock Prime Benefits"}
+                  </h3>
+                  {userData.isPrime ? (
+                    <>
+                      <p className="text-purple-400 text-lg mb-2">
+                        Enjoy all the exclusive perks of being a Prime Member!
+                      </p>
+                      <ul className="list-disc list-inside text-gray-300 space-y-2">
+                        <li>Register in all events with no extra charge</li>
+                        <li>
+                          Accommodation (For students not belonging to the
+                          college)
+                        </li>
+                        <li>Goodies for everyone</li>
+                      </ul>
+                    </>
+                  ) : (
+                    <>
+                      <ul className="list-disc list-inside text-gray-300 space-y-2">
+                        <li>Register in all events with no extra charge</li>
+                        <li>
+                          Accommodation (For students not belonging to the
+                          college)
+                        </li>
+                        <li>Goodies for everyone</li>
+                      </ul>
+                      <button
+                        className="mt-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-2 px-4 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20 cursor-pointer"
+                        onClick={handlePrimeMemberClick}
+                      >
+                        Get Prime Now
+                      </button>
+                    </>
+                  )}
+                </div>
               )}
             </div>
-          )}
-  </div>
-</div>
-        
+          </div>
 
           {/* User Info */}
           {userData ? (
@@ -237,59 +246,55 @@ function Dashboard() {
             </p>
           )}
 
-         
-
           {/* Events Section */}
           <div className="mb-12">
-  {events === "Error" && (
-    <p className="text-red-400 text-center mb-6 bg-black/60 backdrop-blur-md p-4 rounded-xl border border-red-500/20">
-      Error while fetching your registered events.
-    </p>
-  )}
+            {events === "Error" && (
+              <p className="text-red-400 text-center mb-6 bg-black/60 backdrop-blur-md p-4 rounded-xl border border-red-500/20">
+                Error while fetching your registered events.
+              </p>
+            )}
 
-  {Array.isArray(events) && events.length > 0 && (
-    <div className="bg-black/60 backdrop-blur-md p-6 rounded-2xl border border-purple-500/20 shadow-lg shadow-purple-500/10">
-      <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
-        Your Registered Events
-      </h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        {events.map((event: any) => (
-          <div
-            key={event._id}
-            className="bg-white/5 p-4 rounded-xl border border-purple-500/10"
-          >
-            <p>
-              <strong className="text-gray-300">Event Name:</strong>{" "}
-              {event.eventName}
-            </p>
-            <p>
-              <strong className="text-gray-300">Team Name:</strong>{" "}
-              {event.teamName}
-            </p>
-            <p>
-              <strong className="text-gray-300">Members:</strong>{" "}
-              {event.members.join(", ")}
-            </p>
+            {Array.isArray(events) && events.length > 0 && (
+              <div className="bg-black/60 backdrop-blur-md p-6 rounded-2xl border border-purple-500/20 shadow-lg shadow-purple-500/10">
+                <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
+                  Your Registered Events
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {events.map((event: any) => (
+                    <div
+                      key={event._id}
+                      className="bg-white/5 p-4 rounded-xl border border-purple-500/10"
+                    >
+                      <p>
+                        <strong className="text-gray-300">Event Name:</strong>{" "}
+                        {event.eventName}
+                      </p>
+                      <p>
+                        <strong className="text-gray-300">Team Name:</strong>{" "}
+                        {event.teamName}
+                      </p>
+                      <p>
+                        <strong className="text-gray-300">Members:</strong>{" "}
+                        {event.members.join(", ")}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {Array.isArray(events) && events.length === 0 && (
+              <p className="text-gray-300 text-center mb-6 bg-black/60 backdrop-blur-md p-4 rounded-xl border border-purple-500/20">
+                You have not registered for any events yet.
+              </p>
+            )}
           </div>
-        ))}
-      </div>
-    </div>
-  )}
-
-  {Array.isArray(events) && events.length === 0 && (
-    <p className="text-gray-300 text-center mb-6 bg-black/60 backdrop-blur-md p-4 rounded-xl border border-purple-500/20">
-      You have not registered for any events yet.
-    </p>
-  )}
-</div>
-
-
 
           {/* Logout Button */}
           <div className="flex justify-end">
             <p className="text-black">By Priya Raj</p>
             <button
-              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-3 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20"
+              className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-3 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20 cursor-pointer"
               onClick={handleLogOut}
             >
               Log Out
@@ -315,17 +320,22 @@ function Dashboard() {
               </div>
               <div className="mb-6">
                 <p className="text-lg font-semibold">Amount: ₹{amount}</p>
-                <p className="text-gray-400 text-sm">To unlock Prime benefits:</p>
+                <p className="text-gray-400 text-sm">
+                  To unlock Prime benefits:
+                </p>
                 <ul className="list-disc list-inside mt-2 text-gray-300 space-y-1">
                   <li>Register in all events with no extra charge</li>
-                  <li>Accommodation (For students not belonging to the college)</li>
+                  <li>
+                    Accommodation (For students not belonging to the college)
+                  </li>
                   <li>Goodies for everyone</li>
                 </ul>
               </div>
               {userData?.email ? (
                 !userData?.isPrime ? (
                   <div className="flex-1 justify-center align-middle ">
-                  <RegistrationFeesButton email={userData.email} /></div>
+                    <RegistrationFeesButton email={userData.email} />
+                  </div>
                 ) : (
                   <p className="text-purple-400 text-center mb-6">
                     You are already a Prime Member
@@ -345,7 +355,8 @@ function Dashboard() {
             </div>
           </div>
         )}
-      </div>
+        <Footer />
+      </div>   
     </div>
   );
 }

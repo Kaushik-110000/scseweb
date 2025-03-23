@@ -17,6 +17,7 @@ import {
   AtSign,
 } from "lucide-react";
 import Image from "next/image";
+import Footer from "@/components/Footer";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -44,7 +45,7 @@ const teamMembers = [
     image: "/images/amrish.jpg",
     linkedin:
       "https://www.linkedin.com/in/amrish-yadav-363b63289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    phone: "+91 89571 44430",
+    phone: "+91 91188 41006",
     email: "amrishrock2002@gmail.com",
     bio: "You may contact him for any payment related query or issue , maybe your payment failure, refund related queries or any possible queries related to finances",
   },
@@ -53,8 +54,8 @@ const teamMembers = [
     role: "GENERAL QUERY",
     image: "/images/harshit.jpg",
     linkedin: "https://www.linkedin.com/in/harshit-shrivastav-8b513127a",
-    phone: "+91 98765 43211",
-    email: "harshitshrivastav2609@collegefest.edu",
+    phone: "+91 89571 44430",
+    email: "harshitshrivastav2609@gmail.com",
     bio: "You may contact him for any general purpose query, maybe related to the event or maybe.He is there to help you thorough all.",
   },
   {
@@ -73,7 +74,7 @@ const teamMembers = [
     linkedin:
       "https://www.linkedin.com/in/murli-dharan-614b89298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     phone: "+91 62016 68754",
-    email: "murlidharan93103@collegefest.edu",
+    email: "murlidharan93103@gmail.com",
     bio: "Confused with so many events ? Contact him for any event related queries. The answer of many of your queries are also in the events section, do visit !.",
   },
 ];
@@ -495,7 +496,7 @@ export default function ContactPage() {
               </span>
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-8 overflow-auto flex items-center justify-center">
               <div className="flex flex-col items-center text-center p-4 rounded-xl bg-white/5 backdrop-blur-sm">
                 <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-full mb-4">
                   <Mail className="h-8 w-8 text-white" />
@@ -511,7 +512,7 @@ export default function ContactPage() {
                   href="mailto:harshitshrivastav2609@collegefest.edu"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  harshitshrivastav2609@collegefest.edu
+                  harshitshrivastav2609@gmail.com
                 </a>
               </div>
 
@@ -620,6 +621,7 @@ export default function ContactPage() {
           </motion.div>
         </motion.div>
       </div>
+      <Footer/>
     </div>
   );
 }

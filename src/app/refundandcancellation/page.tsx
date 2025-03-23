@@ -1,8 +1,9 @@
 import { NextPage } from "next";
-
 const RefundCancellation: NextPage = () => {
   return (
-    <div className="mx-auto max-w-4xl p-6 mt-10">
+    <div className="relative min-h-screen bg-black text-white bg-[url(https://images.unsplash.com/photo-1524334228333-0f6db392f8a1?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGJsYWNrJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D)]">
+    <div className="mx-auto max-w-4xl p-6 mt-10 " >
+
       <h1 className="mb-6 text-center text-3xl font-bold">
         Refunds and Cancellations Policy
       </h1>
@@ -61,6 +62,7 @@ const RefundCancellation: NextPage = () => {
         </section>
       </div>
     </div>
+   </div>
   );
 };
 
