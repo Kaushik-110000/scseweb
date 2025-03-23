@@ -55,7 +55,7 @@ export default function Events() {
         </h2>
         <AnimatedTestimonials testimonials={events} />
         <Link href={"/events"}>
-          <button className=" bg-gradient-to-r from-blue-400 to-purple-500 w-40 h-10 rounded-2xl mt-5">
+          <button className=" bg-gradient-to-r from-blue-400 to-purple-500 w-40 h-10 rounded-2xl mt-5 cursor-pointer">
             Show more
           </button>
         </Link>
