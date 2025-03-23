@@ -58,7 +58,7 @@ export default function Page() {
       {/* Main Content would go here */}
 
       {/* Enhanced Footer */}
-      <footer className="bg-gray-900 text-white mt-auto">
+      <footer className="bg-black/40 text-white mt-auto ">
         <div className="max-w-7xl mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Left Section - Logo, Description & Social */}
@@ -153,6 +153,12 @@ export default function Page() {
                 </div>
                 <p>Adityapur, Jamshedpur,</p>
                 <p>Jharkhand 831014</p>
+                <div className="flex items-center gap-2 mt-3">
+                  <Phone className="w-4 h-4 text-blue-400" />
+                  <a href="tel:+919118841006" className="hover:text-blue-400">
+                    +91 91188 41006
+                  </a>
+                </div>
                 <div className="flex items-center gap-2 mt-3">
                   <Phone className="w-4 h-4 text-blue-400" />
                   <a href="tel:+919798687024" className="hover:text-blue-400">
