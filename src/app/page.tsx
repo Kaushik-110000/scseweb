@@ -144,7 +144,72 @@ export default function ParticleBackground() {
     playAnimation();
   }, []);
   
+  // Back navigation detection and handling
+  useEffect(() => {
+    // Check if we're loading the page directly or navigating back
+    if (typeof window !== 'undefined') {
+      // Check if this page is being loaded via back navigation
+      const handleInitialLoad = () => {
+        const navigationType = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+        if (navigationType && navigationType.type === 'back_forward') {
+          // We're coming back to this page, trigger the immediate visibility
+          showContentImmediately();
+        }
+      };
+      
+      // For modern browsers supporting the Navigation Timing API
+      if (typeof window !== "undefined" && performance.getEntriesByType) {
+  handleInitialLoad();
+}
+
+      
+      // Also set up a popstate listener for runtime back navigation
+      const handlePopState = () => {
+        // We only want to handle cases where we're returning to the root path
+        if (window.location.pathname === '/') {
+          showContentImmediately();
+        }
+      };
+      
+      window.addEventListener('popstate', handlePopState);
+      return () => {
+        window.removeEventListener('popstate', handlePopState);
+      };
+    }
+  }, []);
+  
+  // Immediately show content when coming back to the page
+  const showContentImmediately = () => {
+    // Remove any existing animations
+    document.body.classList.remove('click-transition');
+    
+    // Set the reverse transition effect
+    document.body.classList.add('reverse-transition');
+    
+    // Set content to be immediately visible
+    setGlitchVisible(false);
+    setLandingVisible(true);
+    setMatrixOpacity(0.2);
+    
+    // Set the text content directly without animation
+    const isMobile = window.innerWidth < 768;
+    if (isMobile) {
+      setText("Society of Computer\nScience & Engineering");
+    } else {
+      setText("Society of Computer Science and Engineering");
+    }
+    
+    // Remove the reverse transition class after the animation completes
+    setTimeout(() => {
+      document.body.classList.remove('reverse-transition');
+    }, 800);
+  };
+  
   const playAnimation = () => {
+    // Reset any existing animations
+    document.body.classList.remove('click-transition');
+    document.body.classList.remove('reverse-transition');
+    
     setText("");
     setGlitchText("Welcome to SCSE");
     setGlitchVisible(false);
@@ -204,7 +269,10 @@ export default function ParticleBackground() {
   const handleEnterClick = (e: React.MouseEvent) => {
     e.preventDefault();
     document.body.classList.add('click-transition');
-    window.history.pushState({ navigatedFrom: 'scse-home' }, '', '/home');
+    
+    // Store the current state in history
+    window.history.pushState({ fromLanding: true }, '', '/home');
+    
     setTimeout(() => {
       router.push("/home");
     }, 800);
@@ -249,9 +317,18 @@ export default function ParticleBackground() {
           animation: zoomFade 0.8s forwards;
         }
         
+        .reverse-transition {
+          animation: zoomFadeIn 0.8s forwards;
+        }
+        
         @keyframes zoomFade {
           0% { transform: scale(1); opacity: 1; }
           100% { transform: scale(2); opacity: 0; }
+        }
+        
+        @keyframes zoomFadeIn {
+          0% { transform: scale(2); opacity: 0; }
+          100% { transform: scale(1); opacity: 1; }
         }
         
         @keyframes pulse {
