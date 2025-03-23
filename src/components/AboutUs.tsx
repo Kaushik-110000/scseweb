@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 function AboutUs() {
   return (
@@ -24,7 +25,7 @@ function AboutUs() {
           <div className="w-full md:w-1/3 flex justify-center items-center">
             <div className="w-full max-w-lg md:max-w-xl lg:max-w-2xl h-[315px] overflow-hidden rounded-xl shadow-lg">
               <iframe
-                width="560"
+                width="460"
                 height="315"
                 src="https://www.youtube.com/embed/k9WnfHcsCB4?si=QYcTKhPB5O5cXOdS"
                 title="YouTube video player"
@@ -41,12 +42,19 @@ function AboutUs() {
             <h2 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 mb-4">
               Who Are We?
             </h2>
-            <p className="text-lg text-gray-300 max-w-xl px-4 md:px-0 leading-relaxed">
-              The Society of Computer Science and Engineering (SCSE) is a
-              dynamic community of tech enthusiasts, innovators, and learners.
-              We foster a culture of knowledge-sharing, problem-solving, and
-              creativity to shape the future of technology together.
-            </p>
+            <div className="80% flex flex-col justify-between items-center md:items-baseline">
+              <p className="text-lg text-gray-300 max-w-xl px-4 md:px-0 leading-relaxed">
+                The Society of Computer Science and Engineering (SCSE) is a
+                dynamic community of tech enthusiasts, innovators, and learners.
+                We foster a culture of knowledge-sharing, problem-solving, and
+                creativity to shape the future of technology together.
+              </p>
+              <Link href={"/about"}>
+              <button className="bg-gradient-to-r from-blue-400 to-purple-500 w-40 h-10 rounded-2xl mt-5">
+                Know more
+              </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

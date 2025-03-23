@@ -55,7 +55,7 @@ const RefundCancellation: NextPage = () => {
           <p>
             Mobile:{" "}
             <a href="tel:+9118841006" className="text-blue-600">
-              9118841006
+              +91 9118841006
             </a>
           </p>
         </section>

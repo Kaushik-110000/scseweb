@@ -581,7 +581,7 @@ export default function ContactPage() {
           >
             <h2 className="text-3xl font-bold mb-6 text-center">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
-                Sponsor Enquiries
+                Other Details
               </span>
             </h2>
 
@@ -600,6 +600,22 @@ export default function ContactPage() {
                   </a>
                 </div>
               </div>
+              {/* <div className="space-y-4 align-center">
+                <div className="bg-white/5 p-4 rounded-xl">
+                  <h3 className="text-xl font-semibold mb-2">
+                    Account Details
+                  </h3>
+                  <p className="text-gray-300">
+                    For sponsorship inquiries, please contact:
+                  </p>
+                  <a
+                    href="mailto:sponsors@collegefest.edu"
+                    className="text-purple-400 hover:text-purple-300"
+                  >
+                    sponsernitjsrcse@gmail.com
+                  </a>
+                </div>
+              </div> */}
             </div>
           </motion.div>
         </motion.div>
