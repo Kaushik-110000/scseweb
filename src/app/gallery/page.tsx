@@ -10,7 +10,7 @@ function Gallery() {
   const events = [
     {
       id: 1,
-      image: "/images/Squid game.jpg",
+      image: "/images/Squid_game.jpg",
       title: "Squid Game",
       date: "9 FEB, 2025",
       description: "Intense 2-round challenge where both tech & non-tech questions will push your limits!"
@@ -107,7 +107,7 @@ function Gallery() {
           {events.map((event) => (
             <div key={event.id} className="gallery-item">
               <div className="glass-card">
-                <img 
+                <img
                   src={event.image} 
                   alt={event.title}
                   className="event-image"

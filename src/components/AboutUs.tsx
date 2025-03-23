@@ -3,6 +3,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { Dancing_Script } from "next/font/google";
+
+const dancingScript = Dancing_Script({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
 
 function AboutUs() {
   return (
@@ -14,9 +20,10 @@ function AboutUs() {
     >
       <div className="relative min-h-screen z-10 mt-20 h-full px-2 text-white md:ml-12 flex flex-col items-center md:mt-5">
         {/* Stylish Header */}
-        <h2 className="text-center mx-2 text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 mb-16 md:mb-26 flex flex-wrap items-center justify-center">
-          <pre>⧼A̼⧽⧼b̼⧽⧼o̼⧽⧼u̼⧽⧼t̼⧽</pre>
-          <pre> ⧼U̼⧽⧼s̼⧽</pre>
+        <h2
+          className={`text-center mx-2 text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 mb-16 md:mb-26 flex flex-wrap items-center justify-center ${dancingScript.className}`}
+        >
+          About Us
         </h2>
 
         {/* Embedded YouTube Video & Content */}
@@ -50,9 +57,9 @@ function AboutUs() {
                 creativity to shape the future of technology together.
               </p>
               <Link href={"/about"}>
-              <button className="bg-gradient-to-r from-blue-400 to-purple-500 w-40 h-10 rounded-2xl mt-5">
-                Know more
-              </button>
+                <button className="bg-gradient-to-r from-blue-400 to-purple-500 w-40 h-10 rounded-2xl mt-5">
+                  Know more
+                </button>
               </Link>
             </div>
           </div>

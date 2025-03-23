@@ -82,6 +82,7 @@ export default function Navbar() {
           fixed top-0 left-0 w-full z-5000 
           text-white py-4 px-6 flex justify-between items-center
           transition-colors duration-300
+          
           ${
             isScrolled
               ? "bg-gradient-to-b from-transparent to-black/40 backdrop-blur-md"
