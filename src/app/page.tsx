@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Head from "next/head";
+import Link from "next/link";
 
 export default function ParticleBackground() {
   const [text, setText] = useState("");
@@ -377,7 +378,7 @@ export default function ParticleBackground() {
           >|</span>
         </h1>
         
-        <a 
+        <Link
           href="/home"
           onClick={handleEnterClick}
           className="mt-12 min-w-[300px] min-h-[60px] enter-button inline-flex font-['Orbitron'] text-[1.5rem] items-center justify-center uppercase tracking-wider font-bold bg-transparent rounded-lg shadow-lg transition-all duration-300 relative overflow-hidden no-underline px-6 py-3 hover:text-white hover:shadow-lg hover:-translate-y-1 active:transform active:scale-95 animate-bounce-button"
@@ -406,7 +407,7 @@ export default function ParticleBackground() {
           }}
         >
           <span className="relative z-10">Enter The System</span>
-        </a>
+        </Li>
       </motion.section>
     </>
   );
