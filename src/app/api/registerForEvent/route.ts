@@ -18,6 +18,15 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // logic for unique
+    const uniqueMembers = new Set(members);
+    if (uniqueMembers.size !== members.length) {
+      return NextResponse.json(
+        { error: "Duplicate entries in members array" },
+        { status: 400 }
+      );
+    }
+
     // 2) For each member, ensure user exists
     let allPrime = true; // We'll assume all are prime until proven otherwise
     for (const memberId of members) {
@@ -28,6 +37,8 @@ export async function POST(req: NextRequest) {
           { status: 404 }
         );
       }
+
+
 
       // 3) Check if user is prime
       if (!user.isPrime) {
