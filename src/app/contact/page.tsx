@@ -45,7 +45,7 @@ const teamMembers = [
     image: "/images/amrish.jpg",
     linkedin:
       "https://www.linkedin.com/in/amrish-yadav-363b63289?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-    phone: "+91 89571 44430",
+    phone: "+91 91188 41006",
     email: "amrishrock2002@gmail.com",
     bio: "You may contact him for any payment related query or issue , maybe your payment failure, refund related queries or any possible queries related to finances",
   },
@@ -54,7 +54,7 @@ const teamMembers = [
     role: "GENERAL QUERY",
     image: "/images/harshit.jpg",
     linkedin: "https://www.linkedin.com/in/harshit-shrivastav-8b513127a",
-    phone: "+91 98765 43211",
+    phone: "+91 89571 44430",
     email: "harshitshrivastav2609@collegefest.edu",
     bio: "You may contact him for any general purpose query, maybe related to the event or maybe.He is there to help you thorough all.",
   },
@@ -496,7 +496,7 @@ export default function ContactPage() {
               </span>
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-8 overflow-auto flex items-center justify-center">
               <div className="flex flex-col items-center text-center p-4 rounded-xl bg-white/5 backdrop-blur-sm">
                 <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-full mb-4">
                   <Mail className="h-8 w-8 text-white" />
@@ -512,7 +512,7 @@ export default function ContactPage() {
                   href="mailto:harshitshrivastav2609@collegefest.edu"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  harshitshrivastav2609@collegefest.edu
+                  harshitshrivastav2609@gmail.com
                 </a>
               </div>
 
