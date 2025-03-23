@@ -158,9 +158,10 @@ export default function ParticleBackground() {
       };
       
       // For modern browsers supporting the Navigation Timing API
-      if (performance && performance.getEntriesByType) {
-        handleInitialLoad();
-      }
+      if (typeof window !== "undefined" && performance.getEntriesByType) {
+  handleInitialLoad();
+}
+
       
       // Also set up a popstate listener for runtime back navigation
       const handlePopState = () => {
