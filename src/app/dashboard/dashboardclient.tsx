@@ -137,7 +137,7 @@ function Dashboard() {
                     <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
                       {userData.isPrime
                         ? "You are a Prime Member"
-                        : `Unlock Prime Benefits Only in ${amount}`}
+                        : `Unlock Prime Benefits Only in ₹ ${amount}`}
                     </h3>
                     {userData.isPrime ? (
                       <>
