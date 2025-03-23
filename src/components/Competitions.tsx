@@ -8,7 +8,7 @@ import React, {
   useCallback,
 } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Link } from "lucide-react";
 
 const comps = [
   {
@@ -235,6 +235,11 @@ export default function Competitions() {
             />
           ))}
         </div>
+        <Link href={"/about"}>
+          <button className="absolute bg-gradient-to-r from-blue-400 to-purple-500 w-40 h-10 rounded-2xl mt-5">
+            Know more
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -116,11 +116,11 @@ const PrivacyPolicy: NextPage = () => {
               amrishrock2002@gmail.com
             </a>
           </p>
-          <p>
-            <button className="bg-blue-300 rounded-2xl w-30 h-10">
-              <Link href={"/contactus"}>Contact Us</Link>
+          <div className="mt-2">
+            <button className="bg-gradient-to-r from-blue-400 to-purple-500 rounded-2xl w-30 h-10">
+              <Link href={"/contact"}>Contact Us</Link>
             </button>
-          </p>
+          </div>
         </section>
       </div>
     </div>
