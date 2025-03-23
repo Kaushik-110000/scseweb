@@ -369,7 +369,7 @@ export default function Page() {
             and excellence! From steering creative ideas to managing tech
             innovations, PR strategies, and corporate outreach, each team plays
             a vital role in shaping our journey ahead. Together, we aim to
-            inspire, innovate, and elevate!
+            inspire, innovate, and elevate!!
           </motion.p>
 
           <div className="relative flex justify-center items-center">
