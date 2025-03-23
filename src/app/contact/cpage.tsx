@@ -503,13 +503,19 @@ export default function ContactPage() {
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Email Us</h3>
                 <a
+                  href="mailto:amrishrock2002@gmail.com"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  amrishrock2002@gmail.com
+                </a>
+                <a
                   href="mailto:abhishekscsenitjsr@gmail.com"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   abhishekscsenitjsr@gmail.com
                 </a>
                 <a
-                  href="mailto:harshitshrivastav2609@collegefest.edu"
+                  href="mailto:harshitshrivastav2609@gmail.com"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   harshitshrivastav2609@gmail.com
@@ -521,6 +527,12 @@ export default function ContactPage() {
                   <Phone className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Call Us</h3>
+                <a
+                  href="tel:+919118841006"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  +91 9118841006
+                </a>
                 <a
                   href="tel:+919798687024"
                   className="text-gray-300 hover:text-white transition-colors"
@@ -594,10 +606,10 @@ export default function ContactPage() {
                     For sponsorship inquiries, please contact:
                   </p>
                   <a
-                    href="mailto:sponsors@collegefest.edu"
+                    href="mailto:scse.nit@gmail.com"
                     className="text-purple-400 hover:text-purple-300"
                   >
-                    sponsernitjsrcse@gmail.com
+                    scse.nit@gmail.com
                   </a>
                 </div>
               </div>
@@ -621,7 +633,7 @@ export default function ContactPage() {
           </motion.div>
         </motion.div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

@@ -5,24 +5,16 @@ import Image from "next/image";
 import Footer from "../../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import {
-  Mail,
-  Phone,
-  Linkedin,
-} from "lucide-react";
-
-
-
-
+import { Mail, Phone, Linkedin } from "lucide-react";
 
 const teamMembers = [
   {
     name: "Harshit Shrivastav",
     role: "President",
     image: "/images/harshit.jpg",
-    contact: "+91 98765 43211",
+    contact: "+91 89571 44430",
     linkedin: "https://www.linkedin.com/in/harshit-shrivastav-8b513127a",
-    email: "harshitshrivastav2609@collegefest.edu",
+    email: "harshitshrivastav2609@gmail.com",
   },
   {
     name: "Harish Kumar",
@@ -37,7 +29,8 @@ const teamMembers = [
     role: "General Secretary",
     image: "/images/murlidharan.jpg",
     contact: "+91 62016 68754",
-    linkedin: "https://www.linkedin.com/in/murli-dharan-614b89298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    linkedin:
+      "https://www.linkedin.com/in/murli-dharan-614b89298?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
     email: "murlidharan93103@collegefest.edu",
   },
   {
@@ -58,19 +51,17 @@ const teamMembers = [
   },
 ];
 
-
-
-
-
 const previousEvents = [
   {
     title: "Hackathon 2023",
-    description: "A 24-hour coding marathon where participants built innovative projects.",
+    description:
+      "A 24-hour coding marathon where participants built innovative projects.",
     image: "/contest.webp",
   },
   {
     title: "Kodi Yatva",
-    description: "A competitive programming event to test problem-solving skills.",
+    description:
+      "A competitive programming event to test problem-solving skills.",
     image: "/contest.webp",
   },
   {
@@ -80,14 +71,11 @@ const previousEvents = [
   },
   {
     title: "Hackathons",
-    description: "Invited industry experts to share insights on emerging technologies.",
+    description:
+      "Invited industry experts to share insights on emerging technologies.",
     image: "/contest.webp",
   },
 ];
-
-
-
-
 
 export default function Page() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -103,11 +91,15 @@ export default function Page() {
   }, []);
 
   const handleEventPrev = useCallback(() => {
-    setEventIndex((prev) => (prev === 0 ? previousEvents.length - 1 : prev - 1));
+    setEventIndex((prev) =>
+      prev === 0 ? previousEvents.length - 1 : prev - 1
+    );
   }, []);
 
   const handleEventNext = useCallback(() => {
-    setEventIndex((prev) => (prev === previousEvents.length - 1 ? 0 : prev + 1));
+    setEventIndex((prev) =>
+      prev === previousEvents.length - 1 ? 0 : prev + 1
+    );
   }, []);
 
   // useEffect(() => {
@@ -134,15 +126,9 @@ export default function Page() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-
-
-
   const getIndex = (offset: number): number => {
     return (currentIndex + offset + teamMembers.length) % teamMembers.length;
   };
-
-
-
 
   return (
     <>
@@ -185,17 +171,32 @@ export default function Page() {
             className="md:w-2/3 md:pl-8"
           >
             <p className="text-gray-300 text-lg mb-4">
-              The <span className="text-purple-400 font-semibold">Society of Computer Science and Engineering (S.C.S.E.)</span> is a vibrant community dedicated to fostering <strong>innovation</strong>, <strong>technical excellence</strong>, and <strong>collaboration</strong> among students passionate about <strong>coding and technology</strong>.
+              The{" "}
+              <span className="text-purple-400 font-semibold">
+                Society of Computer Science and Engineering (S.C.S.E.)
+              </span>{" "}
+              is a vibrant community dedicated to fostering{" "}
+              <strong>innovation</strong>, <strong>technical excellence</strong>
+              , and <strong>collaboration</strong> among students passionate
+              about <strong>coding and technology</strong>.
             </p>
             <p className="text-gray-300 text-lg mb-4">
-              We organize <strong>hackathons, coding contests, workshops, and tech talks</strong> to empower students with <strong>cutting-edge skills</strong> and real-world problem-solving experience.
+              We organize{" "}
+              <strong>
+                hackathons, coding contests, workshops, and tech talks
+              </strong>{" "}
+              to empower students with <strong>cutting-edge skills</strong> and
+              real-world problem-solving experience.
             </p>
             <p className="text-gray-300 text-lg">
-              Join us to explore the dynamic world of <strong>technology</strong>, <strong>network with industry experts</strong>, and <strong>unlock new opportunities</strong> in the ever-evolving tech landscape!
+              Join us to explore the dynamic world of{" "}
+              <strong>technology</strong>,{" "}
+              <strong>network with industry experts</strong>, and{" "}
+              <strong>unlock new opportunities</strong> in the ever-evolving
+              tech landscape!
             </p>
           </motion.div>
         </motion.div>
-
 
         {/* About Xavenir Section */}
         <motion.div
@@ -222,7 +223,12 @@ export default function Page() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-gray-300 text-lg text-center mb-8"
           >
-            Xavenir is the premier tech fest of the CSE Department at NIT Jamshedpur, designed to bring together the brightest tech minds from across the country. It is a fusion of coding, innovation, AI, cybersecurity, and gaming. Xavenir is the perfect platform to showcase your skills, learn from industry experts, and compete for exciting prizes.
+            Xavenir is the premier tech fest of the CSE Department at NIT
+            Jamshedpur, designed to bring together the brightest tech minds from
+            across the country. It is a fusion of coding, innovation, AI,
+            cybersecurity, and gaming. Xavenir is the perfect platform to
+            showcase your skills, learn from industry experts, and compete for
+            exciting prizes.
           </motion.p>
 
           <motion.p
@@ -232,7 +238,10 @@ export default function Page() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-gray-300 text-lg text-center mb-8"
           >
-            Whether you are a coder, designer, entrepreneur, or tech geek, this fest is for YOU! Connect with like-minded enthusiasts and recruiters, and attend workshops and guest talks from top industry professionals.
+            Whether you are a coder, designer, entrepreneur, or tech geek, this
+            fest is for YOU! Connect with like-minded enthusiasts and
+            recruiters, and attend workshops and guest talks from top industry
+            professionals.
           </motion.p>
 
           {/* PDF Placeholder */}
@@ -247,11 +256,6 @@ export default function Page() {
             </a>
           </div>
         </motion.div>
-
-
-
-
-
 
         {/* Meet Our Team Section */}
         <motion.div
@@ -278,7 +282,11 @@ export default function Page() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-gray-300 text-lg text-center mb-10"
           >
-            Introducing the backbone of SCSE - the leaders driving innovation and excellence! From steering creative ideas to managing tech innovations, PR strategies, and corporate outreach, each team plays a vital role in shaping our journey ahead. Together, we aim to inspire, innovate, and elevate!
+            Introducing the backbone of SCSE - the leaders driving innovation
+            and excellence! From steering creative ideas to managing tech
+            innovations, PR strategies, and corporate outreach, each team plays
+            a vital role in shaping our journey ahead. Together, we aim to
+            inspire, innovate, and elevate!
           </motion.p>
 
           <div className="relative flex justify-center items-center">
@@ -310,12 +318,19 @@ export default function Page() {
                         className="object-cover rounded-full"
                       />
                     </div>
-                    <h3 className="text-xl font-semibold text-center">{teamMembers[currentIndex].name}</h3>
-                    <p className="text-purple-400 mb-2 text-center">{teamMembers[currentIndex].role}</p>
+                    <h3 className="text-xl font-semibold text-center">
+                      {teamMembers[currentIndex].name}
+                    </h3>
+                    <p className="text-purple-400 mb-2 text-center">
+                      {teamMembers[currentIndex].role}
+                    </p>
                     <div className="flex items-center gap-2">
                       <Phone className="h-4 w-4 text-purple-400" />
                       <a
-                        href={`tel:${teamMembers[currentIndex].contact.replace(/\s+/g, "")}`}
+                        href={`tel:${teamMembers[currentIndex].contact.replace(
+                          /\s+/g,
+                          ""
+                        )}`}
                         className="text-sm text-gray-300 hover:text-white"
                       >
                         {teamMembers[currentIndex].contact}
@@ -341,64 +356,73 @@ export default function Page() {
                         LinkedIn Profile
                       </a>
                     </div>
-
-
                   </motion.div>
                 ) : (
-                  [getIndex(-1), getIndex(0), getIndex(1)].map((indexOffset, idx) => (
-                    <motion.div
-                      key={teamMembers[indexOffset].name}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: idx === 1 ? 1.1 : 0.9 }}
-                      exit={{ opacity: 0, scale: 0.8 }}
-                      transition={{ duration: 0.5 }}
-                      className={`bg-white/10 backdrop-blur-md mt-10 mb-10 p-6 rounded-xl shadow-lg shadow-white/30  flex flex-col items-center border border-white/20 ${idx === 1 ? "w-72 h-96" : "w-70 h-80"
+                  [getIndex(-1), getIndex(0), getIndex(1)].map(
+                    (indexOffset, idx) => (
+                      <motion.div
+                        key={teamMembers[indexOffset].name}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: idx === 1 ? 1.1 : 0.9 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.5 }}
+                        className={`bg-white/10 backdrop-blur-md mt-10 mb-10 p-6 rounded-xl shadow-lg shadow-white/30  flex flex-col items-center border border-white/20 ${
+                          idx === 1 ? "w-72 h-96" : "w-70 h-80"
                         }`}
-                    >
-                      <div className={`relative ${idx === 1 ? "w-36 h-36" : "w-28 h-28"} mb-4`}>
-                        <Image
-                          src={teamMembers[indexOffset].image}
-                          alt={teamMembers[indexOffset].name}
-                          fill
-                          className="object-cover rounded-full"
-                        />
-                      </div>
-                      <h3 className="text-xl font-semibold text-center">{teamMembers[indexOffset].name}</h3>
-                      <p className="text-purple-400 mb-2 text-center">{teamMembers[indexOffset].role}</p>
-                      <div className="flex items-center gap-2">
-                        <Phone className="h-4 w-4 text-purple-400" />
-                        <a
-                          href={`tel:${teamMembers[indexOffset].contact.replace(/\s+/g, "")}`}
-                          className="text-sm text-gray-300 hover:text-white"
+                      >
+                        <div
+                          className={`relative ${
+                            idx === 1 ? "w-36 h-36" : "w-28 h-28"
+                          } mb-4`}
                         >
-                          {teamMembers[indexOffset].contact}
-                        </a>
-                      </div>
+                          <Image
+                            src={teamMembers[indexOffset].image}
+                            alt={teamMembers[indexOffset].name}
+                            fill
+                            className="object-cover rounded-full"
+                          />
+                        </div>
+                        <h3 className="text-xl font-semibold text-center">
+                          {teamMembers[indexOffset].name}
+                        </h3>
+                        <p className="text-purple-400 mb-2 text-center">
+                          {teamMembers[indexOffset].role}
+                        </p>
+                        <div className="flex items-center gap-2">
+                          <Phone className="h-4 w-4 text-purple-400" />
+                          <a
+                            href={`tel:${teamMembers[
+                              indexOffset
+                            ].contact.replace(/\s+/g, "")}`}
+                            className="text-sm text-gray-300 hover:text-white"
+                          >
+                            {teamMembers[indexOffset].contact}
+                          </a>
+                        </div>
 
-
-                      <div className="flex items-center gap-2">
-                        <Mail className="h-4 w-4 text-purple-400" />
-                        <a
-                          href={`mailto:${teamMembers[indexOffset].email}`}
-                          className="text-sm text-gray-300 hover:text-white"
-                        >
-                          {teamMembers[indexOffset].email}
-                        </a>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Linkedin className="h-4 w-4 text-purple-400" />
-                        <a
-                          href={teamMembers[indexOffset].linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-gray-300 hover:text-white"
-                        >
-                          LinkedIn Profile
-                        </a>
-                      </div>
-
-                    </motion.div>
-                  ))
+                        <div className="flex items-center gap-2">
+                          <Mail className="h-4 w-4 text-purple-400" />
+                          <a
+                            href={`mailto:${teamMembers[indexOffset].email}`}
+                            className="text-sm text-gray-300 hover:text-white"
+                          >
+                            {teamMembers[indexOffset].email}
+                          </a>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Linkedin className="h-4 w-4 text-purple-400" />
+                          <a
+                            href={teamMembers[indexOffset].linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-gray-300 hover:text-white"
+                          >
+                            LinkedIn Profile
+                          </a>
+                        </div>
+                      </motion.div>
+                    )
+                  )
                 )}
               </AnimatePresence>
             </div>
@@ -412,7 +436,6 @@ export default function Page() {
             </button>
           </div>
         </motion.div>
-
       </div>
       <Footer />
     </>

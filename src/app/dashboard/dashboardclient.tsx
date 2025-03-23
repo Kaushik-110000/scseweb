@@ -10,7 +10,6 @@ import Earth from "@/components/Earth";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 
-
 interface UserData {
   userID: string;
   email: string;
@@ -28,7 +27,6 @@ export const metadata: Metadata = {
   title: "Dashboard - SCSE",
   description: "Welcome to the SCSE Dashboard",
 };
-
 
 function Dashboard() {
   const [userData, setUserData] = useState<UserData | null>(null);
@@ -139,7 +137,7 @@ function Dashboard() {
                     <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
                       {userData.isPrime
                         ? "You are a Prime Member"
-                        : "Unlock Prime Benefits"}
+                        : `Unlock Prime Benefits Only in ${amount}`}
                     </h3>
                     {userData.isPrime ? (
                       <>

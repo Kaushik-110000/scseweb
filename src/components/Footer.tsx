@@ -18,7 +18,7 @@ export default function Page() {
       {/* <header className="bg-gradient-to-r from-gray-900 to-blue-900 text-white shadow-xl">
         <nav className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row items-center justify-between">
           <div className="text-2xl font-bold mb-4 md:mb-0">
-            <span className="text-blue-400">Advaya</span> 2025
+            <span className="text-blue-400">SCSE</span> 2025
           </div>
           <div className="flex flex-wrap gap-6 text-sm font-medium">
             <Link
@@ -63,7 +63,7 @@ export default function Page() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Left Section - Logo, Description & Social */}
             <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-blue-400">Advaya 2025</h2>
+              <h2 className="text-3xl font-bold text-blue-400">SCSE 2025</h2>
               <p className="text-gray-400 text-sm leading-relaxed">
                 Innovate. Create. Dominate. Join the biggest tech event of the
                 year!
@@ -167,6 +167,12 @@ export default function Page() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 text-blue-400" />
+                  <a
+                    href="mailto:amrishrock2002@@gmail.com"
+                    className="hover:text-blue-400"
+                  >
+                    amrishrock2002@gmail.com
+                  </a>
                   <a
                     href="mailto:abhishekscsenitjsr@gmail.com"
                     className="hover:text-blue-400"

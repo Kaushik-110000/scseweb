@@ -16,16 +16,21 @@ const PrivacyPolicy: NextPage = () => {
             </h2>
             <div className="space-y-3 text-gray-300">
               <p>
-                <strong className="text-blue-300">a. Personal Information:</strong> We may collect personal
-                details such as your name, email address, contact number, and
-                other relevant data when you register for events, purchase
-                tickets, or participate in activities.
+                <strong className="text-blue-300">
+                  a. Personal Information:
+                </strong>{" "}
+                We may collect personal details such as your name, email
+                address, contact number, and other relevant data when you
+                register for events, purchase tickets, or participate in
+                activities.
               </p>
               <p>
-                <strong className="text-purple-300">b. Non-Personal Information:</strong> We may also collect
-                non-personal information, including browser type, IP address,
-                and device information, to improve user experience and enhance
-                our services.
+                <strong className="text-purple-300">
+                  b. Non-Personal Information:
+                </strong>{" "}
+                We may also collect non-personal information, including browser
+                type, IP address, and device information, to improve user
+                experience and enhance our services.
               </p>
             </div>
           </section>
@@ -37,21 +42,27 @@ const PrivacyPolicy: NextPage = () => {
             </h2>
             <div className="space-y-3 text-gray-300">
               <p>
-                <strong className="text-pink-300">a. Event Registration:</strong> Your personal information
-                is used to process event registrations, provide tickets, and
-                communicate important updates related to SCSE Fest 2025.
+                <strong className="text-pink-300">
+                  a. Event Registration:
+                </strong>{" "}
+                Your personal information is used to process event
+                registrations, provide tickets, and communicate important
+                updates related to SCSE Fest 2025.
               </p>
               <p>
-                <strong className="text-blue-300">b. Communication:</strong> We may use your email address
-                or contact number to send updates about upcoming events,
-                promotions, and other relevant information. You can opt out of
-                these communications at any time.
+                <strong className="text-blue-300">b. Communication:</strong> We
+                may use your email address or contact number to send updates
+                about upcoming events, promotions, and other relevant
+                information. You can opt out of these communications at any
+                time.
               </p>
               <p>
-                <strong className="text-purple-300">c. Improvement of Services:</strong> Non-personal
-                information is used to analyze website usage patterns,
-                troubleshoot issues, and improve overall functionality and user
-                experience.
+                <strong className="text-purple-300">
+                  c. Improvement of Services:
+                </strong>{" "}
+                Non-personal information is used to analyze website usage
+                patterns, troubleshoot issues, and improve overall functionality
+                and user experience.
               </p>
             </div>
           </section>
@@ -63,22 +74,29 @@ const PrivacyPolicy: NextPage = () => {
             </h2>
             <div className="space-y-3 text-gray-300">
               <p>
-                <strong className="text-indigo-300">a. Third-Party Service Providers:</strong> Your
-                information may be shared with trusted third-party service
+                <strong className="text-indigo-300">
+                  a. Third-Party Service Providers:
+                </strong>{" "}
+                Your information may be shared with trusted third-party service
                 providers, such as payment gateways, to facilitate transactions
                 and deliver services.
               </p>
               <p>
-                <strong className="text-pink-300">b. Legal Requirements:</strong> We may disclose personal
-                information if required by law or in response to valid legal
-                requests such as court orders or subpoenas.
+                <strong className="text-pink-300">
+                  b. Legal Requirements:
+                </strong>{" "}
+                We may disclose personal information if required by law or in
+                response to valid legal requests such as court orders or
+                subpoenas.
               </p>
             </div>
           </section>
 
           {/* Section 4 */}
           <section className="bg-gradient-to-br from-indigo-900/80 to-blue-900/80 p-6 rounded-lg shadow-2xl border border-white/10 hover:border-indigo-400/50 transition-all duration-300">
-            <h2 className="mb-4 text-2xl font-semibold text-white">4. Security</h2>
+            <h2 className="mb-4 text-2xl font-semibold text-white">
+              4. Security
+            </h2>
             <p className="text-gray-300">
               We take reasonable measures to protect your personal information
               from unauthorized access, disclosure, alteration, or destruction.
@@ -89,7 +107,9 @@ const PrivacyPolicy: NextPage = () => {
 
           {/* Section 5 */}
           <section className="bg-gradient-to-br from-blue-900/80 to-purple-900/80 p-6 rounded-lg shadow-2xl border border-white/10 hover:border-blue-400/50 transition-all duration-300">
-            <h2 className="mb-4 text-2xl font-semibold text-white">5. Cookies</h2>
+            <h2 className="mb-4 text-2xl font-semibold text-white">
+              5. Cookies
+            </h2>
             <p className="text-gray-300">
               Our website may use cookies to enhance your browsing experience.
               You can adjust your browser settings to disable cookies, though
@@ -125,7 +145,9 @@ const PrivacyPolicy: NextPage = () => {
 
           {/* Section 8 */}
           <section className="bg-gradient-to-br from-indigo-900/80 to-blue-900/80 p-6 rounded-lg shadow-2xl border border-white/10 hover:border-indigo-400/50 transition-all duration-300">
-            <h2 className="mb-4 text-2xl font-semibold text-white">8. Contact Us</h2>
+            <h2 className="mb-4 text-2xl font-semibold text-white">
+              8. Contact Us
+            </h2>
             <div className="space-y-3 text-gray-300">
               <p>
                 If you have any questions or concerns regarding this Privacy
@@ -134,10 +156,10 @@ const PrivacyPolicy: NextPage = () => {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:support@yourcompanydomain.com"
+                  href="mailto:amrishrock2002@gmail.com"
                   className="text-blue-400 hover:text-blue-300 underline"
                 >
-                  support@yourcompanydomain.com
+                  amrishrock2002@gmail.com
                 </a>
               </p>
               <div className="mt-4">
