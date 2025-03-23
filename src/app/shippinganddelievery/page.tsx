@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ShipAndDelievery from "./sadpage";
+import ShippingAndDelivery from "./sadpage";
 
 export const metadata: Metadata = {
   title: "Ship And Delievery - SCSE",
@@ -12,5 +12,5 @@ export const metadata: Metadata = {
 };
 
 export default function DashboardPage() {
-  return <ShipAndDelievery />;
+  return <ShippingAndDelivery />;
 }
