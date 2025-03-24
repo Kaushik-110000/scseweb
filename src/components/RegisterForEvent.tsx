@@ -211,7 +211,7 @@ export default function RegisterForEvent({
 
       {isOverlayOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4">
-          <div className="relative w-full max-w-2xl rounded p-6 shadow-lg ">
+          <div className=" rounded-lg shadow-lg w-full max-w-lg max-h-[90vh] overflow-y-auto p-6 relative">
             <button
               onClick={handleCloseOverlay}
               className="hidden md:inline-block absolute right-4 top-4 text-red-500 hover:text-red-700 cursor-pointer"
@@ -254,7 +254,7 @@ export default function RegisterForEvent({
               {participants.map((value, i) => (
                 <div key={i} className="mb-4">
                   <label className="mb-1 block font-medium">
-                    Participant {i + 1} (SCSE-xxxxxxx):
+                    Participant {i + 1} (SCSE-xxxxxxx): Get ID from dashboard
                   </label>
                   <div className="flex gap-2">
                     <input

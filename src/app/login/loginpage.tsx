@@ -11,7 +11,7 @@ import { twMerge } from "tailwind-merge";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { UserContext } from "@/context/UserContext";
-import Loading from "@/components/Loading"
+import Loading from "@/components/Loading";
 // Utility function for class names
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -171,7 +171,8 @@ export default function Login() {
         const userResponse = await axios.get("/api/users/getCurrent");
         if (userResponse.data.data.status === 200) {
           setLoader(false);
-          console.log("kand", userResponse.data.data);
+          setError("Success");
+          // console.log("kand", userResponse.data.data);
           setUserData(userResponse.data.data._doc);
         }
         router.push("/dashboard");
