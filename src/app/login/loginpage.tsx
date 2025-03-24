@@ -177,6 +177,7 @@ export default function Login() {
         router.push("/dashboard");
       }
     } catch (err: any) {
+      setLoader(false);
       setError(
         err.response?.data?.message ||
           err.response?.data?.error ||
