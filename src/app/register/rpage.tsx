@@ -11,13 +11,13 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center bg-black justify-center bg-cover bg-center">
+    <div className="min-h-screen background-grid3 flex items-center bg-black justify-center bg-cover bg-center">
       <div className=" bg-opacity-75 p-8 rounded-lg shadow-lg text-center">
-        <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-2">
+        <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 mb-5">
           Authenticate Yourself
         </h2>
         <p className="text-gray-300 mb-6">
-          Register with your Google account to continue.
+          Do use your college mails to avail extra discount in future
         </p>
         <button
           onClick={handleGoogleSignup}
@@ -33,13 +33,13 @@ export default function RegisterPage() {
             ease-in-out
             hover:opacity-90
             focus:outline-none
+            cursor:pointer
           "
           style={{
-            background:
-              "linear-gradient(to right, #4285F4, #34A853)",
+            background: "linear-gradient(to right, #4285F4, #34A853)",
           }}
         >
-          Sign Up with Google
+          Continue with Google
         </button>
       </div>
     </div>

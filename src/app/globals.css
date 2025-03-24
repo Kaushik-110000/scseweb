@@ -97,6 +97,22 @@ body {
 }
 
 
+.background-grid3 {
+  inset: 0;
+  background-image: 
+    linear-gradient(90deg, rgba(118, 129, 242, 0.3) 1px, transparent 1px),
+    linear-gradient(rgba(97, 101, 223, 0.3) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  /* Remove overall opacity to avoid dimming the entire background */
+  /* opacity: 0.8; */
+  backdrop-filter: blur(2px);
+
+  /* Enhanced blue tint */
+  background-color: rgba(68, 77, 189, 0.25);
+
+  /* Intensified glow effect */
+  box-shadow: 0 0 30px rgba(68, 77, 189, 0.35), 0 0 60px rgba(120, 130, 255, 0.25);
+}
 
 
 

@@ -49,7 +49,7 @@ export async function POST(req: NextRequest) {
     // 4) If not all prime, return 420
     if (!allPrime) {
       return NextResponse.json(
-        { error: "Not all members are prime" },
+        { error: "All members are not Prime , pay for registration" },
         { status: 420 }
       );
     }

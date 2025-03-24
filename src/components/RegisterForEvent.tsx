@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/navigation";
+import Modal from "@/components/Modal";
 interface RegisterForEventProps {
   eventName: string; // e.g. "Hackathon"
   maxPart: number; // e.g. 5
@@ -34,6 +35,24 @@ export default function RegisterForEvent({
   const [participants, setParticipants] = useState<string[]>(
     Array(minPart).fill("")
   );
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalMessage, setModalMessage] = useState("");
+  const [modalType, setModalType] = useState<"success" | "error">("success");
+
+  const showModal = (
+    title: string,
+    message: string,
+    type: "success" | "error" = "success"
+  ) => {
+    setModalTitle(title);
+    setModalMessage(message);
+    setModalType(type);
+    setModalOpen(true);
+  };
+
+  const handleCloseModal = () => setModalOpen(false);
 
   // A required teamName field
   const [teamName, setTeamName] = useState("");
@@ -83,6 +102,7 @@ export default function RegisterForEvent({
       const data = await response.data;
       if (!data.success) {
         alert("Failed to create order: " + data.message);
+        // showModal("Error", "Failed to create order: " + data.message, "error");
         setError("Please try later");
         return;
       }
@@ -95,6 +115,11 @@ export default function RegisterForEvent({
         description: "Test Transaction",
         order_id: order.id,
         handler: async function (response: any) {
+          // showModal(
+          //   "Success",
+          //   "Payment successful! See your registration in dashboard",
+          //   "success"
+          // );
           alert("Payment successful! See your registration in dashboard");
           router.push("/dashboard");
           console.log(response);
@@ -117,6 +142,7 @@ export default function RegisterForEvent({
       rzp1.open();
     } catch (error) {
       console.error("Payment Error:", error);
+      // showModal("Error", "Something went wrong. Try later", "error");
       alert("Something went wrong. Try later");
     }
   };
@@ -129,6 +155,7 @@ export default function RegisterForEvent({
 
     // Check if teamName is empty
     if (!teamName.trim()) {
+      // showModal("Error", "Please enter a team name.", "error");
       alert("Please enter a team name.");
       return;
     }
@@ -150,11 +177,7 @@ export default function RegisterForEvent({
 
       if (response.status === 200) {
         // Success
-        alert(
-          `Team: ${teamName}\nEvent: ${eventName}\nParticipants:\n${participants.join(
-            "\n Successfully registered"
-          )}`
-        );
+        showModal("Registration Successful", `SUCCESS.`, "success");
         setTeamName("");
         setParticipants([""]);
         setIsOverlayOpen(false);
@@ -279,6 +302,13 @@ export default function RegisterForEvent({
           </div>
         </div>
       )}
+      <Modal
+        isOpen={modalOpen}
+        onClose={handleCloseModal}
+        title={modalTitle}
+        message={modalMessage}
+        type={modalType}
+      />
     </div>
   );
 }

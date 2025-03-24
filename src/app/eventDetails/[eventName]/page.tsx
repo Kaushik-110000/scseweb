@@ -11,6 +11,7 @@ interface EventType {
   description: string;
   logo: string;
   prizepool: number;
+  regFees: number;
   rules: string;
   more: string;
   maxPart: number;
@@ -76,7 +77,7 @@ export default function RegisterEventPage() {
   }
 
   return (
-    <div className="min-h-screen pt-8 relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+    <div className="min-h-screen pt-10 relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
       {/* Animated background elements */}
       <div
         className="absolute inset-0 opacity-20"
@@ -116,7 +117,7 @@ export default function RegisterEventPage() {
                 {eventData.description}
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-gray-300">
                 <div className="flex items-center gap-2 bg-gray-800/50 p-3 rounded-xl">
                   <svg
                     className="w-6 h-6 text-purple-400"
@@ -154,6 +155,30 @@ export default function RegisterEventPage() {
                   <span>
                     <strong className="text-blue-300">Participants:</strong>{" "}
                     {eventData.minPart}-{eventData.maxPart}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 bg-gray-800/50 p-3 rounded-xl">
+                  <svg
+                    className="w-6 h-6 text-green-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                    />
+                  </svg>
+                  <span>
+                    <strong className="text-green-300">
+                      Registration Fees:
+                    </strong>{" "}
+                    ₹{eventData.regFees}
+                    <span className="text-sm text-gray-400 block">
+                      (Pay if not a prime member)
+                    </span>
                   </span>
                 </div>
               </div>

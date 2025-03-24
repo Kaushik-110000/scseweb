@@ -5,8 +5,10 @@ import { useRouter } from "next/navigation";
 import { UserContext } from "@/context/UserContext";
 import { motion } from "framer-motion";
 import { IconUser, IconMail, IconLock, IconSchool } from "@tabler/icons-react";
+import Loading from "@/components/Loading";
 
 function Page() {
+  const [loader, setLoader] = useState(false);
   const router = useRouter();
   const [formData, setFormData] = useState({
     email: "",
@@ -33,6 +35,7 @@ function Page() {
   // Handle form submission and redirect to dashboard on success
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoader(true);
     try {
       console.log("Form Data:", formData);
       const response = await axios.post("/api/auth/fillCredentials", formData);
@@ -42,10 +45,12 @@ function Page() {
         if (userResponse.data.data.status === 200) {
           setUserData(userResponse.data.data._doc);
         }
-        router.push("/dashboard");
+        setLoader(false);
         setStatus(data.error || data.message || "Successfully registered");
+        router.push("/dashboard");
       }
     } catch (error: any) {
+      setLoader(false);
       const data = await error.response.data;
       console.log("data", data);
 
@@ -72,7 +77,7 @@ function Page() {
     }
   };
 
-  return (
+  return !loader ? (
     <div
       className="flex justify-center mt-14 items-center min-h-screen bg-black bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-900 to-black"
       style={{
@@ -103,13 +108,22 @@ function Page() {
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.1 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                delay: 0.1,
+              }}
               className="w-16 h-16 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4"
             >
               <IconUser className="w-8 h-8 text-white" />
             </motion.div>
-            <h2 className="text-2xl font-bold text-white mb-1">Create Account</h2>
-            <p className="text-gray-400 text-sm">Complete your profile to continue</p>
+            <h2 className="text-2xl font-bold text-white mb-1">
+              Create Account
+            </h2>
+            <p className="text-gray-400 text-sm">
+              Complete your profile to continue
+            </p>
           </div>
 
           {status && (
@@ -200,6 +214,8 @@ function Page() {
         </div>
       </motion.div>
     </div>
+  ) : (
+    <Loading />
   );
 }
 
