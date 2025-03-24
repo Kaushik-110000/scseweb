@@ -4,7 +4,7 @@ import { connectDB } from "@/dbConfig/dbConfig";
 export async function GET(req: NextRequest) {
   try {
     await connectDB();
-    const events = await Event.find();
+    const events = await Event.find().sort({ prizepool: -1 });
     return NextResponse.json(
       { success: true, events, message: "Events fetched" },
       { status: 200 }
