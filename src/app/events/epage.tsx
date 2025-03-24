@@ -5,6 +5,7 @@ import axios from "axios";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Poppins } from "next/font/google";
 import styles from "./events.module.css"; // CSS Module for the SVG pattern background
 
 interface Event {
@@ -13,7 +14,18 @@ interface Event {
   description: string;
   logo: string;
   prizepool: number;
+  regFees:number;
+  more:string;
+  rules:string;
+  minPart:number;
+  maxPart:number;
 }
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
 
 /**
  * PatternSquiggle renders the SVG squiggle background.
@@ -37,13 +49,13 @@ const PatternSquiggle = () => {
           x="0"
           y="0"
           width="60"
-          height="60"
+          height="30"
           patternUnits="userSpaceOnUse"
         >
           <use
             xlinkHref="#wavePath"
-            stroke="#f00"
-            strokeWidth="1"
+            stroke="#3B82F6"
+            strokeWidth="1.5"
             fill="transparent"
           />
         </pattern>
@@ -52,13 +64,13 @@ const PatternSquiggle = () => {
           x="30"
           y="15"
           width="60"
-          height="60"
+          height="30"
           patternUnits="userSpaceOnUse"
         >
           <use
             xlinkHref="#wavePath"
-            stroke="#00f"
-            strokeWidth="1"
+            stroke="#8B5CF6"
+            strokeWidth="1.5"
             fill="transparent"
           />
         </pattern>
@@ -67,13 +79,13 @@ const PatternSquiggle = () => {
           x="0"
           y="30"
           width="60"
-          height="60"
+          height="30"
           patternUnits="userSpaceOnUse"
         >
           <use
             xlinkHref="#wavePath"
-            stroke="#0f0"
-            strokeWidth="1"
+            stroke="#2563EB"
+            strokeWidth="1.5"
             fill="transparent"
           />
         </pattern>
@@ -82,13 +94,13 @@ const PatternSquiggle = () => {
           x="30"
           y="45"
           width="60"
-          height="60"
+          height="30"
           patternUnits="userSpaceOnUse"
         >
           <use
             xlinkHref="#wavePath"
-            stroke="#fc0"
-            strokeWidth="1"
+            stroke="#4F46E5"
+            strokeWidth="1.5"
             fill="transparent"
           />
         </pattern>
@@ -139,7 +151,36 @@ const PatternSquiggle = () => {
   );
 };
 
+/**
+ * CurvyLines is a new background element that adds additional visual flair.
+ */
+const CurvyLines = () => {
+  return (
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      style={{ position: "absolute", inset: 0, zIndex: 1, opacity: 0.15 }}
+    >
+      <path
+        d="M0,30 Q25,10 50,30 T100,30 M0,50 Q25,30 50,50 T100,50 M0,70 Q25,50 50,70 T100,70"
+        stroke="#3B82F6"
+        strokeWidth="0.5"
+        fill="none"
+      />
+      <path
+        d="M0,20 Q25,40 50,20 T100,20 M0,40 Q25,60 50,40 T100,40 M0,60 Q25,80 50,60 T100,60 M0,80 Q25,100 50,80 T100,80"
+        stroke="#8B5CF6"
+        strokeWidth="0.5"
+        fill="none"
+      />
+    </svg>
+  );
+};
+
 export default function Page() {
+  
   const [events, setEvents] = useState<Event[]>([]);
 
   useEffect(() => {
@@ -156,96 +197,267 @@ export default function Page() {
   };
 
   return (
-    <div className="relative min-h-screen text-center py-10 px-6 flex flex-col items-center overflow-hidden bg-black">
-      {/* Floating Dots for the page background */}
+    <div
+      className={`${poppins.className} relative min-h-screen text-center py-10 px-6 flex flex-col items-center overflow-hidden bg-gradient-to-b from-black to-gray-900`}
+    >
+      {/* Floating Particles Background */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(300)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute bg-white w-1 h-1 rounded-full opacity-50"
+            className="absolute rounded-full"
             style={{
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
+              background:
+                i % 5 === 0
+                  ? "#3B82F6"
+                  : i % 5 === 1
+                  ? "#8B5CF6"
+                  : i % 5 === 2
+                  ? "#2563EB"
+                  : i % 5 === 3
+                  ? "#4F46E5"
+                  : "#A5B4FC",
+              width: `${Math.random() * 3 + 1}px`,
+              height: `${Math.random() * 3 + 1}px`,
             }}
             animate={{
-              y: [0, -60, 0],
-              opacity: [0.3, 1, 0.3],
+              y: [0, Math.random() * -100 - 20, 0],
+              x: [0, Math.random() * 40 - 20, 0],
+              opacity: [0.3, Math.random() * 0.7 + 0.3, 0.3],
+              scale: [1, Math.random() * 1.5 + 0.5, 1],
             }}
-            transition={{ duration: 2, repeat: Infinity, delay: i * 0.05 }}
+            transition={{
+              duration: Math.random() * 5 + 3,
+              repeat: Infinity,
+              delay: i * 0.01,
+              ease: "easeInOut",
+            }}
           />
         ))}
       </div>
 
       {/* Page Heading */}
       <motion.h1
-        className="relative z-10 text-4xl md:text-5xl font-extrabold mt-10 text-gray-200 tracking-wide font-[Poppins]"
-        initial={{ opacity: 0, y: -20 }}
+        className="relative z-10 text-5xl md:text-6xl font-extrabold mt-10 mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 tracking-wider"
+        initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1, type: "spring", stiffness: 100 }}
       >
         All Events
       </motion.h1>
 
       {/* Event Cards */}
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-6xl mt-4">
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-6xl mt-4 mb-10">
         {events.map((event, index) => (
           <motion.div
             key={event._id}
-            className="relative shadow-lg p-6 transition-transform duration-300 hover:scale-105"
+            className="relative overflow-hidden rounded-2xl group"
             style={{
-              border: "4px solid white",
-              borderRadius: "1rem",
-              overflow: "hidden",
-              backgroundColor: "#1a1a1a",
-              minHeight: "400px",
+              backgroundColor: "rgba(15, 23, 42, 0.7)",
+              backdropFilter: "blur(10px)",
+              height: "555px",
             }}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            transition={{
+              duration: 0.6,
+              delay: index * 0.15,
+              type: "spring",
+              stiffness: 70,
+            }}
+            whileHover={{
+              scale: 1.03,
+              transition: { duration: 0.3 },
+            }}
           >
-            {/* Pattern background layer */}
-            <PatternSquiggle />
-            {/* Card Content */}
-            <div className="relative z-10 flex flex-col justify-between h-full">
-              <div>
-                {/* Logo Container with border */}
-                <div className="relative w-full h-32 md:h-40 border border-white border-3 rounded-2xl overflow-hidden mb-4">
-                  <Image
-                    src={event.logo}
-                    alt={event.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                {/* Heading pulled below the logo with its own background */}
-                <motion.h2
-                  className="text-lg md:text-xl font-bold mb-3 text-white font-[Poppins] bg-gray-800 px-2 py-1 rounded"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                >
-                  {event.name}
-                </motion.h2>
-                {/* Prize Pool with white text */}
-                <p className="text-white mb-3 text-sm md:text-base">
-                  <strong>Prize Pool:</strong> {event.prizepool}
-                </p>
-                {/* Description with larger font size and white color */}
-                <p className="text-white text-lg mb-3 overflow-hidden">
-                  {event.description}
-                </p>
+            {/* Animated Border Effect */}
+            <motion.div
+              className="absolute inset-0 z-0 opacity-50"
+              style={{
+                background: `linear-gradient(90deg, 
+                  #3B82F6 0%, 
+                  #8B5CF6 25%, 
+                  #2563EB 50%, 
+                  #4F46E5 75%, 
+                  #3B82F6 100%)`,
+                backgroundSize: "200% 100%",
+              }}
+              animate={{
+                backgroundPosition: ["0% 0%", "100% 0%"],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+            />
+
+            {/* Card Inner Content */}
+            <div className="absolute inset-1 bg-gray-900 rounded-xl z-10 flex flex-col h-full">
+              {/* Pattern Background Layer */}
+              <div className="absolute inset-0 opacity-40 group-hover:opacity-70 transition-opacity duration-500">
+                <PatternSquiggle />
+                <CurvyLines />
               </div>
-              {/* Button container always at the bottom */}
-              <div className="mt-4">
-                <Link href={`eventDetails/${event.name}`}>
-                  <motion.button
-                    className="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 w-full cursor-pointer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+
+              {/* Card Content */}
+              <div className="relative z-20 flex flex-col justify-between h-full p-5">
+                <div className="flex-1">
+                  {/* Logo Container */}
+                  <div className="relative w-full h-40 mb-4 overflow-hidden rounded-xl shadow-lg">
+                    <motion.div
+                      className="absolute inset-0 z-0 opacity-70"
+                      style={{
+                        background: `linear-gradient(90deg, 
+                          #3B82F6 0%, 
+                          #8B5CF6 25%, 
+                          #2563EB 50%, 
+                          #4F46E5 75%, 
+                          #3B82F6 100%)`,
+                        backgroundSize: "200% 100%",
+                      }}
+                      animate={{
+                        backgroundPosition: ["0% 0%", "100% 0%"],
+                      }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                      }}
+                    />
+                    <div className="absolute inset-0.5 overflow-hidden rounded-lg">
+                      <Image
+                        src={event.logo}
+                        alt={event.name}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Event Name */}
+                  <motion.div
+                    className="mb-3 overflow-hidden rounded-lg"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.25 }}
                   >
-                    Get details
-                  </motion.button>
-                </Link>
+                    <motion.div
+                      className="py-2 px-3"
+                      style={{
+                        background: `linear-gradient(90deg, 
+                          rgba(59, 130, 246, 0.7) 0%, 
+                          rgba(139, 92, 246, 0.7) 100%)`,
+                        backgroundSize: "200% 100%",
+                      }}
+                      animate={{
+                        backgroundPosition: ["0% 0%", "100% 0%", "0% 0%"],
+                      }}
+                      transition={{
+                        duration: 5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      }}
+                    >
+                      <h2 className="text-xl font-bold text-white truncate">
+                        {event.name}
+                      </h2>
+                    </motion.div>
+                  </motion.div>
+
+                  {/* Prize Pool */}
+                  <motion.div
+                    className="inline-block px-3 py-2 mb-3 rounded-full"
+                    style={{
+                      background: `linear-gradient(90deg, 
+                        rgba(59, 130, 246, 0.2) 0%, 
+                        rgba(139, 92, 246, 0.2) 100%)`,
+                    }}
+                    whileHover={{
+                      scale: 1.05,
+                      background: `linear-gradient(90deg, 
+                        rgba(59, 130, 246, 0.4) 0%, 
+                        rgba(139, 92, 246, 0.4) 100%)`,
+                    }}
+                  >
+                    <p className="text-white text-base">
+                      <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                        Prize Pool:
+                      </span>{" "}
+                      <span className="font-semibold">
+                        ₹{event.prizepool.toLocaleString()}
+                      </span>
+                    </p>
+                  </motion.div>
+
+                  {/* Description (with NO extra background) */}
+                  {event.description && (
+                    <motion.div
+                      className="mb-3" // Removed p-3, bg-gray-800, etc.
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.8, delay: index * 0.3 }}
+                    >
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        {event.description}
+                      </p>
+                    </motion.div>
+                  )}
+
+                  {/* Rules */}
+                  <motion.div
+                    className="mb-3 p-3 rounded-lg bg-gray-800 bg-opacity-50"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: index * 0.35 }}
+                  >
+                    <p className="text-gray-400 text-sm">
+                      <span className="text-blue-400 font-semibold">Rules:</span>{" "}
+                      {event.rules}
+                    </p>
+                  </motion.div>
+
+                  {/* Team Size */}
+                  <motion.div
+                    className="p-3 rounded-lg bg-gray-800 bg-opacity-30"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: index * 0.4 }}
+                  >
+                    <p className="text-gray-400 text-sm">
+                      <span className="text-purple-400 font-semibold">
+                        Team Size:
+                      </span>{" "}
+                      {event.minPart} to {event.maxPart} participants
+                    </p>
+                  </motion.div>
+                </div>
+
+                {/* Get Details Button */}
+                <div className="mt-5 relative">
+                  <Link href={`eventDetails/${event.name}`} className="block">
+                    <motion.div
+                      className="relative overflow-hidden rounded-lg cursor-pointer group"
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.98 }}
+                      style={{ position: "relative", zIndex: 0 }}
+                    >
+                      <div
+                        className="absolute inset-0 z-0"
+                        style={{
+                          background:
+                            "linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%)",
+                          opacity: 0.9,
+                        }}
+                      />
+                      <div className="relative z-10 py-3 text-center font-bold text-white text-base">
+                        Get Details
+                      </div>
+                    </motion.div>
+                  </Link>
+                </div>
               </div>
             </div>
           </motion.div>
