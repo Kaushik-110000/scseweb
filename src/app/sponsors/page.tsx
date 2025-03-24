@@ -8,6 +8,10 @@ export default function Sponsors() {
       text: "Get visibility on social media, event banners, and official merchandise. Connect with top-tier tech talent and future innovators.",
     },
     {
+      title:  "Targeted Reach:",
+      text: "Connect with top teir tech talent and future innovators.",
+    },
+    {
       title: "Recruitment Edge:",
       text: "Targeted Reach: Access a pool of skilled students for internships and job opportunities.",
     },
