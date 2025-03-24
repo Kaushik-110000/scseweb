@@ -22,18 +22,18 @@ export default function RegisterPage() {
         <button
           onClick={handleGoogleSignup}
           className="
-            px-6 
-            py-3 
-            text-white 
-            rounded-md 
+            px-6
+            py-3
+            text-white
+            rounded-md
             font-semibold
             shadow-md
-            transition-all 
-            duration-300 
+            transition-all
+            duration-300
             ease-in-out
             hover:opacity-90
             focus:outline-none
-            cursor:pointer
+            cursor-pointer
           "
           style={{
             background: "linear-gradient(to right, #4285F4, #34A853)",
