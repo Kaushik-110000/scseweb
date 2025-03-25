@@ -11,6 +11,11 @@ import { Mail, Phone, Linkedin } from "lucide-react";
 
 const professors = [
   {
+    name: " Dr. Danish Ali Khan",
+    role: "Head of Department",
+    image: "/images/danishalisir.png",
+  },
+  {
     name: "Jitesh Pradhan",
     role: " Prof. In-Charge",
     image: "/images/jiteshSir.png",
@@ -30,11 +35,7 @@ const professors = [
   //   role: "Assistant Professor",
   //   image: "/images/chandrashekhar.jpg", 
   // },
-  {
-    name: " Dr. Danish Ali Khan",
-    role: "Head of Department",
-    image: "/images/danishalisir.png",
-  },
+ 
   // {
   //   name: "Dr Dilip Kumar",
   //   role: "Assistant Professor",
