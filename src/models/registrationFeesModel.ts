@@ -20,8 +20,13 @@ const RverifySchema: Schema<Rverify> = new Schema({
   razorpay_order_id: {
     type: String,
     required: [true, "Order id missing"],
+    unique: true,
   },
-  razorpay_payment_id: { type: String, required: [true, "Payment id missing"] },
+  razorpay_payment_id: {
+    type: String,
+    required: [true, "Payment id missing"],
+    unique: true,
+  },
   razorpay_signature: { type: String, required: [true, "Signature missing"] },
 });
 

@@ -42,6 +42,31 @@ export async function POST(request: NextRequest) {
         );
       }
     }
+    
+    //check for repeat ids
+    const bool = await EventRegistration.findOne({
+      razorpay_order_id: razorpay_order_id,
+    });
+    if (bool) {
+      const response = NextResponse.json(
+        { error: "Malicious activity detected, order id already exist" },
+        { status: 401 }
+      );
+      return response;
+    }
+
+    const bool2 = await EventRegistration.findOne({
+      razorpay_payment_id: razorpay_payment_id,
+    });
+
+    if (bool2) {
+      const response = NextResponse.json(
+        { error: "Malicious activity detected, payment id already exist" },
+        { status: 401 }
+      );
+      return response;
+    }
+    //check ended
 
     const body = `${razorpay_order_id}|${razorpay_payment_id}`;
     const expectedSignature = crypto
