@@ -14,11 +14,11 @@ interface Event {
   description: string;
   logo: string;
   prizepool: number;
-  regFees:number;
-  more:string;
-  rules:string;
-  minPart:number;
-  maxPart:number;
+  regFees: number;
+  more: string;
+  rules: string;
+  minPart: number;
+  maxPart: number;
 }
 
 const poppins = Poppins({
@@ -180,7 +180,6 @@ const CurvyLines = () => {
 };
 
 export default function Page() {
-  
   const [events, setEvents] = useState<Event[]>([]);
 
   useEffect(() => {
@@ -188,12 +187,197 @@ export default function Page() {
   }, []);
 
   const fetchEvents = async () => {
-    try {
-      const res = await axios.get("/api/events");
-      setEvents(res.data.events || []);
-    } catch (error) {
-      console.error("Error fetching events:", error);
-    }
+    // try {
+    //   const res = await axios.get("/api/events");
+    //   setEvents(res.data.events || []);
+    // } catch (error) {
+    //   console.error("Error fetching events:", error);
+    // }
+    const a = [
+      {
+        _id: "67e1b384b1e72e5f2f25d736",
+        name: "Scavenger Hunt",
+        description: "Solve tech puzzles and find hidden clues.",
+        logo: "/events/scav.jpg",
+        prizepool: 5000,
+        regFees: 400,
+        more: "Follow the clues to find the hidden tech gadgets.",
+        rules: "Teams of 2-5. No external help allowed.",
+        minPart: 2,
+        maxPart: 5,
+      },
+      {
+        _id: "67e1b4cbb1e72e5f2f25d737",
+        name: "Paper Dance",
+        description: "Dance with your fav person.",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlAgwx7BjKanmlU8qPhhSr0u74QPrH37Jowg&s",
+        prizepool: 3000,
+        regFees: 300,
+        more: "Something interesting.",
+        rules: "Teams of 2. No external help allowed.",
+        minPart: 2,
+        maxPart: 2,
+      },
+      {
+        _id: "67e1b4e6b1e72e5f2f25d738",
+        name: "AI-ML Challenge",
+        description: "Build an AI/ML model for a given problem statement.",
+        logo: "https://www.simplilearn.com/ice9/free_resources_article_thumb/Artificial-Intelligence-and-Machine-Learning-Technologies.jpg",
+        prizepool: 8000,
+        regFees: 400,
+        more: "Use ML algorithms to analyze datasets and solve problems.",
+        rules: "Teams of up to 3. No pre-trained models allowed.",
+        minPart: 1,
+        maxPart: 3,
+      },
+      {
+        _id: "67e1b500b1e72e5f2f25d739",
+        name: "Robotics Competition",
+        description: "Compete in a robotics showdown.",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj132lhN800TiyzPd_AwQ8Vmb11JIuQuCfvg&s",
+        prizepool: 3000,
+        regFees: 400,
+        more: "Design, build, and program robots to complete challenges.",
+        rules: "Teams of 3-5. Only self-built robots allowed.",
+        minPart: 3,
+        maxPart: 5,
+      },
+      {
+        _id: "67e1b519b1e72e5f2f25d73a",
+        name: "Blind Coding",
+        description: "Code with your screen turned off.",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTynzRGBtbCw17MhAj9d0IZ-5MS8yynyFqLoQ&s",
+        prizepool: 3000,
+        regFees: 300,
+        more: "Write a functional program without seeing the screen.",
+        rules: "Solo event. No debugging after submission.",
+        minPart: 1,
+        maxPart: 1,
+      },
+      {
+        _id: "67e1b533b1e72e5f2f25d73b",
+        name: "Ideathon",
+        description: "Pitch innovative tech ideas.",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUyNEtIubKGa8qkW3deNol91O2jvvzBpOzKQ&s",
+        prizepool: 3000,
+        regFees: 300,
+        more: "Present a startup or tech solution to judges.",
+        rules: "Teams of 1-3. No plagiarism allowed.",
+        minPart: 1,
+        maxPart: 3,
+      },
+      {
+        _id: "67e1b549b1e72e5f2f25d73c",
+        name: "Movie Mania",
+        description: "A tech-themed movie screening and trivia night.",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfnEAjBotZplSut5W35hhRlk2QHf_kzNHeBQ&s",
+        prizepool: 2000,
+        regFees: 275,
+        more: "Watch and answer questions about tech-related movies.",
+        rules: "Solo or team event. No internet use allowed.",
+        minPart: 1,
+        maxPart: 2,
+      },
+      {
+        _id: "67e1b564b1e72e5f2f25d73d",
+        name: "Competitive Programming",
+        description:
+          "A programming event where you can show you problem solving skill",
+        logo: "https://images.unsplash.com/photo-1534665482403-a909d0d97c67?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        prizepool: 8000,
+        regFees: 500,
+        more: "Bring your own laptops",
+        rules: "Solo participation event",
+        minPart: 1,
+        maxPart: 3,
+      },
+      {
+        _id: "67e1b57bb1e72e5f2f25d73e",
+        name: "Hackathon",
+        description:
+          "A 24-hour coding competition to develop innovative solutions.",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIlIZoEWNthTx79YoPWp0U97tRhgeYbnf9TA&s",
+        prizepool: 15000,
+        regFees: 600,
+        more: "Build a project based on the given theme in 24 hours.",
+        rules: "Teams of 2-4. No plagiarism allowed.",
+        minPart: 2,
+        maxPart: 4,
+      },
+      {
+        _id: "67e1b591b1e72e5f2f25d73f",
+        name: "Computer Fundamentals Quiz",
+        description: "A quiz focusing on core computer science concepts.",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYOmITwKkKkm7GroTSG_wxENKC1CU5ytRIhA&s",
+        prizepool: 8000,
+        regFees: 400,
+        more: "Multiple-choice questions covering OS, DBMS, and networks.",
+        rules: "Solo event. No external help allowed.",
+        minPart: 1,
+        maxPart: 2,
+      },
+      {
+        _id: "67e1b5a5b1e72e5f2f25d740",
+        name: "Typing Speed Challenge",
+        description: "A test of speed and accuracy in typing.",
+        logo: "https://cdn.mos.cms.futurecdn.net/ZM8wEPqCYPnkzpWCWotBrj-970-80.jpg.webp",
+        prizepool: 3000,
+        regFees: 300,
+        more: "Type a given paragraph as fast as possible with minimal errors.",
+        rules: "Solo event. No autocorrect or external tools allowed.",
+        minPart: 1,
+        maxPart: 1,
+      },
+      {
+        _id:"67e1b5bbb1e72e5f2f25d741",
+        name: "Tech Reel",
+        description: "Create a short tech-related video reel.",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShDVDQCY7bO02ukxKtB8PO7lTyJKj03JDHZQ&s",
+        prizepool: 2000,
+        regFees: 275,
+        more: "Make a 60-second reel on any tech topic.",
+        rules: "Solo or team event. Must be original content.",
+        minPart: 1,
+        maxPart: 2,
+      },
+      {
+        _id: "67e1b5d0b1e72e5f2f25d742",
+        name: "PUBG or Valorant Tournament",
+        description: "Competitive gaming showdown in PUBG and Valorant.",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXBQ6-BnZyw5n-7p4V6bKjaLGi-5gM67FIvw&s",
+        prizepool: 3000,
+        regFees: 300,
+        more: "Knockout-style tournament with cash prizes for winners.",
+        rules: "Follow standard game rules. No cheating allowed.",
+        minPart: 4,
+        maxPart: 5,
+      },
+      {
+        _id: "67e1b5e2b1e72e5f2f25d743",
+        name: "Frontend Design Contest",
+        description: "Design and build a stunning frontend UI.",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLT-uhLzmr9KkcyRgb1qTIBBXO7OZlzliPQA&s",
+        prizepool: 4000,
+        regFees: 300,
+        more: "Create a responsive web design within the given time.",
+        rules: "No templates allowed. Must be coded from scratch.",
+        minPart: 1,
+        maxPart: 2,
+      },
+      {
+        _id: "67e1b5f7b1e72e5f2f25d744",
+        name: "Ethical Hacking Challenge",
+        description: "Test your penetration testing and cybersecurity skills.",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxCdIXboPP9PwZZRas1ZU-vdElUbfhCp7Zkw&s",
+        prizepool: 5000,
+        regFees: 400,
+        more: "Capture the flag (CTF)-style hacking competition.",
+        rules: "No illegal activities. Only provided targets allowed.",
+        minPart: 1,
+        maxPart: 3,
+      },
+    ];
+    setEvents(a);
   };
 
   return (
@@ -414,7 +598,9 @@ export default function Page() {
                     transition={{ duration: 1, delay: index * 0.35 }}
                   >
                     <p className="text-gray-400 text-sm">
-                      <span className="text-blue-400 font-semibold">Rules:</span>{" "}
+                      <span className="text-blue-400 font-semibold">
+                        Rules:
+                      </span>{" "}
                       {event.rules}
                     </p>
                   </motion.div>

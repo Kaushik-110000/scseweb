@@ -1,7 +1,8 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import Loading from "./Loading";
 
 const loadRazorpayScript = () => {
   return new Promise<void>((resolve, reject) => {
@@ -20,14 +21,16 @@ interface RegistrationFeesButtonProps {
 export default function RegistrationFeesButton({
   email,
 }: RegistrationFeesButtonProps) {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const handlePayment = async () => {
+    setLoading(true);
     try {
       await loadRazorpayScript();
 
       const { data } = await axios.post("/api/razorpay/registrationFeesOrder");
-
       if (!data.success) {
+        setLoading(false);
         alert("Failed to create order: " + data.message + ". Retry Later");
         return;
       }
@@ -35,6 +38,7 @@ export default function RegistrationFeesButton({
       const { order } = data;
 
       if (!(window as any).Razorpay) {
+        setLoading(false);
         alert("Razorpay SDK failed to load. Check your internet connection.");
         return;
       }
@@ -54,7 +58,8 @@ export default function RegistrationFeesButton({
           });
           alert("Payment successful!");
           // router.refresh();
-          window.location.reload()
+          setLoading(false);
+          window.location.reload();
           router.push("/dashboard");
         },
         prefill: {
@@ -63,21 +68,33 @@ export default function RegistrationFeesButton({
         theme: {
           color: "#3399cc",
         },
+        modal: {
+          escape: false, 
+          ondismiss: () => {
+            console.log("User closed the payment window.");
+            setLoading(false);
+          },
+        },
       };
 
       const rzp1 = new (window as any).Razorpay(options);
+      rzp1.on("payment.failed", () => setLoading(false));
       rzp1.open();
     } catch (error) {
+      setLoading(false);
       console.error("Payment Error:", error);
       alert("Something went wrong. Try later");
     }
   };
   return (
-    <button
-      className="w-full mb-2 bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-semibold py-3 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20 border border-purple-500/30 mt-5"
-      onClick={handlePayment}
-    >
-      Pay Registration Fees
-    </button>
+    <>
+      <button
+        className="w-full mb-2 bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-semibold py-3 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20 border border-purple-500/30 mt-5"
+        onClick={handlePayment}
+        disabled={loading}
+      >
+        {loading ? "Wait..." : "Pay Registration Fees"}
+      </button>
+    </>
   );
 }

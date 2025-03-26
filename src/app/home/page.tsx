@@ -29,11 +29,11 @@ function Home() {
         {/* Fallback message if the video isn't supported */}
         Your browser does not support the video tag.
       </video>
-      <div className="absolute inset-0 md:bg-black/30 bg-black/40 " />
+      <div className="absolute inset-0 md:bg-black/50 bg-black/50 " />
       <HeroSection />
       <AboutUs />
-      <Competitions />
       <Events />
+      <Competitions />
       <Footer />
     </div>
   );

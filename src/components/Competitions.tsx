@@ -154,7 +154,7 @@ export default function Competitions() {
   }, [handleNext]);
 
   return (
-    <div className="relative min-h-screen z-10 mt-20 h-full mx-5 px-2 text-white md:mx-12 flex flex-col items-center md:mt-0">
+    <div className="relative min-h-screen z-10 mt-20 h-full mx-5 px-2 text-white md:mx-12 flex flex-col items-center md:mt-30">
       <h2
         className={`text-center text-5xl md:text-6xl font-bold mb-15 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 ${dancingScript.className}`}
       >

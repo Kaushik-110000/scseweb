@@ -30,6 +30,7 @@ export default function RegisterForEvent({
   maxPart,
   minPart,
 }: RegisterForEventProps) {
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [participants, setParticipants] = useState<string[]>(
@@ -94,6 +95,7 @@ export default function RegisterForEvent({
 
   //code to handle payments starts here
   const handlePayment = async () => {
+    setLoading(true);
     try {
       await loadRazorpayScript();
       const response = await axios.post("/api/razorpay/eventFeesOrder", {
@@ -101,6 +103,7 @@ export default function RegisterForEvent({
       });
       const data = await response.data;
       if (!data.success) {
+        setLoading(false);
         alert("Failed to create order: " + data.message);
         // showModal("Error", "Failed to create order: " + data.message, "error");
         setError("Please try later");
@@ -137,10 +140,19 @@ export default function RegisterForEvent({
         theme: {
           color: "#3399cc",
         },
+        modal: {
+          escape: false,
+          ondismiss: () => {
+            console.log("User closed the payment window.");
+            setLoading(false);
+          },
+        },
       };
       const rzp1 = new (window as any).Razorpay(options);
+      rzp1.on("payment.failed", () => setLoading(false));
       rzp1.open();
     } catch (error) {
+      setLoading(false);
       console.error("Payment Error:", error);
       // showModal("Error", "Something went wrong. Try later", "error");
       alert("Something went wrong. Try later");
@@ -151,11 +163,12 @@ export default function RegisterForEvent({
 
   // Submit form
   const handleSubmit = async (e: React.FormEvent) => {
+    setLoading(true);
     e.preventDefault();
-
     // Check if teamName is empty
     if (!teamName.trim()) {
       // showModal("Error", "Please enter a team name.", "error");
+      setLoading(false);
       alert("Please enter a team name.");
       return;
     }
@@ -184,6 +197,7 @@ export default function RegisterForEvent({
         router.push("/dashboard");
       }
     } catch (err: any) {
+      setLoading(false);
       if (err.response) {
         const status = err.response.status;
         if (status === 420) {
@@ -195,6 +209,7 @@ export default function RegisterForEvent({
           setError(data.error || data.message || "Unknown error occurred.");
         }
       } else {
+        setLoading(false);
         setError(err.message || "Network error occurred.");
       }
     }
@@ -295,8 +310,9 @@ export default function RegisterForEvent({
               <button
                 type="submit"
                 className="rounded bg-purple-600 px-4 py-2 font-semibold text-white hover:bg-purple-700 cursor-pointer"
+                disabled={loading}
               >
-                Submit
+                {loading ? "Wait..." : "Submit"}
               </button>
             </form>
           </div>

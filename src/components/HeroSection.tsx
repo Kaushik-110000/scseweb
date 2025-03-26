@@ -28,7 +28,7 @@ export default function HeroSection() {
           >
             Society of Computer Science and Engineering
           </h1>
-          <p className="text-lg md:text-xl w-2/3">Solve | Develop | Deploy</p>
+          <p className="text-lg md:text-xl w-2/3">Code | Create | Conquer</p>
         </motion.div>
 
         {/* Logo Fade Animation */}
@@ -40,11 +40,11 @@ export default function HeroSection() {
           viewport={{ once: false, amount: 0.2 }}
         >
           <Image
-            src="/SCSElogo.svg"
+            src="/logo.png"
             alt="SCSE Logo"
-            width={300} 
-            height={300}
-            className="object-contain"
+            width={390}
+            height={390}
+            className="object-contain bg-black/30 rounded-full"
           />
         </motion.div>
       </div>

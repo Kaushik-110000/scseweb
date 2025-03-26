@@ -173,7 +173,7 @@ export default function RegisterEventPage() {
                   </svg>
                   <span>
                     <strong className="text-green-300">
-                      Registration Fees:
+                      Team registration Fees:
                     </strong>{" "}
                     ₹{eventData.regFees}
                     <span className="text-sm text-gray-400 block">

@@ -224,7 +224,7 @@ export default function ContactPage() {
           className="max-w-7xl mx-auto"
         >
           <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+            <h1 className="text-5xl md:text-7xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
               Contact Us
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -236,7 +236,7 @@ export default function ContactPage() {
           {/* Team Members */}
           <div className="mb-16">
             <h2 className="text-3xl font-bold mb-10 text-center">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                 Contact For Queries
               </span>
             </h2>
@@ -317,7 +317,7 @@ export default function ContactPage() {
             className="bg-black/60 backdrop-blur-md p-8 rounded-2xl border border-purple-500/20 shadow-lg shadow-purple-500/10 mb-16"
           >
             <h2 className="text-3xl font-bold mb-6 text-center">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                 Send Us Your Feedback
               </span>
             </h2>
@@ -449,7 +449,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="cursor-pointer flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-3 px-8 rounded-xl transition-all transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg shadow-purple-500/20"
+                  className="cursor-pointer flex items-center justify-center gap-2 bg-gradient-to-r from-blue-400 to-purple-500 hover:from-blue-700 hover:to-purple-800 text-white font-medium py-3 px-8 rounded-xl transition-all transform hover:scale-[1.02] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg shadow-purple-500/20"
                 >
                   {isSubmitting ? (
                     <>
@@ -491,14 +491,14 @@ export default function ContactPage() {
             className="bg-black/60 backdrop-blur-md p-8 rounded-2xl border border-purple-500/20 shadow-lg shadow-purple-500/10 mb-16"
           >
             <h2 className="text-3xl font-bold mb-6 text-center">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                 Reach us
               </span>
             </h2>
 
             <div className="grid md:grid-cols-3 gap-8 overflow-auto flex items-center justify-center">
               <div className="flex flex-col items-center text-center p-4 rounded-xl bg-white/5 backdrop-blur-sm">
-                <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-full mb-4">
+                <div className="bg-gradient-to-r from-blue-500 to-purple-700 p-4 rounded-full mb-4">
                   <Mail className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Email Us</h3>
@@ -523,7 +523,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex flex-col items-center text-center p-4 rounded-xl bg-white/5 backdrop-blur-sm">
-                <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-full mb-4">
+                <div className="bg-gradient-to-r from-blue-500 to-purple-700 p-4 rounded-full mb-4">
                   <Phone className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Call Us</h3>
@@ -548,7 +548,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex flex-col items-center text-center p-4 rounded-xl bg-white/5 backdrop-blur-sm">
-                <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-4 rounded-full mb-4">
+                <div className="bg-gradient-to-r from-blue-500 to-purple-700 p-4 rounded-full mb-4">
                   <MapPin className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Find Us</h3>
@@ -593,7 +593,7 @@ export default function ContactPage() {
             className="bg-black/60 backdrop-blur-md p-8 rounded-2xl border border-purple-500/20 shadow-lg shadow-purple-500/10"
           >
             <h2 className="text-3xl font-bold mb-6 text-center">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
                 Other Details
               </span>
             </h2>

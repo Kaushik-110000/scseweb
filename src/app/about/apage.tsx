@@ -143,7 +143,7 @@ export default function Page() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl  font-bold text-center mt-10 mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400"
+            className="text-5xl  font-bold text-center mt-10 mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400"
           >
             About <span className="text-white">US</span>
           </motion.h1>
@@ -162,7 +162,7 @@ export default function Page() {
               className="relative w-full md:w-1/3 h-60 mb-6 md:mb-0"
             >
               <Image
-                src="/SCSElogo.svg"
+                src="/logo.png"
                 alt="S.C.S.E. Logo"
                 fill
                 className="object-contain rounded-lg"
