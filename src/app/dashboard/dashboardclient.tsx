@@ -341,7 +341,16 @@ function Dashboard() {
                 {userData?.email ? (
                   !userData?.isPrime ? (
                     <div className="flex-1 justify-center align-middle ">
-                      <RegistrationFeesButton email={userData.email} />
+                      {!userData?.isNitian ? (
+                        <RegistrationFeesButton email={userData.email} />
+                      ) : (
+                        <button
+                          onClick={() => router.push(`/payreg`)}
+                          className="w-full mb-2 bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white font-semibold py-3 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20 border border-purple-500/30 mt-5"
+                        >
+                          Pay Registration Fees
+                        </button>
+                      )}
                     </div>
                   ) : (
                     <p className="text-purple-400 text-center mb-6">

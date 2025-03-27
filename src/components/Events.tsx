@@ -50,9 +50,9 @@ export default function Events() {
     <>
       <div className="relative min-h-screen mb-15 flex flex-col items-center px-6  text-white">
         <h2
-          className={`text-center text-3xl md:text-6xl font-bold mb-20 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 ${dancingScript.className}`}
+          className={`text-center text-5xl md:text-6xl font-bold mb-20 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 ${dancingScript.className} mt-20 md:mt-0`}
         >
-          Events
+          Xavenir
         </h2>
         <AnimatedTestimonials testimonials={events} />
         <Link href={"/events"}>
