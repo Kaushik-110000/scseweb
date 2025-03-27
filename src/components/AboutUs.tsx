@@ -27,21 +27,19 @@ function AboutUs() {
         </h2>
         {/* Embedded YouTube Video & Content */}
         <div className="flex flex-col md:flex-row items-center justify-center md:space-x-10 w-full">
-          {/* Video Section (Left) */}
-          <div className="w-full md:w-1/3 flex justify-center items-center">
-            <div className="w-full max-w-lg md:max-w-xl lg:max-w-2xl h-[315px] overflow-hidden rounded-xl shadow-lg">
-              <iframe
-                width="460"
-                height="315"
+    {/* Video Section (Left) */}
+    <div className="w-full md:w-1/3 flex justify-center items-center">
+        <div className="w-full max-w-sm sm:max-w-md md:max-w-xl lg:max-w-2xl h-[250px] sm:h-[300px] md:h-[315px] overflow-hidden rounded-xl shadow-lg">
+            <iframe
                 src="https://www.youtube.com/embed/k9WnfHcsCB4?si=QYcTKhPB5O5cXOdS"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
-                className="border-none"
-              ></iframe>
-            </div>
-          </div>
+                className="w-full h-full border-none"
+            ></iframe>
+        </div>
+    </div>
 
           {/* Text Content (Right) */}
           <div className="w-full md:w-1/2 text-center md:text-left flex flex-col items-center justify-center md:items-start">
