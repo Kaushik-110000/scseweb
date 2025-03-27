@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
     const uploadPromises: Promise<void>[] = [];
 
     bb.on("file", (fieldname, fileStream, fileInfo) => {
-      let fileBuffer: Buffer[] = [];
+      const fileBuffer: Buffer[] = [];
 
       fileStream.on("data", (chunk: Buffer) => {
         fileBuffer.push(chunk);
