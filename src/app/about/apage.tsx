@@ -16,7 +16,7 @@ const professors = [
     image: "/images/danishalisir.png",
   },
   {
-    name: "Jitesh Pradhan",
+    name: "Dr. Jitesh Pradhan",
     role: " Prof. In-Charge",
     image: "/images/jiteshSir.png",
   },

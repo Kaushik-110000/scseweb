@@ -173,11 +173,11 @@ export default function RegisterEventPage() {
                   </svg>
                   <span>
                     <strong className="text-green-300">
-                      Team registration Fees:
+                      All members must be prime
                     </strong>{" "}
-                    ₹{eventData.regFees}
+                    {/* ₹{eventData.regFees} */}
                     <span className="text-sm text-gray-400 block">
-                      (Pay if not a prime member)
+                      (Go to dashboard and get your prime)
                     </span>
                   </span>
                 </div>
@@ -229,6 +229,7 @@ export default function RegisterEventPage() {
                 eventName={eventData.name}
                 maxPart={eventData.maxPart}
                 minPart={eventData.minPart}
+                regFees={eventData.regFees}
               />
             </div>
           </div>

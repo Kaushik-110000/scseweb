@@ -28,32 +28,43 @@ export async function POST(req: NextRequest) {
     }
 
     // 2) For each member, ensure user exists
-    let allPrime = true; // We'll assume all are prime until proven otherwise
+    let allPrime = true;
+    let allCSE = true;
+    let allNitian = true;
+
     for (const memberId of members) {
       const user = await User.findOne({ userID: memberId });
+      console.log(user);
       if (!user) {
         return NextResponse.json(
           { error: `Member not found in DB: ${memberId}` },
           { status: 404 }
         );
       }
-
-
-
-      // 3) Check if user is prime
       if (!user.isPrime) {
         allPrime = false;
       }
+      if (!user.isFromCse) {
+        allCSE = false;
+      }
+      if (!user.isNitian) {
+        allNitian = false;
+      }
     }
 
-    // 4) If not all prime, return 420
-    if (!allPrime) {
+    if (!allPrime && allNitian && !allCSE) {
       return NextResponse.json(
-        { error: "All members are not Prime , pay for registration" },
+        { error: "All members are not Prime , pay for registration below" },
         { status: 420 }
       );
     }
 
+    if (!allPrime) {
+      return NextResponse.json(
+        { error: "All members are not Prime , register as prime" },
+        { status: 400 }
+      );
+    }
     const newRegistration = new EventRegistration({
       teamName,
       eventName,

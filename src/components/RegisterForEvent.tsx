@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/navigation";
 import Modal from "@/components/Modal";
+
 interface RegisterForEventProps {
   eventName: string; // e.g. "Hackathon"
   maxPart: number; // e.g. 5
   minPart: number; // e.g. 2
+  regFees: number;
 }
 
-// Define the shape of your API response (for errors, success, etc.)
 interface ApiResponse {
   error?: string;
   message?: string;
@@ -27,21 +28,38 @@ const loadRazorpayScript = () => {
 
 export default function RegisterForEvent({
   eventName,
+  regFees,
   maxPart,
   minPart,
 }: RegisterForEventProps) {
+  const router = useRouter();
+
+  // Existing states
+  const [payer, setPayer] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState(""); // Using empty string instead of null
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [participants, setParticipants] = useState<string[]>(
     Array(minPart).fill("")
   );
+  const [teamName, setTeamName] = useState("");
 
+  // Modal states
   const [modalOpen, setModalOpen] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [modalMessage, setModalMessage] = useState("");
   const [modalType, setModalType] = useState<"success" | "error">("success");
 
+  // New states for image upload
+  const [image, setImage] = useState<File | null>(null);
+  const [imageUrl, setImageUrl] = useState("");
+
+  // New states for transaction IDs
+  const [transactionId1, setTransactionId1] = useState("");
+  const [transactionId2, setTransactionId2] = useState("");
+  const [transactionId3, setTransactionId3] = useState("");
+
+  // Helper to show/hide modal
   const showModal = (
     title: string,
     message: string,
@@ -52,30 +70,22 @@ export default function RegisterForEvent({
     setModalType(type);
     setModalOpen(true);
   };
-
   const handleCloseModal = () => setModalOpen(false);
 
-  // A required teamName field
-  const [teamName, setTeamName] = useState("");
-  const router = useRouter();
-  // Open the overlay
+  // Overlay open/close
   const handleOpenOverlay = () => {
     setIsOverlayOpen(true);
   };
-
-  // Close the overlay
   const handleCloseOverlay = () => {
     setIsOverlayOpen(false);
   };
 
-  // Add a new participant field (up to maxPart)
+  // Participant fields
   const handleAddParticipant = () => {
     if (participants.length < maxPart) {
       setParticipants((prev) => [...prev, ""]);
     }
   };
-
-  // Remove a participant field if we're above minPart
   const handleRemoveParticipant = (index: number) => {
     if (participants.length > minPart) {
       setParticipants((prev) => {
@@ -85,15 +95,13 @@ export default function RegisterForEvent({
       });
     }
   };
-
-  // Update a participant’s SCSE ID
   const handleParticipantChange = (index: number, value: string) => {
     const updated = [...participants];
     updated[index] = value;
     setParticipants(updated);
   };
 
-  //code to handle payments starts here
+  // Payment flow
   const handlePayment = async () => {
     setLoading(true);
     try {
@@ -105,7 +113,6 @@ export default function RegisterForEvent({
       if (!data.success) {
         setLoading(false);
         alert("Failed to create order: " + data.message);
-        // showModal("Error", "Failed to create order: " + data.message, "error");
         setError("Please try later");
         return;
       }
@@ -118,11 +125,6 @@ export default function RegisterForEvent({
         description: "Test Transaction",
         order_id: order.id,
         handler: async function (response: any) {
-          // showModal(
-          //   "Success",
-          //   "Payment successful! See your registration in dashboard",
-          //   "success"
-          // );
           alert("Payment successful! See your registration in dashboard");
           router.push("/dashboard");
           console.log(response);
@@ -154,20 +156,16 @@ export default function RegisterForEvent({
     } catch (error) {
       setLoading(false);
       console.error("Payment Error:", error);
-      // showModal("Error", "Something went wrong. Try later", "error");
       alert("Something went wrong. Try later");
     }
   };
 
-  //code to handle payments ends here
-
-  // Submit form
+  // Main form submit
   const handleSubmit = async (e: React.FormEvent) => {
     setLoading(true);
     e.preventDefault();
-    // Check if teamName is empty
+
     if (!teamName.trim()) {
-      // showModal("Error", "Please enter a team name.", "error");
       setLoading(false);
       alert("Please enter a team name.");
       return;
@@ -200,10 +198,12 @@ export default function RegisterForEvent({
       setLoading(false);
       if (err.response) {
         const status = err.response.status;
+
         if (status === 420) {
           const data: ApiResponse = err.response.data;
           setError(data.error || data.message || "Paisa dena hoga bhai.");
-          handlePayment();
+          // If payment is required, set payer to true
+          setPayer(true);
         } else {
           const data: ApiResponse = err.response.data;
           setError(data.error || data.message || "Unknown error occurred.");
@@ -215,6 +215,62 @@ export default function RegisterForEvent({
     }
   };
 
+  // ======== NEW FUNCTIONS FOR IMAGE UPLOAD & NON-PRIME SUBMISSION ========
+  const handleImageUpload = async () => {
+    setError("");
+    if (!image) {
+      setError("Please select an image to upload.");
+      return;
+    }
+    setLoading(true);
+    const data = new FormData();
+    data.append("file", image);
+    try {
+      const response = await axios.post(`/api/cloudinary/upload`, data);
+      setImageUrl(response.data.uploads.file.secure_url);
+    } catch (err) {
+      console.error("Image upload failed:", err);
+      setError("Image upload failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleNonPrimeNitianSubmit = async () => {
+    // Log all details including transaction IDs
+    console.log("Event Name:", eventName);
+    console.log("Team Name:", teamName);
+    console.log("Participants:", participants);
+    console.log("Image URL:", imageUrl);
+    console.log("Transaction ID 1 (required):", transactionId1);
+    console.log("Transaction ID 2 (optional):", transactionId2);
+    console.log("Transaction ID 3 (optional):", transactionId3);
+
+    // Prepare the data to send to the API endpoint
+    const requestData = {
+      eventName,
+      teamName,
+      members: participants,
+      paymentProof: imageUrl,
+      transactionId1,
+      transactionId2,
+      transactionId3,
+    };
+
+    try {
+      const response = await axios.post(
+        "/api/payAndRegisterForEvent",
+        requestData
+      );
+      alert("As we will verify, you will se it in dashboard");
+      router.push("/events");
+    } catch (error) {
+      console.error("Registration failed:", error);
+    }
+  };
+
+  // ======================================================================
+
   return (
     <div>
       <button
@@ -225,8 +281,8 @@ export default function RegisterForEvent({
       </button>
 
       {isOverlayOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4">
-          <div className=" rounded-lg shadow-lg w-full max-w-lg max-h-[90vh] overflow-y-auto p-6 relative">
+        <div className="fixed inset-0  z-50 flex flex-wrap md:flex-nowrap items-center justify-center bg-black/90 p-8">
+          <div className="rounded-lg shadow-lg w-full max-w-lg max-h-[90vh] overflow-y-auto p-6 relative">
             <button
               onClick={handleCloseOverlay}
               className="hidden md:inline-block absolute right-4 top-4 text-red-500 hover:text-red-700 cursor-pointer"
@@ -242,7 +298,6 @@ export default function RegisterForEvent({
 
             <h2 className="mb-4 text-xl font-bold">Register for {eventName}</h2>
 
-            {/* Error Message Display */}
             {error && (
               <p className="mb-4 rounded bg-red-100 p-2 text-red-600">
                 {error}
@@ -250,7 +305,6 @@ export default function RegisterForEvent({
             )}
 
             <form onSubmit={handleSubmit}>
-              {/* Team Name Field */}
               <div className="mb-4">
                 <label className="mb-1 block font-medium">
                   Team Name (Required):
@@ -265,11 +319,10 @@ export default function RegisterForEvent({
                 />
               </div>
 
-              {/* Participants Fields */}
               {participants.map((value, i) => (
                 <div key={i} className="mb-4">
                   <label className="mb-1 block font-medium">
-                    Participant {i + 1} (SCSE-xxxxxxx): Get ID from dashboard
+                    Participant {i + 1} (SCSE-xxxxxxx)
                   </label>
                   <div className="flex gap-2">
                     <input
@@ -282,7 +335,6 @@ export default function RegisterForEvent({
                       }
                       required
                     />
-                    {/* Remove participant button (only if above minPart) */}
                     {participants.length > minPart && (
                       <button
                         type="button"
@@ -296,7 +348,6 @@ export default function RegisterForEvent({
                 </div>
               ))}
 
-              {/* Add Participant Button */}
               {participants.length < maxPart && (
                 <button
                   type="button"
@@ -312,10 +363,72 @@ export default function RegisterForEvent({
                 className="rounded bg-purple-600 px-4 py-2 font-semibold text-white hover:bg-purple-700 cursor-pointer"
                 disabled={loading}
               >
-                {loading ? "Wait..." : "Submit"}
+                {loading ? "Wait..." : "Register"}
               </button>
             </form>
           </div>
+
+          {/* 
+            When `payer` is true, show the extra section for uploading an image,
+            transaction inputs, and a final submit button.
+          */}
+          {payer && (
+            <div className="flex flex-col items-center gap-4 mt-4">
+              <img src="/scseqr.png" alt="SCSE QR" className="h-60 w-60" />
+              <p>Pay ₹{regFees}</p>
+              {error && <p className="text-red-500">{error}</p>}
+
+              <input
+                type="file"
+                onChange={(e) => {
+                  if (e.target.files && e.target.files.length > 0) {
+                    setImage(e.target.files[0]);
+                  }
+                }}
+              />
+
+              <button
+                onClick={handleImageUpload}
+                className="rounded bg-yellow-600 px-4 py-2 font-semibold text-white hover:bg-yellow-700 cursor-pointer"
+                disabled={loading}
+              >
+                {loading ? "Uploading..." : imageUrl ? "Uploaded" : "Upload"}
+              </button>
+
+              {/* Transaction ID inputs */}
+              <div className="w-full flex flex-col gap-2">
+                <input
+                  type="text"
+                  placeholder="Transaction ID 1 (Required)"
+                  className="w-full rounded border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  value={transactionId1}
+                  onChange={(e) => setTransactionId1(e.target.value)}
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Transaction ID 2 (Optional)"
+                  className="w-full rounded border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  value={transactionId2}
+                  onChange={(e) => setTransactionId2(e.target.value)}
+                />
+                <input
+                  type="text"
+                  placeholder="Transaction ID 3 (Optional)"
+                  className="w-full rounded border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  value={transactionId3}
+                  onChange={(e) => setTransactionId3(e.target.value)}
+                />
+              </div>
+
+              <button
+                onClick={handleNonPrimeNitianSubmit}
+                className="rounded bg-indigo-600 px-4 py-2 font-semibold text-white hover:bg-indigo-700 cursor-pointer"
+              >
+                Final Submit
+              </button>
+            </div>
+          )}
         </div>
       )}
       <Modal
