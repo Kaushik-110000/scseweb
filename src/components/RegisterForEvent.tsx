@@ -97,7 +97,7 @@ export default function RegisterForEvent({
   };
   const handleParticipantChange = (index: number, value: string) => {
     const updated = [...participants];
-    updated[index] = value;
+    updated[index] = value.trim();
     setParticipants(updated);
   };
 
