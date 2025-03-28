@@ -223,7 +223,7 @@ export default function RegisterEventPage() {
                     Important Details
                   </h3>
                   <p className="text-gray-100">
-                    This single event is open exclusively to{" "}
+                    If you want to register in single event only, it is open for{" "}
                     <span className="text-red-500">non-CSE</span> +{" "}
                     <span className="text-green-500">NITian</span> students at a
                     team registration fee of{" "}
@@ -231,7 +231,9 @@ export default function RegisterEventPage() {
                     . If you meet the eligibility criteria, you’ll automatically
                     receive a QR code upon registration.
                   </p>
-
+                  <p className="text-gray-100 p-1">
+                    For all other cases you must be a prime member
+                  </p>
                   <h3 className="text-blue-400 mt-3 font-semibold mb-2 flex items-center gap-2">
                     <svg
                       className="w-5 h-5"
