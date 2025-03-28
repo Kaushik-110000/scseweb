@@ -20,11 +20,11 @@ const professors = [
     role: " Prof. In-Charge",
     image: "/images/jiteshSir.png",
   },
-  // {
-  //   name: "Dinesh Kumar",
-  //   role: "Professor",
-  //   image: "/images/dineshSir.jpg", 
-  // },
+  {
+    name: "Dr. Dilip Kumar Shaw",
+    role: "Associate Professor",
+    image: "/images/dkshawsir.jpg", 
+  },
   // {
   //   name: "Koushlendra Kumar Singh",
   //   role: "Assistant Professor",
@@ -306,7 +306,7 @@ export default function Page() {
 
             {/* Centered Grid */}
             <div className="flex justify-center items-center">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-6xl ">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl ">
                 {professors.map((professor, index) => (
                   <motion.div
                     key={professor.name}
