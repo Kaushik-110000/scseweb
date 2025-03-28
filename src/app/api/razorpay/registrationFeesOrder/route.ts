@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       process.env.JWT_SECRET!
     ) as MyTokenPayload;
     const response = NextResponse.json({ data: decoded }, { status: 200 });
-    let amount = 900;
+    const amount = 900;
     if (!response) {
       const response = NextResponse.json(
         { error: "Login token missing, Please login" },
