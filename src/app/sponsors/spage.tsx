@@ -60,11 +60,17 @@ export default function Sponsors() {
           </h1>
 
           {/* Subtitle with border animation */}
-          <div className="subtitle-container">
-            <h2 className="subtitle-text text-xl md:text-2xl font-medium text-gray-300">
-              Be Our Sponsors
-            </h2>
-          </div>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdkEkY0yj302d18rz_5cErjFz17fEtl7TNgL4GkBEnoswHU3w/viewform"
+            target="_blank"
+          >
+            <div className="subtitle-container">
+              <h2 className="subtitle-text text-xl md:text-2xl font-medium text-gray-300">
+                {" "}
+                Be Our Sponsors
+              </h2>
+            </div>
+          </a>
 
           {/* Main description with gradient hover effect */}
           <p className="inner-text max-w-3xl text-center text-lg text-gray-300 leading-relaxed">

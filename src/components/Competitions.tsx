@@ -18,90 +18,97 @@ const dancingScript = Dancing_Script({
 
 const comps = [
   {
-    title: "Hackathon 2025",
+    title: "Scavenger Hunt",
     description:
-      "A 24-hour coding marathon where participants collaborate to create innovative solutions to real-world problems using technology.",
-    prize: "₹50,000",
+      "A fast-paced hunt where participants decode clues to uncover hidden tech treasures.\nUnleash your inner detective!",
+    prize: "₹5000"
   },
   {
-    title: "AI Challenge",
+    title: "Paper Dance",
     description:
-      "Solve real-world AI problems by building intelligent models that can recognize patterns, make predictions, and improve automation.",
-    prize: "₹30,000",
+      "Show off your moves in a fun contest with your chosen partner on the dance floor.\nDance like there's no tomorrow!",
+    prize: "₹3000"
   },
   {
-    title: "CTF Cybersecurity",
+    title: "AI-ML Challenge",
     description:
-      "A thrilling Capture the Flag event where participants showcase their cybersecurity skills in ethical hacking, cryptography, and forensics.",
-    prize: "₹25,000",
+      "Develop an innovative AI or ML solution to tackle a challenging problem.\nInnovate for a smarter tomorrow!",
+    prize: "₹8000"
   },
   {
-    title: "Game Dev Jam",
+    title: "Robotics Competition",
     description:
-      "A 48-hour game development challenge to create unique and engaging games from scratch, testing creativity and programming skills.",
-    prize: "₹40,000",
+      "Participate in a robotics duel by designing and programming your own bot.\nBuild the future, one robot at a time!",
+    prize: "₹3000"
   },
   {
-    title: "Blockchain Summit",
+    title: "Blind Coding",
     description:
-      "An insightful event exploring decentralized technologies, smart contracts, and the future of blockchain in industries.",
-    prize: "₹20,000",
+      "Demonstrate your coding prowess by writing functional code without visual aid.\nCode in the dark, shine in the light!",
+    prize: "₹3000"
   },
   {
-    title: "Tech Quiz",
+    title: "Ideathon",
     description:
-      "A high-energy competition testing technical knowledge in coding, hardware, AI, networking, and emerging technologies.",
-    prize: "₹10,000",
+      "Present your creative tech concept in a dynamic idea pitching event.\nYour idea, your revolution!",
+    prize: "₹3000"
   },
   {
-    title: "Tech Quiz",
+    title: "Movie Mania",
     description:
-      "A high-energy competition testing technical knowledge in coding, hardware, AI, networking, and emerging technologies.",
-    prize: "₹10,000",
+      "Enjoy a tech-centric film screening paired with an engaging trivia contest.\nLights, camera, tech action!",
+    prize: "₹2000"
   },
   {
-    title: "Hackathon 2025",
+    title: "Competitive Programming",
     description:
-      "A 24-hour coding marathon where participants collaborate to create innovative solutions to real-world problems using technology.",
-    prize: "₹50,000",
+      "Showcase your coding skills in a contest focused on solving challenging problems.\nCrack the code to victory!",
+    prize: "₹8000"
   },
   {
-    title: "AI Challenge",
+    title: "Hackathon",
     description:
-      "Solve real-world AI problems by building intelligent models that can recognize patterns, make predictions, and improve automation.",
-    prize: "₹30,000",
+      "Engage in an intense 24-hour coding sprint to build creative tech solutions.\nCode, create, conquer!",
+    prize: "₹15000"
   },
   {
-    title: "CTF Cybersecurity",
+    title: "Computer Fundamentals Quiz",
     description:
-      "A thrilling Capture the Flag event where participants showcase their cybersecurity skills in ethical hacking, cryptography, and forensics.",
-    prize: "₹25,000",
+      "Test your grasp on computer science basics in a challenging quiz event.\nThink fast, answer faster!",
+    prize: "₹8000"
   },
   {
-    title: "Game Dev Jam",
+    title: "Typing Speed Challenge",
     description:
-      "A 48-hour game development challenge to create unique and engaging games from scratch, testing creativity and programming skills.",
-    prize: "₹40,000",
+      "Compete to type swiftly and accurately in this fast-paced challenge.\nType like the wind!",
+    prize: "₹3000"
   },
   {
-    title: "Blockchain Summit",
+    title: "Tech Reel",
     description:
-      "An insightful event exploring decentralized technologies, smart contracts, and the future of blockchain in industries.",
-    prize: "₹20,000",
+      "Craft a brief and captivating video reel centered on technology trends.\nCapture the tech vibe!",
+    prize: "₹2000"
   },
   {
-    title: "Tech Quiz",
+    title: "PUBG or Valorant Tournament",
     description:
-      "A high-energy competition testing technical knowledge in coding, hardware, AI, networking, and emerging technologies.",
-    prize: "₹10,000",
+      "Battle it out in a competitive gaming tournament featuring PUBG and Valorant.\nGame on and dominate the field!",
+    prize: "₹3000"
   },
   {
-    title: "Tech Quiz",
+    title: "Frontend Design Contest",
     description:
-      "A high-energy competition testing technical knowledge in coding, hardware, AI, networking, and emerging technologies.",
-    prize: "₹10,000",
+      "Showcase your design skills by crafting an impressive frontend interface.\nDesign, create, inspire!",
+    prize: "₹4000"
   },
+  {
+    title: "Ethical Hacking Challenge",
+    description:
+      "Demonstrate your cybersecurity acumen in an ethical hacking competition.\nHack for good, secure the future!",
+    prize: "₹5000"
+  }
 ];
+
 
 export default function Competitions() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -242,7 +249,7 @@ export default function Competitions() {
           ))}
         </div>
       </div>
-      <Link href={"/about"}>
+      <Link href={"/events"}>
         <button className=" bg-gradient-to-r from-blue-400 to-purple-500 w-40 h-10 rounded-2xl mt-5 cursor-pointer">
           Know more
         </button>

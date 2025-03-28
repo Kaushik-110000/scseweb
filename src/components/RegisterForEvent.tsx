@@ -380,6 +380,7 @@ export default function RegisterForEvent({
 
               <input
                 type="file"
+                className="file:mr-4 file:py-2 file:px-4 file:rounded file:border file:border-white file:text-white file:bg-gradient-to-r file:from-blue-500 file:to-purple-600"
                 onChange={(e) => {
                   if (e.target.files && e.target.files.length > 0) {
                     setImage(e.target.files[0]);
@@ -389,10 +390,16 @@ export default function RegisterForEvent({
 
               <button
                 onClick={handleImageUpload}
-                className="rounded bg-yellow-600 px-4 py-2 font-semibold text-white hover:bg-yellow-700 cursor-pointer"
+                className="rounded bg-blue-500 px-4 py-2 font-semibold text-white hover:bg-blue-700 cursor-pointer"
                 disabled={loading}
               >
-                {loading ? "Uploading..." : imageUrl ? "Uploaded" : "Upload"}
+                {loading ? (
+                  "Uploading..."
+                ) : imageUrl ? (
+                  <span className="text-green-300">Uploaded</span>
+                ) : (
+                  "Upload"
+                )}
               </button>
 
               {/* Transaction ID inputs */}

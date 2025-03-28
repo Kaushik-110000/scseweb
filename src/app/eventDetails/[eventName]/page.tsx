@@ -201,6 +201,7 @@ export default function RegisterEventPage() {
                     </svg>
                     Event Rules
                   </h3>
+
                   <p className="text-gray-300">{eventData.rules}</p>
                 </div>
 
@@ -219,7 +220,33 @@ export default function RegisterEventPage() {
                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    Additional Details
+                    Important Details
+                  </h3>
+                  <p className="text-gray-100">
+                    This single event is open exclusively to{" "}
+                    <span className="text-red-500">non-CSE</span> +{" "}
+                    <span className="text-green-500">NITian</span> students at a
+                    team registration fee of{" "}
+                    <span className="text-green-500">₹{eventData.regFees}</span>
+                    . If you meet the eligibility criteria, you’ll automatically
+                    receive a QR code upon registration.
+                  </p>
+
+                  <h3 className="text-blue-400 mt-3 font-semibold mb-2 flex items-center gap-2">
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    Additional details
                   </h3>
                   <p className="text-gray-300">{eventData.more}</p>
                 </div>
