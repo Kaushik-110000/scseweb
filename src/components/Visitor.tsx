@@ -38,7 +38,7 @@ export default function VisitorCounter() {
   }, [count]); // Runs every time `count` changes (which happens only once after fetching)
 
   const animateCount = (start: number, end: number) => {
-    let current = start;
+    const current = start;
     const duration = 1000;
     const startTime = performance.now();
 
