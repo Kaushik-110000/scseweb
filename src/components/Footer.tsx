@@ -10,6 +10,8 @@ import {
   Mail,
   MapPin,
 } from "lucide-react";
+import VisitorCounter from "@/components/Visitor";
+
 
 export default function Page() {
   return (
@@ -219,7 +221,8 @@ export default function Page() {
 
           {/* Copyright Section */}
           <div className="border-t border-gray-800 mt-8 pt-6 text-center text-sm text-gray-400">
-            © 2025 TechFest. All rights reserved. | Designed by SCSE Web Team
+          <VisitorCounter />
+           <p> © 2025 TechFest. All rights reserved. | Designed by SCSE Web Team</p>
           </div>
         </div>
       </footer>
