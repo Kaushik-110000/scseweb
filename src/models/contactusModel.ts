@@ -7,28 +7,31 @@ export interface ContactUs extends Document {
   content: string;
 }
 
-const ContactUsSchema: Schema<ContactUs> = new Schema({
-  name: {
-    type: String,
-    required: [true, "Name is required "],
-  },
-  email: {
-    type: String,
-    required: [true, "Email is required"],
-  },
-  number: {
-    type: String,
-    required: [true, "Phone number is required"],
-    match: [/^\d{10}$/, "Phone number must be 10 digits"],
-  },
+const ContactUsSchema: Schema<ContactUs> = new Schema(
+  {
+    name: {
+      type: String,
+      required: [true, "Name is required "],
+    },
+    email: {
+      type: String,
+      required: [true, "Email is required"],
+    },
+    number: {
+      type: String,
+      required: [true, "Phone number is required"],
+      match: [/^\d{10}$/, "Phone number must be 10 digits"],
+    },
 
-  content: {
-    type: String,
-    required: [true, "Message content is required"],
-    trim: true,
-    minlength: [3, "Message must be at least 5 characters long"],
+    content: {
+      type: String,
+      required: [true, "Message content is required"],
+      trim: true,
+      minlength: [3, "Message must be at least 5 characters long"],
+    },
   },
-});
+  { timestamps: true }
+);
 
 const ContactUsModel =
   (mongoose.models.ContactUs as mongoose.Model<ContactUs>) ||
