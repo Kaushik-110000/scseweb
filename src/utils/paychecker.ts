@@ -1,6 +1,6 @@
 export const checkIsFromCse = (email: string) => {
   const isFromCse =
-    /^(?:[0-9]{4}ugcs[0-9]{3}|[0-9]{4}pgcsca[0-9]{3})@nitjsr\.ac\.in$/i.test(
+    /^[0-9]{4}(?:ugcs|pgcsca|pgcscs|pgcsds|pgcsis)[0-9]{3}@nitjsr\.ac\.in$/i.test(
       email
     );
 
