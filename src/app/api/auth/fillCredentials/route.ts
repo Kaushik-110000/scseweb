@@ -95,7 +95,10 @@ export async function POST(req: NextRequest) {
     const isNitian = email.endsWith("@nitjsr.ac.in");
 
     //change for PG,phd ,masters,etc
-    const isFromCse = /^[0-9]{4}ugcs[0-9]{3}@nitjsr\.ac\.in$/i.test(email);
+    const isFromCse =
+      /^(?:[0-9]{4}ugcs[0-9]{3}|[0-9]{4}pgcsca[0-9]{3})@nitjsr\.ac\.in$/i.test(
+        email
+      );
 
     const userID = generateUserID(req);
     const newUser = new User({
