@@ -13,7 +13,7 @@ export default function Events() {
       quote:
         "Xavenir is the premier tech fest of the CSE Department at NIT Jamshedpur. It unites the brightest tech minds for innovation and competition.",
       name: "Xavnier",
-      designation: "SCSE Fest - 2025",
+      designation: "18 - 20 April 2025",
       src: "/xav.gif",
     },
     {
@@ -54,6 +54,7 @@ export default function Events() {
         >
           Xavenir
         </h2>
+        <h3 className="text-xl md:text-2xl font-semibold mb-10">18-20 April</h3>
         <AnimatedTestimonials testimonials={events} />
         <Link href={"/about"}>
           <button className=" bg-gradient-to-r from-blue-400 to-purple-500 w-40 h-10 rounded-2xl mt-5 cursor-pointer">
