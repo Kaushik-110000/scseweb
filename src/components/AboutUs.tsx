@@ -31,7 +31,7 @@ function AboutUs() {
     <div className="w-full md:w-1/3 flex justify-center items-center">
         <div className="w-full max-w-sm sm:max-w-md md:max-w-xl lg:max-w-2xl h-[250px] sm:h-[300px] md:h-[315px] overflow-hidden rounded-xl shadow-lg">
             <iframe
-                src="https://www.youtube.com/embed/RYYrnabErCc?si=E31cqiVplXr4n64k"
+                src="https://www.youtube.com/embed/rQUT7i4xXXY?si=4YchahRYMsm-f80R"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"

@@ -12,8 +12,8 @@ export default function Events() {
     {
       quote:
         "Xavenir is the premier tech fest of the CSE Department at NIT Jamshedpur. It unites the brightest tech minds for innovation and competition.",
-      name: "Xavnier",
-      designation: "18 - 20 April 2025",
+      name: "Xavenir",
+      designation: "SCSE Fest - 2025",
       src: "/xav.gif",
     },
     {
