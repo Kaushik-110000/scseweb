@@ -230,7 +230,7 @@ export default function Page() {
         more: "Bring your own laptops",
         rules: "Solo participation event",
         minPart: 1,
-        maxPart: 3,
+        maxPart: 1,
       },
       {
         _id: "67e1b591b1e72e5f2f25d73f",
