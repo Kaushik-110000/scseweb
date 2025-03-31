@@ -241,7 +241,7 @@ export default function Page() {
         regFees: 515,
         more: "Multiple-choice questions covering OS, DBMS, and networks.",
         rules: "Solo event. No external help allowed.",
-      
+        minPart: 1,
         maxPart: 1,
       },
       {
