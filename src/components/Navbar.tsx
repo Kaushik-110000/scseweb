@@ -92,8 +92,21 @@ export default function Navbar() {
       >
         <div className="flex w-screen flex-row justify-between">
           {/* LOGO */}
-          <h1 className="text-2xl font-bold tracking-wider">SCSE</h1>
-
+          {pathname === "/" || pathname === "/home" ? (
+            <Link href={"/home"}>
+              <h1 className="text-2xl font-bold tracking-wider">SCSE</h1>
+            </Link>
+          ) : (
+            <Link href={"/home"}>
+              <Image
+                src={"/logo.png"}
+                alt="SCSE"
+                height={30}
+                width={30}
+                className="ml-14"
+              ></Image>
+            </Link>
+          )}
           {/* DESKTOP LINKS */}
           <div className="hidden lg:flex space-x-8">
             {navItems.map(({ href, label, Icon }) => {
