@@ -103,7 +103,7 @@ export default function Navbar() {
                 alt="SCSE"
                 height={30}
                 width={30}
-                className="ml-14"
+                className="ml-4"
               ></Image>
             </Link>
           )}
