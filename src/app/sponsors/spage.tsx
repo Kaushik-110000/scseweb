@@ -61,7 +61,7 @@ export default function Sponsors() {
 
           {/* Subtitle with border animation */}
           <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdkEkY0yj302d18rz_5cErjFz17fEtl7TNgL4GkBEnoswHU3w/viewform"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSclbHWh3OGFRJP31Zic5KFtvQ1QSQ-wOyAnJLbhBM3huR39hw/viewform?usp=header"
             target="_blank"
           >
             <div className="subtitle-container">
@@ -141,7 +141,7 @@ export default function Sponsors() {
               your details here so that we may know you
             </p>
             <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdkEkY0yj302d18rz_5cErjFz17fEtl7TNgL4GkBEnoswHU3w/viewform?usp=header"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSclbHWh3OGFRJP31Zic5KFtvQ1QSQ-wOyAnJLbhBM3huR39hw/viewform?usp=header"
               className="contact-button"
               target="_blank"
             >
