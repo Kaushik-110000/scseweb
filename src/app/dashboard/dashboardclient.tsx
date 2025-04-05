@@ -167,6 +167,19 @@ function Dashboard() {
                           </li>
                           <li>Goodies for everyone</li>
                         </ul>
+                        <a
+                          href="https://chat.whatsapp.com/IHwesDcS08RAVDGHPUb0bp"
+                          target="_blank"
+                        >
+                          <button className="mt-4 rounded flex bg-green-500 px-4 py-2 font-semibold text-white hover:bg-green-700 cursor-pointer">
+                            <p className="mr-2">Join Whatsapp Group </p>
+                            <img
+                              src="/whatsapp.svg"
+                              alt="WhatsApp icon"
+                              className="w-5 h-5"
+                            />
+                          </button>
+                        </a>
                       </>
                     ) : (
                       <>
