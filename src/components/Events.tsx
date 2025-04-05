@@ -54,9 +54,15 @@ export default function Events() {
         >
           Xavenir
         </h2>
-        <h3 className="inline-block text-xl md:text-2xl font-bold italic mb-10 text-white px-6 py-3 rounded-full bg-gradient-to-r from-pink-400 via-red-500 to-red-600 shadow-xl transform transition duration-300 hover:scale-105">
-  <span style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>🔥</span> 18-20 April <span style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>🔥</span>
-</h3>
+        <h3 className="inline-block text-xl md:text-2xl font-bold italic mb-10 text-white px-6 py-3 rounded-full bg-gradient-to-r from-purple-400 via-blue-500 to-blue-800 shadow-xl transform transition duration-300 hover:scale-105">
+          <span style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
+            ✨
+          </span>{" "}
+          18-20 April{" "}
+          <span style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
+            ✨
+          </span>
+        </h3>
         <AnimatedTestimonials testimonials={events} />
         <Link href={"/about"}>
           <button className=" bg-gradient-to-r from-blue-400 to-purple-500 w-40 h-10 rounded-2xl mt-5 cursor-pointer">
