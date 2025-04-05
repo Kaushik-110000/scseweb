@@ -35,7 +35,7 @@ function Dashboard() {
   const router = useRouter();
   const [events, setEvents] = useState<any>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [pending, setPending] = useState(false);
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -66,6 +66,21 @@ function Dashboard() {
       fetchEventData();
     }
   }, [userData]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchPendingStatus = await axios.post("/api/pendingPays", {
+          email: userData?.email,
+        });
+        setPending(fetchPendingStatus.data.status);
+        console.log(fetchPendingStatus.data.status);
+      } catch (error) {
+        setPending(false);
+      }
+    };
+    fetchData();
+  });
 
   const handleLogOut = async () => {
     try {
@@ -163,12 +178,18 @@ function Dashboard() {
                           </li>
                           <li>Goodies for everyone</li>
                         </ul>
-                        <button
-                          className="mt-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-2 px-4 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20 cursor-pointer"
-                          onClick={handlePrimeMemberClick}
-                        >
-                          Get Prime Now
-                        </button>
+                        {pending ? (
+                          <h4 className="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
+                            Wait we will verify your payment soon !!
+                          </h4>
+                        ) : (
+                          <button
+                            className="mt-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-2 px-4 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20 cursor-pointer"
+                            onClick={handlePrimeMemberClick}
+                          >
+                            Get Prime Now
+                          </button>
+                        )}
                       </>
                     )}
                   </div>
