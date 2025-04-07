@@ -208,10 +208,10 @@ export default function Page() {
                       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                     </svg>
                     <a
-                      href="mailto:abhishekscsenitjsr@gmail.com"
+                      href="mailto:abhishekkumar89647@gmail.com"
                       className="hover:text-blue-400"
                     >
-                      abhishekscsenitjsr@gmail.com
+                      abhishekkumar89647@gmail.com
                     </a>
                   </div>
                 </div>
@@ -222,7 +222,7 @@ export default function Page() {
           {/* Copyright Section */}
           <div className="border-t border-gray-800 mt-8 pt-6 text-center text-sm text-gray-400">
           <VisitorCounter />
-           <p> © 2025 TechFest. All rights reserved. | Designed by SCSE Web Team</p>
+           <p> © 2025 Xavenir. All rights reserved. | Designed and Managed by SCSE Web Team</p>
           </div>
         </div>
       </footer>

@@ -64,7 +64,7 @@ const teamMembers = [
     image: "/images/abhishek.jpg",
     linkedin: "https://www.linkedin.com/in/abhishek-kaushik-836435282",
     phone: "+91 97986 87024",
-    email: "abhishekscsenitjsr@gmail.com",
+    email: "abhishekkumar89647@gmail.com",
     bio: "Facing issue in registration, you may contact him for any registration related issues, maybe PRIME registration or event registration .",
   },
   {
@@ -509,10 +509,10 @@ export default function ContactPage() {
                   amrishrock2002@gmail.com
                 </a>
                 <a
-                  href="mailto:abhishekscsenitjsr@gmail.com"
+                  href="mailto:abhishekkumar89647@gmail.com"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  abhishekscsenitjsr@gmail.com
+                  abhishekkumar89647@gmail.com
                 </a>
                 <a
                   href="mailto:harshitshrivastav2609@gmail.com"
