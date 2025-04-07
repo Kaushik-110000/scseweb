@@ -17,6 +17,7 @@ import {
   LogIn,
   UserPlus,
   LayoutDashboard,
+  MessageCircle,
 } from "lucide-react";
 
 export default function Navbar() {
@@ -72,6 +73,11 @@ export default function Navbar() {
     { href: "/gallery", label: "Gallery", Icon: ImageIcon },
     { href: "/sponsors", label: "Sponsors", Icon: WalletCards },
     { href: "/contact", label: "Contact", Icon: Mail },
+    {
+      href: "https://chat.whatsapp.com/IHwesDcS08RAVDGHPUb0bp",
+      label: "Whatsapp",
+      Icon: MessageCircle,
+    },
   ];
 
   return (
