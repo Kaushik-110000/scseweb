@@ -43,10 +43,17 @@ export default function RegisterEventPage() {
         setErrorMsg("Server error");
       } finally {
         setLoading(false);
+        // console.log(eventData?.more);
       }
     };
     fetchEvent();
   }, [eventName, router]);
+
+  // useEffect(() => {
+  //   if (eventData?.more) {
+  //     console.log("Updated HTML:", eventData.more);
+  //   }
+  // }, [eventData]);
 
   if (loading) {
     return (
@@ -340,9 +347,10 @@ export default function RegisterEventPage() {
                     <h3 className="text-lg md:text-xl font-semibold text-purple-400 mb-2">
                       📌 Additional Information
                     </h3>
-                    <p className="text-gray-300 text-sm md:text-base leading-relaxed">
-                      {eventData.more}
-                    </p>
+                    <div
+                      className="text-gray-300 leading-relaxed data-container"
+                      dangerouslySetInnerHTML={{ __html: eventData.more }}
+                    ></div>
                   </div>
                 )}
               </div>
@@ -354,7 +362,10 @@ export default function RegisterEventPage() {
                 minPart={eventData.minPart}
                 regFees={eventData.regFees}
               />
-              <a href="https://chat.whatsapp.com/IHwesDcS08RAVDGHPUb0bp" target="_blank">
+              <a
+                href="https://chat.whatsapp.com/IHwesDcS08RAVDGHPUb0bp"
+                target="_blank"
+              >
                 <button className="rounded flex bg-green-500 px-4 py-2 font-semibold text-white hover:bg-green-700 cursor-pointer">
                   <p className="mr-2">Join Whatsapp Group </p>
                   <img
