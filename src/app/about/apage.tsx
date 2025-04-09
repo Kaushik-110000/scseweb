@@ -6,7 +6,7 @@ import Footer from "../../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Mail, Phone, Linkedin } from "lucide-react";
-
+import OurMembers from "../../components/TeamInfo"
 
 
 const professors = [
@@ -358,7 +358,7 @@ export default function Page() {
               transition={{ duration: 0.8 }}
               className="text-5xl font-bold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400"
             >
-              Meet Our Team
+              Meet Our Core Team
             </motion.h2>
 
             <motion.p
@@ -521,6 +521,7 @@ export default function Page() {
             </div>
           </motion.div>
         </div>
+        <OurMembers/>
         <Footer />
       </div>
     </>
