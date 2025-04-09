@@ -58,7 +58,7 @@ export default function Events() {
           <span style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
             ✨
           </span>{" "}
-          18-20 April{" "}
+          26-27 April{" "}
           <span style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}>
             ✨
           </span>
