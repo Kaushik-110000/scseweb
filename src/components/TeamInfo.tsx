@@ -134,7 +134,7 @@ const OurMembers: React.FC = () => {
                 className="text-gray-300 text-lg mx-16 text-center mb-10"
             >
                 Meet the vibrant force behind SCSE – our passionate team members!
-                From budding developers to creative minds and strategic thinkers, this diverse crew brings energy, dedication, and fresh perspectives to every initiative. They're the driving spark behind our events, tech builds, designs, and outreach efforts. With their enthusiasm and teamwork, they turn ideas into impact and keep SCSE moving forward.
+                From budding developers to creative minds and strategic thinkers, this diverse crew brings energy, dedication, and fresh perspectives to every initiative. They are the driving spark behind our events, tech builds, designs, and outreach efforts. With their enthusiasm and teamwork, they turn ideas into impact and keep SCSE moving forward.
 
 
             </motion.p>
