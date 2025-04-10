@@ -560,7 +560,7 @@ export default function Page() {
       },
       {
         _id: "67e1b5e2b1e72e5f2f25d743",
-        name: "Pixel-Sync [Frontend]",
+        name: "Frontend Design Contest",
         description: "Design and build a stunning, sleek, user-friendly frontend UI.",
         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLT-uhLzmr9KkcyRgb1qTIBBXO7OZlzliPQA&s",
         prizepool: 4000,
