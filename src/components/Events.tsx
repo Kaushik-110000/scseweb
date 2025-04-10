@@ -28,7 +28,7 @@ export default function Events() {
       quote:
         "Pre Xavenir brings exciting workshops, tech talks, and mini-competitions to prepare you for the main event. Join us for this tech warm-up!",
       name: "Pre Xavenir",
-      designation: "18 - 19 April 2024",
+      designation: "18 - 19 April 2025",
       src: "/xav.gif",
     },
 
@@ -102,7 +102,7 @@ export default function Events() {
         {/* Pre Xavenir Card */}
         <div className="bg-gradient-to-br from-blue-900/80 to-purple-900/80 backdrop-blur-md p-5 rounded-lg shadow-xl border border-blue-500/30 w-full md:w-1/3 max-w-xs transform transition-all duration-300 hover:scale-105 z-10">
           <h3 className={`text-center text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-400 ${playfair.className}`}>Pre Xavenir</h3>
-          <p className="text-center font-bold text-white mt-2">18-19 April 2024</p>
+          <p className="text-center font-bold text-white mt-2">18-19 April 2025</p>
           <p className="text-center text-sm text-blue-200 mt-2">Fun Events & competitions</p>
         </div>
         
