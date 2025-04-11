@@ -499,7 +499,7 @@ export default function Page() {
         minPart: 1,
         maxPart: 3,
         category: "Pre-Xavenir",
-        date: "April 19"
+        date: "April 18"
       },
       {
         _id: "67e1b564b1e72e5f2f25d73d",
@@ -695,6 +695,7 @@ export default function Page() {
       });
 
   // Group events by category and date for section headers
+   const preXavenirEvents17 = events.filter(e => e.category === "Pre-Xavenir" && e.date === "April 18");
   const preXavenirEvents18 = events.filter(e => e.category === "Pre-Xavenir" && e.date === "April 19");
   const preXavenirEvents19 = events.filter(e => e.category === "Pre-Xavenir" && e.date === "April 20");
   const xavenirEvents26 = events.filter(e => e.category === "Xavenir" && e.date === "April 26");
@@ -782,6 +783,17 @@ export default function Page() {
           {/* Render by sections when "all" filter is active */}
           {selectedCategory === "all" && (
             <>
+                {preXavenirEvents17.length > 0 && (
+                <>
+                  <SectionHeader title="Pre-Xavenir Events (April 18)" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                    {preXavenirEvents17.map((event, index) => (
+                      <EventCard key={event._id} event={event} index={index} />
+                    ))}
+                  </div>
+                </>
+              )}
+              
               {/* Pre-Xavenir April 19 Section */}
               {preXavenirEvents18.length > 0 && (
                 <>
