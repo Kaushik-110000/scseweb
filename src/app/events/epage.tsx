@@ -510,7 +510,7 @@ export default function Page() {
         prizepool: 8000,
         regFees: 238,
         more: "Bring your own laptops",
-        rules: "Team participation event testing coding skills under pressure and time.",
+        rules: "Team participation event testing coding skills.",
         minPart: 1,
         maxPart: 3,
         category: "Xavenir",
@@ -568,7 +568,7 @@ export default function Page() {
         more: "Create a responsive web design within the given time.",
         rules: "No templates allowed. Must be coded from scratch.",
         minPart: 1,
-        maxPart: 2,
+        maxPart: 3,
         category: "Pre-Xavenir",
         date: "April 19"
       },
@@ -585,20 +585,6 @@ export default function Page() {
         maxPart: 2,
         category: "Xavenir",
         date: "April 26"
-      },
-      {
-        _id: "67e1b500b1e72e5f2f25d739",
-        name: "Robotics Competition",
-        description: "Compete in a robotics showdown.",
-        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj132lhN800TiyzPd_AwQ8Vmb11JIuQuCfvg&s",
-        prizepool: 3000,
-        regFees: 88,
-        more: "Design, build, and program robots to complete challenges.",
-        rules: "Teams of 3-5. Only self-built robots allowed.",
-        minPart: 3,
-        maxPart: 5,
-        category: "Pre-Xavenir",
-        date: "April 20"
       },
       {
         _id: "67e1b519b1e72e5f2f25d73a",
