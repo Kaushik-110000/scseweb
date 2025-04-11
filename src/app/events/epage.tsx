@@ -668,7 +668,7 @@ export default function Page() {
         minPart: 1,
         maxPart: 2,
         category: "Pre-Xavenir",
-        date: "April 19"
+        date: "April 18"
       },
     ];
     setEvents(a);
