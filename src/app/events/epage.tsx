@@ -7,7 +7,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Poppins } from "next/font/google";
 import styles from "./events.module.css"; // CSS Module for the SVG pattern background
-document.body.style.overflowY = "auto";
+
 interface Event {
   _id: string;
   name: string;
@@ -191,8 +191,8 @@ const CategoryButton = ({ label, active, onClick }: CategoryButtonProps) => {
   return (
     <motion.button
       className={`px-4 py-2 rounded-lg font-medium transition-all ${
-        active 
-          ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-700/30" 
+        active
+          ? "bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-700/30"
           : "bg-gray-800 text-gray-300 hover:bg-gray-700"
       }`}
       whileHover={{ scale: 1.05 }}
@@ -230,7 +230,8 @@ interface EventCardProps {
   event: Event;
   index: number;
 }
-const EventCard = ({ event, index }: EventCardProps) => {  return (
+const EventCard = ({ event, index }: EventCardProps) => {
+  return (
     <motion.div
       key={event._id}
       className="relative overflow-hidden rounded-2xl group"
@@ -404,9 +405,7 @@ const EventCard = ({ event, index }: EventCardProps) => {  return (
               transition={{ duration: 1, delay: index * 0.35 }}
             >
               <p className="text-gray-400 text-sm">
-                <span className="text-blue-400 font-semibold">
-                  Rules:
-                </span>{" "}
+                <span className="text-blue-400 font-semibold">Rules:</span>{" "}
                 {event.rules}
               </p>
             </motion.div>
@@ -485,7 +484,7 @@ export default function Page() {
         minPart: 2,
         maxPart: 4,
         category: "Xavenir",
-        date: "April 26"
+        date: "April 26",
       },
       {
         _id: "67e1b4e6b1e72e5f2f25d738",
@@ -499,7 +498,7 @@ export default function Page() {
         minPart: 1,
         maxPart: 3,
         category: "Pre-Xavenir",
-        date: "April 18"
+        date: "April 18",
       },
       {
         _id: "67e1b564b1e72e5f2f25d73d",
@@ -514,7 +513,7 @@ export default function Page() {
         minPart: 1,
         maxPart: 3,
         category: "Xavenir",
-        date: "April 27"
+        date: "April 27",
       },
       {
         _id: "67e1b591b1e72e5f2f25d73f",
@@ -528,12 +527,13 @@ export default function Page() {
         minPart: 1,
         maxPart: 2,
         category: "Pre-Xavenir",
-        date: "April 20"
+        date: "April 20",
       },
       {
         _id: "67e1b384b1e72e5f2f25d736",
         name: "Scavenger Hunt",
-        description: "SSteal, snatch, or borrow—anything goes in the scavenger hunt!",
+        description:
+          "SSteal, snatch, or borrow—anything goes in the scavenger hunt!",
         logo: "/events/scav.jpg",
         prizepool: 5000,
         regFees: 89,
@@ -542,7 +542,7 @@ export default function Page() {
         minPart: 2,
         maxPart: 5,
         category: "Pre-Xavenir",
-        date: "April 20"
+        date: "April 20",
       },
       {
         _id: "67e1b5f7b1e72e5f2f25d744",
@@ -556,12 +556,13 @@ export default function Page() {
         minPart: 1,
         maxPart: 3,
         category: "Xavenir",
-        date: "April 27"
+        date: "April 27",
       },
       {
         _id: "67e1b5e2b1e72e5f2f25d743",
         name: "Frontend Design Contest",
-        description: "Design and build a stunning, sleek, user-friendly frontend UI.",
+        description:
+          "Design and build a stunning, sleek, user-friendly frontend UI.",
         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLT-uhLzmr9KkcyRgb1qTIBBXO7OZlzliPQA&s",
         prizepool: 4000,
         regFees: 109,
@@ -570,12 +571,13 @@ export default function Page() {
         minPart: 1,
         maxPart: 3,
         category: "Pre-Xavenir",
-        date: "April 19"
+        date: "April 19",
       },
       {
         _id: "67e1b4cbb1e72e5f2f25d737",
         name: "Paper Dance",
-        description: "Dance close with your favorite person, paper beneath feet.",
+        description:
+          "Dance close with your favorite person, paper beneath feet.",
         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlAgwx7BjKanmlU8qPhhSr0u74QPrH37Jowg&s",
         prizepool: 3000,
         regFees: 49,
@@ -584,12 +586,13 @@ export default function Page() {
         minPart: 2,
         maxPart: 2,
         category: "Xavenir",
-        date: "April 26"
+        date: "April 26",
       },
       {
         _id: "67e1b519b1e72e5f2f25d73a",
         name: "Blind Coding",
-        description: "Code like your screen’s off—every line crafted with sharp precision.",
+        description:
+          "Code like your screen’s off—every line crafted with sharp precision.",
         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTynzRGBtbCw17MhAj9d0IZ-5MS8yynyFqLoQ&s",
         prizepool: 3000,
         regFees: 48,
@@ -598,21 +601,23 @@ export default function Page() {
         minPart: 1,
         maxPart: 1,
         category: "Xavenir",
-        date: "April 27"
+        date: "April 27",
       },
       {
         _id: "67e1b533b1e72e5f2f25d73b",
         name: "Ideathon",
-        description: "Pitch bold, innovative tech ideas that inspire real change.",
+        description:
+          "Pitch bold, innovative tech ideas that inspire real change.",
         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUyNEtIubKGa8qkW3deNol91O2jvvzBpOzKQ&s",
         prizepool: 3000,
         regFees: 45,
         more: "Present a startup or tech solution to judges.",
-        rules: "Teams of 1-4 can join; originality required, no plagiarism allowed.",
+        rules:
+          "Teams of 1-4 can join; originality required, no plagiarism allowed.",
         minPart: 1,
         maxPart: 4,
         category: "Pre-Xavenir",
-        date: "April 19"
+        date: "April 19",
       },
       {
         _id: "67e1b5a5b1e72e5f2f25d740",
@@ -626,7 +631,7 @@ export default function Page() {
         minPart: 1,
         maxPart: 1,
         category: "Xavenir",
-        date: "April 26"
+        date: "April 26",
       },
       {
         _id: "67e1b5d0b1e72e5f2f25d742",
@@ -640,7 +645,7 @@ export default function Page() {
         minPart: 4,
         maxPart: 5,
         category: "Xavenir",
-        date: "April 26"
+        date: "April 26",
       },
       {
         _id: "67e1b549b1e72e5f2f25d73c",
@@ -654,7 +659,7 @@ export default function Page() {
         minPart: 1,
         maxPart: 2,
         category: "Xavenir",
-        date: "April 27"
+        date: "April 27",
       },
       {
         _id: "67e1b5bbb1e72e5f2f25d741",
@@ -668,39 +673,56 @@ export default function Page() {
         minPart: 1,
         maxPart: 2,
         category: "Pre-Xavenir",
-        date: "April 18"
+        date: "April 18",
       },
     ];
     setEvents(a);
   };
 
   // Filter events based on selected category
-  const filteredEvents = selectedCategory === "all" 
-    ? events 
-    : events.filter(event => {
-        if (selectedCategory === "Pre-Xavenir") {
-          return event.category === "Pre-Xavenir";
-        } else if (selectedCategory === "Xavenir") {
-          return event.category === "Xavenir";
-        } else if (selectedCategory === "19April") {
-          return event.category === "Pre-Xavenir" && event.date === "April 19";
-        } else if (selectedCategory === "20April") {
-          return event.category === "Pre-Xavenir" && event.date === "April 20";
-        } else if (selectedCategory === "26April") {
-          return event.category === "Xavenir" && event.date === "April 26";
-        } else if (selectedCategory === "27April") {
-          return event.category === "Xavenir" && event.date === "April 27";
-        }
-        return true;
-      });
+  const filteredEvents =
+    selectedCategory === "all"
+      ? events
+      : events.filter((event) => {
+          if (selectedCategory === "Pre-Xavenir") {
+            return event.category === "Pre-Xavenir";
+          } else if (selectedCategory === "Xavenir") {
+            return event.category === "Xavenir";
+          } else if (selectedCategory === "19April") {
+            return (
+              event.category === "Pre-Xavenir" && event.date === "April 19"
+            );
+          } else if (selectedCategory === "20April") {
+            return (
+              event.category === "Pre-Xavenir" && event.date === "April 20"
+            );
+          } else if (selectedCategory === "26April") {
+            return event.category === "Xavenir" && event.date === "April 26";
+          } else if (selectedCategory === "27April") {
+            return event.category === "Xavenir" && event.date === "April 27";
+          }
+          return true;
+        });
 
   // Group events by category and date for section headers
-   const preXavenirEvents17 = events.filter(e => e.category === "Pre-Xavenir" && e.date === "April 18");
-  const preXavenirEvents18 = events.filter(e => e.category === "Pre-Xavenir" && e.date === "April 19");
-  const preXavenirEvents19 = events.filter(e => e.category === "Pre-Xavenir" && e.date === "April 20");
-  const xavenirEvents26 = events.filter(e => e.category === "Xavenir" && e.date === "April 26");
-  const xavenirEvents27 = events.filter(e => e.category === "Xavenir" && e.date === "April 27");
-  document.body.style.overflowY = "auto";
+  const preXavenirEvents17 = events.filter(
+    (e) => e.category === "Pre-Xavenir" && e.date === "April 18"
+  );
+  const preXavenirEvents18 = events.filter(
+    (e) => e.category === "Pre-Xavenir" && e.date === "April 19"
+  );
+  const preXavenirEvents19 = events.filter(
+    (e) => e.category === "Pre-Xavenir" && e.date === "April 20"
+  );
+  const xavenirEvents26 = events.filter(
+    (e) => e.category === "Xavenir" && e.date === "April 26"
+  );
+  const xavenirEvents27 = events.filter(
+    (e) => e.category === "Xavenir" && e.date === "April 27"
+  );
+  useEffect(() => {
+    document.body.style.overflowY = "auto";
+  });
 
   return (
     <div
@@ -713,257 +735,254 @@ export default function Page() {
             key={i}
             className="absolute rounded-full"
             style={{
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                width: `${Math.random() * 4 + 2}px`,
-                height: `${Math.random() * 4 + 2}px`,
-                background: i % 2 === 0 ? "#3B82F6" : "#8B5CF6",
-                opacity: Math.random() * 0.5 + 0.2,
-              }}
-              animate={{
-                y: [0, Math.random() * 100 - 50],
-                opacity: [Math.random() * 0.5 + 0.2, 0],
-              }}
-              transition={{
-                duration: Math.random() * 20 + 10,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
-              }}
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              width: `${Math.random() * 4 + 2}px`,
+              height: `${Math.random() * 4 + 2}px`,
+              background: i % 2 === 0 ? "#3B82F6" : "#8B5CF6",
+              opacity: Math.random() * 0.5 + 0.2,
+            }}
+            animate={{
+              y: [0, Math.random() * 100 - 50],
+              opacity: [Math.random() * 0.5 + 0.2, 0],
+            }}
+            transition={{
+              duration: Math.random() * 20 + 10,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Page Header */}
+      <motion.div
+        className="relative z-10 flex flex-col items-center mb-10"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 mb-4">
+          Events
+        </h1>
+        <motion.p
+          className="text-xl text-gray-300 max-w-2xl text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+        ></motion.p>
+      </motion.div>
+
+      {/* Category Filter Buttons */}
+      <motion.div
+        className="relative z-10 w-full max-w-4xl mb-8 flex justify-center gap-4"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <CategoryButton
+          label="All Events"
+          active={selectedCategory === "all"}
+          onClick={() => setSelectedCategory("all")}
+        />
+        <CategoryButton
+          label="Pre-Xavenir"
+          active={selectedCategory === "Pre-Xavenir"}
+          onClick={() => setSelectedCategory("Pre-Xavenir")}
+        />
+        <CategoryButton
+          label="Xavenir"
+          active={selectedCategory === "Xavenir"}
+          onClick={() => setSelectedCategory("Xavenir")}
+        />
+      </motion.div>
+
+      {/* Events Grid with Conditional Section Headers */}
+      <div className="relative z-10 w-full max-w-7xl">
+        {/* Render by sections when "all" filter is active */}
+        {selectedCategory === "all" && (
+          <>
+            {preXavenirEvents17.length > 0 && (
+              <>
+                <SectionHeader title="Pre-Xavenir Events (April 18)" />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                  {preXavenirEvents17.map((event, index) => (
+                    <EventCard key={event._id} event={event} index={index} />
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* Pre-Xavenir April 19 Section */}
+            {preXavenirEvents18.length > 0 && (
+              <>
+                <SectionHeader title="Pre-Xavenir Events (April 19)" />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                  {preXavenirEvents18.map((event, index) => (
+                    <EventCard key={event._id} event={event} index={index} />
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* Pre-Xavenir April 20 Section */}
+            {preXavenirEvents19.length > 0 && (
+              <>
+                <SectionHeader title="Pre-Xavenir Events (April 20)" />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                  {preXavenirEvents19.map((event, index) => (
+                    <EventCard key={event._id} event={event} index={index} />
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* Xavenir April 26 Section */}
+            {xavenirEvents26.length > 0 && (
+              <>
+                <SectionHeader title="Xavenir Main Events (April 26)" />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                  {xavenirEvents26.map((event, index) => (
+                    <EventCard key={event._id} event={event} index={index} />
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* Xavenir April 27 Section */}
+            {xavenirEvents27.length > 0 && (
+              <>
+                <SectionHeader title="Xavenir Main Events (April 27)" />
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                  {xavenirEvents27.map((event, index) => (
+                    <EventCard key={event._id} event={event} index={index} />
+                  ))}
+                </div>
+              </>
+            )}
+          </>
+        )}
+
+        {/* Display filtered events when a specific filter is active */}
+        {selectedCategory !== "all" && (
+          <>
+            <SectionHeader
+              title={
+                selectedCategory === "Pre-Xavenir"
+                  ? "Pre-Xavenir Events"
+                  : selectedCategory === "Xavenir"
+                  ? "Xavenir Main Events"
+                  : selectedCategory === "18April"
+                  ? "Pre-Xavenir Events (April 18)"
+                  : selectedCategory === "19April"
+                  ? "Pre-Xavenir Events (April 19)"
+                  : selectedCategory === "26April"
+                  ? "Xavenir Main Events (April 26)"
+                  : "Xavenir Main Events (April 27)"
+              }
             />
-          ))}
-        </div>
-  
-        {/* Page Header */}
-        <motion.div
-          className="relative z-10 flex flex-col items-center mb-10"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className="text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 mb-4">
-            Events
-          </h1>
-          <motion.p
-            className="text-xl text-gray-300 max-w-2xl text-center"
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredEvents.map((event, index) => (
+                <EventCard key={event._id} event={event} index={index} />
+              ))}
+            </div>
+          </>
+        )}
+
+        {/* No Events Message */}
+        {filteredEvents.length === 0 && (
+          <motion.div
+            className="w-full py-12 flex flex-col items-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            transition={{ duration: 0.8 }}
           >
-           
-          </motion.p>
-        </motion.div>
-  
-        {/* Category Filter Buttons */}
-        <motion.div
-          className="relative z-10 w-full max-w-4xl mb-8 flex justify-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <CategoryButton
-            label="All Events"
-            active={selectedCategory === "all"}
-            onClick={() => setSelectedCategory("all")}
-          />
-          <CategoryButton
-            label="Pre-Xavenir"
-            active={selectedCategory === "Pre-Xavenir"}
-            onClick={() => setSelectedCategory("Pre-Xavenir")}
-          />
-          <CategoryButton
-            label="Xavenir"
-            active={selectedCategory === "Xavenir"}
-            onClick={() => setSelectedCategory("Xavenir")}
-          />
-          
-        </motion.div>
-  
-        {/* Events Grid with Conditional Section Headers */}
-        <div className="relative z-10 w-full max-w-7xl">
-          {/* Render by sections when "all" filter is active */}
-          {selectedCategory === "all" && (
-            <>
-                {preXavenirEvents17.length > 0 && (
-                <>
-                  <SectionHeader title="Pre-Xavenir Events (April 18)" />
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                    {preXavenirEvents17.map((event, index) => (
-                      <EventCard key={event._id} event={event} index={index} />
-                    ))}
-                  </div>
-                </>
-              )}
-              
-              {/* Pre-Xavenir April 19 Section */}
-              {preXavenirEvents18.length > 0 && (
-                <>
-                  <SectionHeader title="Pre-Xavenir Events (April 19)" />
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                    {preXavenirEvents18.map((event, index) => (
-                      <EventCard key={event._id} event={event} index={index} />
-                    ))}
-                  </div>
-                </>
-              )}
-  
-              {/* Pre-Xavenir April 20 Section */}
-              {preXavenirEvents19.length > 0 && (
-                <>
-                  <SectionHeader title="Pre-Xavenir Events (April 20)" />
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                    {preXavenirEvents19.map((event, index) => (
-                      <EventCard key={event._id} event={event} index={index} />
-                    ))}
-                  </div>
-                </>
-              )}
-  
-              {/* Xavenir April 26 Section */}
-              {xavenirEvents26.length > 0 && (
-                <>
-                  <SectionHeader title="Xavenir Main Events (April 26)" />
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                    {xavenirEvents26.map((event, index) => (
-                      <EventCard key={event._id} event={event} index={index} />
-                    ))}
-                  </div>
-                </>
-              )}
-  
-              {/* Xavenir April 27 Section */}
-              {xavenirEvents27.length > 0 && (
-                <>
-                  <SectionHeader title="Xavenir Main Events (April 27)" />
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                    {xavenirEvents27.map((event, index) => (
-                      <EventCard key={event._id} event={event} index={index} />
-                    ))}
-                  </div>
-                </>
-              )}
-            </>
-          )}
-  
-          {/* Display filtered events when a specific filter is active */}
-          {selectedCategory !== "all" && (
-            <>
-              <SectionHeader 
-                title={
-                  selectedCategory === "Pre-Xavenir" 
-                    ? "Pre-Xavenir Events" 
-                    : selectedCategory === "Xavenir" 
-                      ? "Xavenir Main Events" 
-                      : selectedCategory === "18April" 
-                        ? "Pre-Xavenir Events (April 18)" 
-                        : selectedCategory === "19April" 
-                          ? "Pre-Xavenir Events (April 19)" 
-                          : selectedCategory === "26April" 
-                            ? "Xavenir Main Events (April 26)" 
-                            : "Xavenir Main Events (April 27)"
-                } 
+            <svg
+              className="w-24 h-24 text-gray-500 mb-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               />
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredEvents.map((event, index) => (
-                  <EventCard key={event._id} event={event} index={index} />
-                ))}
-              </div>
-            </>
-          )}
-  
-          {/* No Events Message */}
-          {filteredEvents.length === 0 && (
-            <motion.div
-              className="w-full py-12 flex flex-col items-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8 }}
+            </svg>
+            <h3 className="text-2xl font-bold text-gray-300 mb-2">
+              No events found
+            </h3>
+            <p className="text-gray-400">
+              There are no events matching your selected filter.
+            </p>
+          </motion.div>
+        )}
+      </div>
+
+      {/* Footer */}
+      <motion.footer
+        className="relative z-10 w-full max-w-7xl mt-16 pb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+      >
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent my-8"></div>
+        <div className="flex flex-col md:flex-row items-center justify-between">
+          <div className="mb-4 md:mb-0">
+            <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+              Xavenir 2025
+            </h3>
+            <p className="text-gray-400 text-sm">SCSE | NIT Jamshedpur</p>
+          </div>
+          <div className="flex space-x-4">
+            <motion.a
+              href="https://www.instagram.com/scse.nitjsr/"
+              className="text-gray-400 hover:text-purple-400"
+              whileHover={{ scale: 1.2 }}
             >
               <svg
-                className="w-24 h-24 text-gray-500 mb-4"
-                fill="none"
-                stroke="currentColor"
+                className="w-6 h-6"
+                fill="currentColor"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
               </svg>
-              <h3 className="text-2xl font-bold text-gray-300 mb-2">No events found</h3>
-              <p className="text-gray-400">
-                There are no events matching your selected filter.
-              </p>
-            </motion.div>
-          )}
-        </div>
-  
-        {/* Footer */}
-        <motion.footer
-          className="relative z-10 w-full max-w-7xl mt-16 pb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent my-8"></div>
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="mb-4 md:mb-0">
-              <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                Xavenir 2025
-              </h3>
-              <p className="text-gray-400 text-sm">
-                SCSE | NIT Jamshedpur
-              </p>
-            </div>
-            <div className="flex space-x-4">
-              <motion.a
-                href="https://www.instagram.com/scse.nitjsr/"
-                className="text-gray-400 hover:text-purple-400"
-                whileHover={{ scale: 1.2 }}
+            </motion.a>
+            <motion.a
+              href="https://www.linkedin.com/company/scse-nitjsr/?originalSubdomain=in"
+              className="text-gray-400 hover:text-blue-500"
+              whileHover={{ scale: 1.2 }}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-              </motion.a>
-              <motion.a
-                href="https://www.linkedin.com/company/scse-nitjsr/?originalSubdomain=in"
-                className="text-gray-400 hover:text-blue-500"
-                whileHover={{ scale: 1.2 }}
+                <path d="M4.98 3.5C4.98 5 3.89 6 2.45 6 1.02 6 0 5 0 3.5 0 2 1.02 1 2.45 1 3.89 1 4.98 2 4.98 3.5zM0 8h4.9v16H0V8zm7.42 0h4.7v2.2h.07c.65-1.2 2.25-2.5 4.63-2.5 4.95 0 5.86 3.3 5.86 7.6V24H17.7v-7.8c0-1.9-.03-4.4-2.7-4.4-2.7 0-3.12 2.1-3.12 4.3V24H7.42V8z" />
+              </svg>
+            </motion.a>
+            <motion.a
+              href="#twitter"
+              className="text-gray-400 hover:text-white-400"
+              whileHover={{ scale: 1.2 }}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-<path d="M4.98 3.5C4.98 5 3.89 6 2.45 6 1.02 6 0 5 0 3.5 0 2 1.02 1 2.45 1 3.89 1 4.98 2 4.98 3.5zM0 8h4.9v16H0V8zm7.42 0h4.7v2.2h.07c.65-1.2 2.25-2.5 4.63-2.5 4.95 0 5.86 3.3 5.86 7.6V24H17.7v-7.8c0-1.9-.03-4.4-2.7-4.4-2.7 0-3.12 2.1-3.12 4.3V24H7.42V8z" />
-</svg>
-              </motion.a>
-              <motion.a
-                href="#twitter"
-                className="text-gray-400 hover:text-white-400"
-                whileHover={{ scale: 1.2 }}
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-<path d="M16.671 0H20.5L13.23 9.186L21.832 22H15.187L10.095 14.716L4.26 22H0.429L8.164 12.154L0 0H6.828L11.42 6.629L16.671 0Z" />
-</svg>
-              </motion.a>
-            </div>
+                <path d="M16.671 0H20.5L13.23 9.186L21.832 22H15.187L10.095 14.716L4.26 22H0.429L8.164 12.154L0 0H6.828L11.42 6.629L16.671 0Z" />
+              </svg>
+            </motion.a>
           </div>
-        </motion.footer>
-      </div>
-    );
-  }
+        </div>
+      </motion.footer>
+    </div>
+  );
+}

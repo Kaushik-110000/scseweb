@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import TermsAndConditions from "./tacpage";
-document.body.style.overflowY = "auto";
+
 export const metadata: Metadata = {
   title: "TermsAndConditions - SCSE",
   description: "Terms And Conditions SCSE ",

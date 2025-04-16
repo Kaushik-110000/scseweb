@@ -6,7 +6,7 @@ import { UserContext } from "@/context/UserContext";
 import { motion } from "framer-motion";
 import { IconUser, IconMail, IconLock, IconSchool } from "@tabler/icons-react";
 import Loading from "@/components/Loading";
-document.body.style.overflowY = "auto";
+
 function Page() {
   const [loader, setLoader] = useState(false);
   const router = useRouter();
@@ -76,7 +76,9 @@ function Page() {
       } else setStatus(error?.message || "Network error faced");
     }
   };
-  document.body.style.overflowY = "auto";
+  useEffect(() => {
+    document.body.style.overflowY = "auto";
+  });
 
   return !loader ? (
     <div

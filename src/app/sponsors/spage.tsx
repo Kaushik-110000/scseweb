@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-
+import { useEffect } from "react";
 export default function Sponsors() {
   const brand = [
     {
@@ -29,7 +29,9 @@ export default function Sponsors() {
       text: "Connect with future tech leaders and create opportunities for collaborative projects and internships.",
     },
   ];
-  document.body.style.overflowY = "auto";
+  useEffect(() => {
+    document.body.style.overflowY = "auto";
+  });
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden pt-10">

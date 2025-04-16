@@ -2,7 +2,6 @@
 import React, { useEffect } from "react";
 import Image from "next/image";
 import "./Gallery.css";
-document.body.style.overflowY = "auto";
 function Gallery() {
   // Sample data for past events
   const events = [
@@ -84,8 +83,10 @@ function Gallery() {
       });
     };
   }, []);
-  
-  document.body.style.overflowY = "auto";
+
+  useEffect(() => {
+    document.body.style.overflowY = "auto";
+  });
 
   return (
     <div className="relative min-h-screen bg-black text-white">

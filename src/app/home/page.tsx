@@ -6,16 +6,19 @@ import AboutUs from "@/components/AboutUs";
 import Competitions from "@/components/Competitions";
 import Footer from "@/components/Footer";
 import Events from "@/components/Events";
-function Home() {
-  document.body.style.overflowY = "auto";
 
+function Home() {
+  useEffect(() => {
+    document.body.style.overflowY = "auto";
+  });
+  
   const videoRef = useRef<HTMLVideoElement>(null);
   useEffect(() => {
     if (videoRef.current) {
       videoRef.current.playbackRate = 0.4; // 0.5 = half speed
     }
   }, []);
-  document.body.style.overflowY = "auto";
+
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
       {/* Background Video */}

@@ -9,7 +9,7 @@ import StarsCanvas from "@/components/StarCanvas";
 import Earth from "@/components/Earth";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
-document.body.style.overflowY = "auto";
+
 interface UserData {
   userID: string;
   email: string;
@@ -29,7 +29,9 @@ export const metadata: Metadata = {
 };
 
 function Dashboard() {
-  document.body.style.overflowY = "auto";
+  useEffect(() => {
+    document.body.style.overflowY = "auto";
+  });
   const [userData, setUserData] = useState<UserData | null>(null);
   const [error, setError] = useState("");
   const updateState = useContext(UserContext).setUserData;
@@ -110,7 +112,9 @@ function Dashboard() {
   };
 
   // by Priya raj
-  document.body.style.overflowY = "auto";
+   useEffect(() => {
+     document.body.style.overflowY = "auto";
+   });
 
   return (
     <React.Fragment>
@@ -335,7 +339,7 @@ function Dashboard() {
 
             {/* Logout Button */}
             <div className="flex justify-end">
-              <p className="text-black">By Priya Raj</p>
+              {/* <p className="text-black">By Priya Raj</p> */}
               <button
                 className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-medium py-3 px-6 rounded-xl transition-all transform hover:scale-105 shadow-lg shadow-purple-500/20 cursor-pointer"
                 onClick={handleLogOut}

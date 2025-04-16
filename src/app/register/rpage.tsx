@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
-document.body.style.overflowY = "auto";
+import React,{useEffect} from "react";
 // We only do Google sign-up here. The user will be redirected to Google OAuth.
 export default function RegisterPage() {
-  document.body.style.overflowY = "auto";
+   useEffect(() => {
+     document.body.style.overflowY = "auto";
+   });
 
   const handleGoogleSignup = () => {
     // We build the Google OAuth URL manually:

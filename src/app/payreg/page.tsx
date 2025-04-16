@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { checkIsFromCse, checkIsFromNit } from "@/utils/paychecker";
-document.body.style.overflowY = "auto";
+
 interface UserData {
   userID: string;
   email: string;
@@ -19,7 +19,9 @@ interface UserData {
 }
 
 function Page() {
-  document.body.style.overflowY = "auto";
+  useEffect(() => {
+    document.body.style.overflowY = "auto";
+  });
 
   const router = useRouter();
   const [userData, setUserData] = useState<UserData | null>(null);

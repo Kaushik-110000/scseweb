@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
-document.body.style.overflowY = "auto";
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -200,7 +199,9 @@ export default function ContactPage() {
       setIsSubmitting(false);
     }
   };
-  document.body.style.overflowY = "auto";
+  useEffect(() => {
+    document.body.style.overflowY = "auto";
+  });
 
   return (
     <div className="relative min-h-screen bg-black text-white">

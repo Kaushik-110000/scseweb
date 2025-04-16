@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Mail, Phone, Linkedin } from "lucide-react";
 import OurMembers from "../../components/TeamInfo";
-document.body.style.overflowY = "auto";
+
 const professors = [
   {
     name: " Dr. Danish Ali Khan",
@@ -112,8 +112,9 @@ export default function Page() {
     return (currentIndex + offset + teamMembers.length) % teamMembers.length;
   };
 
-  //wah
-  document.body.style.overflowY = "auto";
+  useEffect(() => {
+    document.body.style.overflowY = "auto";
+  });
   return (
     <>
       <div className="min-h-screen  background-grid2 text-white ">

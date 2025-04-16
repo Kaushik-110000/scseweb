@@ -4,9 +4,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import { UserContext } from "@/context/UserContext";
 import axios from "axios";
-document.body.style.overflowY = "auto";
 export default function GoogleCallbackPage() {
-  document.body.style.overflowY = "auto";
 
   const router = useRouter();
   const [status, setStatus] = useState("Loading...");
