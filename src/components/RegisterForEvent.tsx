@@ -274,20 +274,26 @@ export default function RegisterForEvent({
   return (
     <div>
       <button
-        onClick={handleOpenOverlay}
+        onClick={() => {
+          handleOpenOverlay();
+          document.body.style.overflowY = "hidden";
+        }}
         className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 cursor-pointer"
       >
         Register for {eventName}
       </button>
 
       {isOverlayOpen && (
-        <div className="fixed inset-0  z-50 flex flex-wrap md:flex-nowrap items-center justify-center bg-black/90 p-8">
+        <div className="fixed inset-0 z-50 flex max-h-[100vh] flex-wrap md:flex-nowrap items-center justify-center bg-black/90 p-8">
           <div className="rounded-lg shadow-lg w-full max-w-lg max-h-[90vh] overflow-y-auto p-6 relative">
             <button
-              onClick={handleCloseOverlay}
+              onClick={() => {
+                handleCloseOverlay();
+                document.body.style.overflowY = "auto";
+              }}
               className="hidden md:inline-block absolute right-4 top-4 text-red-500 hover:text-red-700 cursor-pointer"
             >
-              Close ✕
+              Close✕
             </button>
             <button
               onClick={handleCloseOverlay}

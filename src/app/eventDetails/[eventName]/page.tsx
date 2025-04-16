@@ -195,7 +195,12 @@ export default function RegisterEventPage() {
                   </div>
                 ))}
               </div>
-
+              <RegisterForEvent
+                eventName={eventData.name}
+                maxPart={eventData.maxPart}
+                minPart={eventData.minPart}
+                regFees={eventData.regFees}
+              />
               {/* Eligibility Section */}
               <div className="space-y-4 md:space-y-6">
                 <div className="bg-gray-800/50 p-4 md:p-6 rounded-xl border border-purple-500/30">
@@ -217,35 +222,6 @@ export default function RegisterEventPage() {
 
                   <div className="space-y-4 md:space-y-6">
                     {/* Prime Membership Block */}
-                    <div className="bg-red-900/20 p-4 md:p-5 rounded-xl border border-red-500/30">
-                      <div className="flex gap-3 md:gap-4 items-start">
-                        <div className="flex-shrink-0 mt-0.5 text-red-400">
-                          <svg
-                            className="w-5 h-5 md:w-6 md:h-6"
-                            fill="none"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                            />
-                          </svg>
-                        </div>
-                        <div>
-                          <h3 className="text-base md:text-lg font-semibold text-red-300 mb-2">
-                            Prime Membership Required
-                          </h3>
-                          <ul className="list-disc pl-4 space-y-1 text-xs md:text-sm text-red-100">
-                            <li>All Computer Science students</li>
-                            <li>Participants from non-NIT institutes</li>
-                            <li>Mixed NIT/non-NIT teams</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
                     {/* Direct Registration Block */}
                     <div className="bg-green-900/20 p-4 md:p-5 rounded-xl border border-green-500/30">
                       <div className="flex gap-3 md:gap-4 items-start">
@@ -314,6 +290,34 @@ export default function RegisterEventPage() {
                         </div>
                       </div>
                     </div>
+                    <div className="bg-red-900/20 p-4 md:p-5 rounded-xl border border-red-500/30">
+                      <div className="flex gap-3 md:gap-4 items-start">
+                        <div className="flex-shrink-0 mt-0.5 text-red-400">
+                          <svg
+                            className="w-5 h-5 md:w-6 md:h-6"
+                            fill="none"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="text-base md:text-lg font-semibold text-red-300 mb-2">
+                            Prime Membership Required
+                          </h3>
+                          <ul className="list-disc pl-4 space-y-1 text-xs md:text-sm text-red-100">
+                            <li>All Computer Science students</li>
+                            <li>Participants from non-NIT institutes</li>
+                            <li>Mixed NIT/non-NIT teams</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -356,12 +360,7 @@ export default function RegisterEventPage() {
               </div>
 
               {/* Registration Component */}
-              <RegisterForEvent
-                eventName={eventData.name}
-                maxPart={eventData.maxPart}
-                minPart={eventData.minPart}
-                regFees={eventData.regFees}
-              />
+
               <a
                 href="https://chat.whatsapp.com/IHwesDcS08RAVDGHPUb0bp"
                 target="_blank"
