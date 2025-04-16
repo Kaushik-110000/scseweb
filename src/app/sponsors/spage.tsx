@@ -29,6 +29,8 @@ export default function Sponsors() {
       text: "Connect with future tech leaders and create opportunities for collaborative projects and internships.",
     },
   ];
+  document.body.style.overflowY = "auto";
+
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden pt-10">
       {/* Background image with gradient overlay */}

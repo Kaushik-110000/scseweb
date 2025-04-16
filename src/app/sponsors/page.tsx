@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Sponsors from "./spage";
-
+document.body.style.overflowY = "auto";
 export const metadata: Metadata = {
   title: "Sponsors - SCSE",
   description: "Welcome to the SCSE sponsors page",

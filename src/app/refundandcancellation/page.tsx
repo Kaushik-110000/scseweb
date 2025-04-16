@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import RefundCancellation from "./racpage";
-
+document.body.style.overflowY = "auto";
 export const metadata: Metadata = {
   title: "RefundCancellation - SCSE",
   description: "Refund and Cancellation page of SCSE ",

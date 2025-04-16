@@ -1,9 +1,11 @@
 "use client";
 
 import React from "react";
-
+document.body.style.overflowY = "auto";
 // We only do Google sign-up here. The user will be redirected to Google OAuth.
 export default function RegisterPage() {
+  document.body.style.overflowY = "auto";
+
   const handleGoogleSignup = () => {
     // We build the Google OAuth URL manually:
     const googleUrl = `https://accounts.google.com/o/oauth2/auth?client_id=${process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_GOOGLE_REDIRECT_URI}&response_type=code&scope=email%20profile&access_type=offline&prompt=consent`;

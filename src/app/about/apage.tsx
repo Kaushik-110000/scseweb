@@ -6,9 +6,8 @@ import Footer from "../../components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Mail, Phone, Linkedin } from "lucide-react";
-import OurMembers from "../../components/TeamInfo"
-
-
+import OurMembers from "../../components/TeamInfo";
+document.body.style.overflowY = "auto";
 const professors = [
   {
     name: " Dr. Danish Ali Khan",
@@ -23,32 +22,25 @@ const professors = [
   {
     name: "Dr. Dilip Kumar Shaw",
     role: "Associate Professor",
-    image: "/images/dkshawsir.jpg", 
+    image: "/images/dkshawsir.jpg",
   },
   // {
   //   name: "Koushlendra Kumar Singh",
   //   role: "Assistant Professor",
-  //   image: "/images/kksir.jpeg", 
+  //   image: "/images/kksir.jpeg",
   // },
   // {
   //   name: "Dr Chandradshekhar Azad",
   //   role: "Assistant Professor",
-  //   image: "/images/chandrashekhar.jpg", 
+  //   image: "/images/chandrashekhar.jpg",
   // },
- 
+
   // {
   //   name: "Dr Dilip Kumar",
   //   role: "Assistant Professor",
-  //   image: "/images/dilip.jpg", 
+  //   image: "/images/dilip.jpg",
   // },
 ];
-
-
-
-
-
-
-
 
 const teamMembers = [
   {
@@ -94,15 +86,9 @@ const teamMembers = [
   },
 ];
 
-
-
-
-
-
 export default function Page() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-
 
   const handlePrev = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
@@ -111,8 +97,6 @@ export default function Page() {
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
   }, []);
-
-
 
   useEffect(() => {
     const handleResize = () => {
@@ -128,15 +112,11 @@ export default function Page() {
     return (currentIndex + offset + teamMembers.length) % teamMembers.length;
   };
 
-
-
-
-
-//wah
-
+  //wah
+  document.body.style.overflowY = "auto";
   return (
     <>
-      <div className="min-h-screen  background-grid2 text-white "  >
+      <div className="min-h-screen  background-grid2 text-white ">
         <div className="px-6 py-12 ">
           {/* Title Section */}
           <motion.h1
@@ -181,17 +161,18 @@ export default function Page() {
                   Society of Computer Science and Engineering (S.C.S.E.)
                 </span>{" "}
                 is a vibrant community dedicated to fostering{" "}
-                <strong>innovation</strong>, <strong>technical excellence</strong>
-                , and <strong>collaboration</strong> among students passionate
-                about <strong>coding and technology</strong>.
+                <strong>innovation</strong>,{" "}
+                <strong>technical excellence</strong>, and{" "}
+                <strong>collaboration</strong> among students passionate about{" "}
+                <strong>coding and technology</strong>.
               </p>
               <p className="text-gray-300 text-lg mb-4">
                 We organize{" "}
                 <strong>
                   hackathons, coding contests, workshops, and tech talks
                 </strong>{" "}
-                to empower students with <strong>cutting-edge skills</strong> and
-                real-world problem-solving experience.
+                to empower students with <strong>cutting-edge skills</strong>{" "}
+                and real-world problem-solving experience.
               </p>
               <p className="text-gray-300 text-lg">
                 Join us to explore the dynamic world of{" "}
@@ -202,14 +183,6 @@ export default function Page() {
               </p>
             </motion.div>
           </motion.div>
-
-
-
-
-
-
-
-
 
           {/* About Xavenir Section */}
           <motion.div
@@ -237,8 +210,8 @@ export default function Page() {
               className="text-gray-300 mx-10 text-lg text-center mb-8"
             >
               Xavenir is the premier tech fest of the CSE Department at NIT
-              Jamshedpur, designed to bring together the brightest tech minds from
-              across the country. It is a fusion of coding, innovation, AI,
+              Jamshedpur, designed to bring together the brightest tech minds
+              from across the country. It is a fusion of coding, innovation, AI,
               cybersecurity, and gaming. Xavenir is the perfect platform to
               showcase your skills, learn from industry experts, and compete for
               exciting prizes.
@@ -251,15 +224,14 @@ export default function Page() {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-gray-300 text-lg text-center mb-8"
             >
-              Whether you are a coder, designer, entrepreneur, or tech geek, this
-              fest is for YOU! Connect with like-minded enthusiasts and
+              Whether you are a coder, designer, entrepreneur, or tech geek,
+              this fest is for YOU! Connect with like-minded enthusiasts and
               recruiters, and attend workshops and guest talks from top industry
               professionals.
             </motion.p>
 
             {/* PDF Placeholder */}
             <div className="flex justify-center">
-
               <a
                 href="/SCSE_brochure.pdf"
                 target="_blank"
@@ -268,12 +240,8 @@ export default function Page() {
               >
                 View Brochure
               </a>
-
             </div>
           </motion.div>
-
-
-
 
           {/* Meet Our Deemed Professors Section */}
           <motion.div
@@ -300,8 +268,8 @@ export default function Page() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="text-gray-300 text-lg text-center mb-10"
             >
-              Our esteemed professors bring a wealth of knowledge and experience to guide
-              and inspire the next generation of tech innovators.
+              Our esteemed professors bring a wealth of knowledge and experience
+              to guide and inspire the next generation of tech innovators.
             </motion.p>
 
             {/* Centered Grid */}
@@ -336,13 +304,6 @@ export default function Page() {
             </div>
           </motion.div>
 
-
-
-
-
-
-
-
           {/* Meet Our Team Section */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -370,9 +331,9 @@ export default function Page() {
             >
               Introducing the backbone of SCSE - the leaders driving innovation
               and excellence! From steering creative ideas to managing tech
-              innovations, PR strategies, and corporate outreach, each team plays
-              a vital role in shaping our journey ahead. Together, we aim to
-              inspire, innovate, and elevate!!
+              innovations, PR strategies, and corporate outreach, each team
+              plays a vital role in shaping our journey ahead. Together, we aim
+              to inspire, innovate, and elevate!!
             </motion.p>
 
             <div className="relative flex justify-center items-center">
@@ -413,10 +374,9 @@ export default function Page() {
                       <div className="flex items-center gap-2">
                         <Phone className="h-4 w-4 text-purple-400" />
                         <a
-                          href={`tel:${teamMembers[currentIndex].contact.replace(
-                            /\s+/g,
-                            ""
-                          )}`}
+                          href={`tel:${teamMembers[
+                            currentIndex
+                          ].contact.replace(/\s+/g, "")}`}
                           className="text-sm text-gray-300 hover:text-white"
                         >
                           {teamMembers[currentIndex].contact}
@@ -452,12 +412,14 @@ export default function Page() {
                           animate={{ opacity: 1, scale: idx === 1 ? 1.1 : 0.9 }}
                           exit={{ opacity: 0, scale: 0.8 }}
                           transition={{ duration: 0.5 }}
-                          className={`bg-white/10 backdrop-blur-md mt-10 mb-10 p-6 rounded-xl shadow-lg shadow-white/30  flex flex-col items-center border border-white/20 ${idx === 1 ? "w-72 h-96" : "w-70 h-80"
-                            }`}
+                          className={`bg-white/10 backdrop-blur-md mt-10 mb-10 p-6 rounded-xl shadow-lg shadow-white/30  flex flex-col items-center border border-white/20 ${
+                            idx === 1 ? "w-72 h-96" : "w-70 h-80"
+                          }`}
                         >
                           <div
-                            className={`relative ${idx === 1 ? "w-36 h-36" : "w-28 h-28"
-                              } mb-4`}
+                            className={`relative ${
+                              idx === 1 ? "w-36 h-36" : "w-28 h-28"
+                            } mb-4`}
                           >
                             <Image
                               src={teamMembers[indexOffset].image}
@@ -521,7 +483,7 @@ export default function Page() {
             </div>
           </motion.div>
         </div>
-        <OurMembers/>
+        <OurMembers />
         <Footer />
       </div>
     </>

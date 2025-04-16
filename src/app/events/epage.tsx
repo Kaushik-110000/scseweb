@@ -7,7 +7,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Poppins } from "next/font/google";
 import styles from "./events.module.css"; // CSS Module for the SVG pattern background
-
+document.body.style.overflowY = "auto";
 interface Event {
   _id: string;
   name: string;
@@ -700,6 +700,7 @@ export default function Page() {
   const preXavenirEvents19 = events.filter(e => e.category === "Pre-Xavenir" && e.date === "April 20");
   const xavenirEvents26 = events.filter(e => e.category === "Xavenir" && e.date === "April 26");
   const xavenirEvents27 = events.filter(e => e.category === "Xavenir" && e.date === "April 27");
+  document.body.style.overflowY = "auto";
 
   return (
     <div

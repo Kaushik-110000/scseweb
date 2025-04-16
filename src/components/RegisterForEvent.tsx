@@ -270,12 +270,12 @@ export default function RegisterForEvent({
   };
 
   // ======================================================================
-
   return (
     <div>
       <button
         onClick={() => {
           handleOpenOverlay();
+          window.scrollTo(0, 0);
           document.body.style.overflowY = "hidden";
         }}
         className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 cursor-pointer"
@@ -296,7 +296,10 @@ export default function RegisterForEvent({
               Close✕
             </button>
             <button
-              onClick={handleCloseOverlay}
+              onClick={() => {
+                handleCloseOverlay();
+                document.body.style.overflowY = "auto";
+              }}
               className="md:hidden absolute right-4 top-4 text-red-500 hover:text-red-700 cursor-pointer"
             >
               ✕

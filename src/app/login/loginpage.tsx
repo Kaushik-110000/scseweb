@@ -16,7 +16,7 @@ import Loading from "@/components/Loading";
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
-
+document.body.style.overflowY = "auto";
 // Button Component
 const buttonVariants = cva(
   "inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
@@ -199,6 +199,7 @@ export default function Login() {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0 },
   };
+  document.body.style.overflowY = "auto";
 
   return !loader ? (
     <main className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-gray-900 to-black text-white overflow-hidden font-poppins">
