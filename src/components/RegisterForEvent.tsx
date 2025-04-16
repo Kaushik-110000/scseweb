@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/navigation";
 import Modal from "@/components/Modal";
@@ -202,7 +202,12 @@ export default function RegisterForEvent({
         if (status === 420) {
           const data: ApiResponse = err.response.data;
           setError(data.error || data.message || "Paisa dena hoga bhai.");
-          // If payment is required, set payer to true
+          if (typeof window !== "undefined") {
+            document.body.style.overflowY = "auto";
+            document.querySelectorAll(".kalaman").forEach((el) => {
+              (el as HTMLElement).style.maxHeight = "180vh"; // Change max-height
+            });
+          }
           setPayer(true);
         } else {
           const data: ApiResponse = err.response.data;
@@ -265,7 +270,8 @@ export default function RegisterForEvent({
       alert("As we will verify, you will se it in dashboard");
       router.push("/events");
     } catch (error) {
-      console.error("Registration failed:", error);
+      setError("Fill the details properly or try again later");
+      console.log("Registration failed:", error);
     }
   };
 
@@ -284,7 +290,7 @@ export default function RegisterForEvent({
       </button>
 
       {isOverlayOpen && (
-        <div className="fixed inset-0 z-50 flex max-h-[100vh] flex-wrap md:flex-nowrap items-center justify-center bg-black/90 p-8">
+        <div className="fixed kalaman inset-0 z-50 flex max-h-[100vh] flex-wrap md:flex-nowrap items-center justify-center bg-black/90 p-8">
           <div className="rounded-lg shadow-lg w-full max-w-lg max-h-[90vh] overflow-y-auto p-6 relative">
             <button
               onClick={() => {
