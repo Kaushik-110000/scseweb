@@ -648,6 +648,21 @@ export default function Page() {
         date: "April 26",
       },
       {
+        _id: "68022c658e74dbd749c02b0a",
+        name: "Golgappa Eating Challange",
+        description:
+          "The golgappa eating challange for Girls only. Eat as much golgappa as you can",
+        logo: "/golgol.jpg",
+        prizepool: 1000,
+        regFees: 30,
+        more: "Musical chair followed by Golgappa challange",
+        rules: "Follow standard game rules. No cheating allowed.",
+        minPart: 1,
+        maxPart: 1,
+        category: "Xavenir",
+        date: "April 26",
+      },
+      {
         _id: "67e1b549b1e72e5f2f25d73c",
         name: "Movie Mania",
         description: "A tech-themed movie screening and trivia night.",
