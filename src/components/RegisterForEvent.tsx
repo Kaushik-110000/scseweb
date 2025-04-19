@@ -284,7 +284,7 @@ export default function RegisterForEvent({
           window.scrollTo(0, 0);
           document.body.style.overflowY = "hidden";
         }}
-        className="rounded bg-blue-600 px-4 py-2 font-semibold text-white hover:bg-blue-700 cursor-pointer"
+        className="rounded bg-red-600 px-4 py-2 font-semibold text-white hover:bg-red-700 cursor-pointer"
       >
         Register for {eventName}
       </button>
