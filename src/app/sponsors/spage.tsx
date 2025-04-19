@@ -1,7 +1,7 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect } from "react";
+"use client"
+import Image from "next/image"
+import { useEffect } from "react"
+import { motion } from "framer-motion"
 export default function Sponsors() {
   const brand = [
     {
@@ -28,10 +28,26 @@ export default function Sponsors() {
       title: "Industry Collaboration:",
       text: "Connect with future tech leaders and create opportunities for collaborative projects and internships.",
     },
-  ];
+  ]
+  const sponsorsList = [
+    {
+      name: "Utho",
+      logo: "/utho.jpg",
+      slogan: "UTHO - BHARAT KA CLOUD",
+      type: "Cloud Partner",
+      site:"https://utho.com"
+    },
+    {
+      name: "WheelBros",
+      logo: "/wheelbros.jpg",
+      slogan: "Your Travel, your way",
+      type: "Travel partner",
+      site:"https://wheelbros.in"
+    },
+  ]
   useEffect(() => {
-    document.body.style.overflowY = "auto";
-  });
+    document.body.style.overflowY = "auto"
+  })
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden pt-10">
@@ -63,34 +79,89 @@ export default function Sponsors() {
             OUR SPONSORS AND PARTNERS
           </h1>
 
+          {/* Sponsors Showcase */}
+          <div className="sponsors-showcase w-full max-w-6xl mt-12 mb-16">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+    {sponsorsList.map((sponsor, index) => (
+      <motion.div
+        key={index}
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 0.8,
+          delay: index * 0.2,
+          type: "spring",
+          stiffness: 100,
+        }}
+        whileHover={{
+          scale: 1.05,
+          boxShadow: "0 20px 30px rgba(186, 36, 206, 0.3)",
+        }}
+        className="sponsor-card-animated"
+      >
+        <div className="sponsor-type-badge">{sponsor.type}</div>
+        <div className="flex items-center justify-center mb-4 mt-1">
+          <motion.div whileHover={{ scale: 1.05 }} className="sponsor-logo-container">
+            <a
+            href={sponsor.site}
+            target="_blank"
+            rel="noopener noreferrer"
+            >
+              <Image
+              src={sponsor.logo}
+              alt={sponsor.name}
+              width={180}
+              height={120}
+              className="object-contain min-h-[180px] min-w-[180px]"
+            />
+            </a>
+          </motion.div>
+        </div>
+
+        {/* Modified name and slogan section only */}
+        <div className="px-4 text-center">
+          <motion.h3
+            className="sponsor-name text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2"
+            whileHover={{ scale: 1.05 }}
+          >
+            {sponsor.name}
+          </motion.h3>
+          <p className="sponsor-slogan text-gray-600 dark:text-gray-300 italic text-sm sm:text-base leading-relaxed">
+            {sponsor.slogan}
+          </p>
+        </div>
+      </motion.div>
+    ))}
+  </motion.div>
+</div>
+
           {/* Subtitle with border animation */}
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSclbHWh3OGFRJP31Zic5KFtvQ1QSQ-wOyAnJLbhBM3huR39hw/viewform?usp=header"
             target="_blank"
+            rel="noreferrer"
           >
             <div className="subtitle-container">
-              <h2 className="subtitle-text text-xl md:text-2xl font-medium text-gray-300">
-                {" "}
-                Be Our Sponsors
-              </h2>
+              <h2 className="subtitle-text text-xl md:text-2xl font-medium text-gray-300"> Be Our Sponsors</h2>
             </div>
           </a>
 
           {/* Main description with gradient hover effect */}
           <p className="inner-text max-w-3xl text-center text-lg text-gray-300 leading-relaxed">
-            Be at the forefront of innovation! SCSE, the premier event of NIT
-            Jamshedpur, where creativity meets cutting-edge technology. By
-            sponsoring us, you align your brand with groundbreaking innovations,
-            vibrant competitions, and a community of future leaders. Partner
-            with us to drive progress, inspire excellence, and be a part of the
-            legacy that shapes tomorrow.
+            Be at the forefront of innovation! SCSE, the premier event of NIT Jamshedpur, where creativity meets
+            cutting-edge technology. By sponsoring us, you align your brand with groundbreaking innovations, vibrant
+            competitions, and a community of future leaders. Partner with us to drive progress, inspire excellence, and
+            be a part of the legacy that shapes tomorrow.
           </p>
 
           {/* Why sponsor us section */}
           <div className="why-sponsor-section w-full max-w-4xl mt-16">
-            <h3 className="why-sponsor-title text-3xl font-bold text-center mb-12">
-              Why sponsor us?
-            </h3>
+            <h3 className="why-sponsor-title text-3xl font-bold text-center mb-12">Why sponsor us?</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {brand.map((item, index) => (
@@ -103,12 +174,7 @@ export default function Sponsors() {
           </div>
 
           {/* Brochure button */}
-          <a
-            href="/SCSE_brochure.pdf"
-            target="_blank"
-            className="brochure-button"
-            rel="noreferrer"
-          >
+          <a href="/SCSE_brochure.pdf" target="_blank" className="brochure-button" rel="noreferrer">
             Download Brochure
           </a>
 
@@ -124,30 +190,25 @@ export default function Sponsors() {
               Our Bank Details
             </h3>
             <p className="inner-text max-w-3xl mb-2 text-left text-2xl text-gray-300 leading-relaxed">
-              <span className="text-purple-500">Account Name </span>: Society of
-              Computer Application <br />
-              <span className="text-purple-500">Bank Branch </span>: NIT Campus
-              Adityapur
-              <br /> <span className="text-purple-500">Account Number </span>:
-              35637764271
-              <br /> <span className="text-purple-500">IFSC Code </span>:
-              SBIN0001882 <br />
+              <span className="text-purple-500">Account Name </span>: Society of Computer Application <br />
+              <span className="text-purple-500">Bank Branch </span>: NIT Campus Adityapur
+              <br /> <span className="text-purple-500">Account Number </span>: 35637764271
+              <br /> <span className="text-purple-500">IFSC Code </span>: SBIN0001882 <br />
               <span className="text-purple-500">CIF </span>: 88953256160
               <br />
-              <span className="text-purple-500">QR Scanner </span>: Click on
-              fill details below.
+              <span className="text-purple-500">QR Scanner </span>: Click on fill details below.
             </p>
           </div>
           <div className="mt-16 text-center">
             <p className="max-w-3xl mb-5 text-center text-lg text-gray-300 ">
-              If you have supported our event as a sponsor, we sincerely
-              appreciate your contribution in making this a success! Kindly fill
-              your details here so that we may know you
+              If you have supported our event as a sponsor, we sincerely appreciate your contribution in making this a
+              success! Kindly fill your details here so that we may know you
             </p>
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSclbHWh3OGFRJP31Zic5KFtvQ1QSQ-wOyAnJLbhBM3huR39hw/viewform?usp=header"
               className="contact-button"
               target="_blank"
+              rel="noreferrer"
             >
               Fill Details
             </a>
@@ -477,7 +538,107 @@ export default function Sponsors() {
             opacity: 0.2;
           }
         }
+        .sponsors-showcase {
+          position: relative;
+        }
+
+        .sponsors-showcase::before {
+          content: "";
+          position: absolute;
+          top: -20px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 150px;
+          height: 3px;
+          background: linear-gradient(90deg, #60a5fa, #9333ea, #60a5fa);
+          border-radius: 3px;
+        }
+
+        .sponsor-card-animated {
+          position: relative;
+          background: rgba(20, 20, 30, 0.7);
+          backdrop-filter: blur(10px);
+          border-radius: 16px;
+          padding: 30px 20px;
+          transition: all 0.5s ease;
+          border: 1px solid rgba(186, 36, 206, 0.3);
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          isolation: isolate; /* Create a new stacking context */
+        }
+
+        .sponsor-card-animated::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 5px;
+          background: linear-gradient(90deg, #60a5fa, #9333ea, #60a5fa);
+          background-size: 200% auto;
+          animation: gradient 6s linear infinite;
+        }
+
+        .sponsor-logo-container {
+          width: 180px;
+          height: 120px;
+          border-radius: 12px;
+          overflow: hidden;
+          background: rgba(15, 15, 25, 0.7);
+          border: 2px solid rgba(186, 36, 206, 0.5);
+          box-shadow: 0 10px 20px rgba(186, 36, 206, 0.3);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 10px;
+        }
+
+        .sponsor-name {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin: 12px 0 8px;
+          background: linear-gradient(90deg, #60a5fa, #9333ea, #60a5fa);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-size: 200% auto;
+          animation: gradient 6s linear infinite;
+        }
+
+        .sponsor-slogan {
+          color: #d1d5db;
+          font-style: italic;
+          margin-bottom: 15px;
+        }
+
+        .sponsor-type-badge {
+          position: relative;
+          top: 10;
+          left: 0;
+          right: 0;
+          background: linear-gradient(90deg, #60a5fa, #9333ea);
+          color: white;
+          padding: 5px 10px;
+          font-size: 0.75rem;
+          font-weight: bold;
+          text-align: center;
+          box-shadow: 0 5px 10px rgba(186, 36, 206, 0.3);
+          z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+          .sponsor-logo-container {
+            width: 200px;
+            height: 140px;
+          }
+
+          .sponsor-card-animated {
+            padding: 40px 20px 30px;
+          }
+        }
       `}</style>
     </div>
-  );
+  )
 }
