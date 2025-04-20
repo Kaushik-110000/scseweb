@@ -44,6 +44,12 @@ export default function Sponsors() {
       type: "Travel partner",
       site:"https://wheelbros.in"
     },
+    {
+      name: "FoodAfairs ",
+      logo: "/foodafair.jpg",
+      slogan: "You decide.. your Taste.. ",
+      type: "Food partner",
+    },
   ]
   useEffect(() => {
     document.body.style.overflowY = "auto"
