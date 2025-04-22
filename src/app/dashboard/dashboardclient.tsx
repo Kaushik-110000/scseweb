@@ -4,7 +4,11 @@ import axios from "axios";
 import { UserContext } from "@/context/UserContext";
 import RegistrationFeesButton from "@/components/RegistrationFeesButton";
 import { useRouter } from "next/navigation";
-import { checkIsFromCse, checkIsFromNit } from "@/utils/paychecker";
+import {
+  checkIsFromCse,
+  checkIsFromNit,
+  check3rdYear,
+} from "@/utils/paychecker";
 import StarsCanvas from "@/components/StarCanvas";
 import Earth from "@/components/Earth";
 import Footer from "@/components/Footer";
@@ -98,6 +102,12 @@ function Dashboard() {
   let amount = 1000;
   if (checkIsFromCse(userData?.email!) && checkIsFromNit(userData?.email!)) {
     amount = 650;
+    console.log(userData?.email);
+    if (check3rdYear(userData?.email!)) {
+      // console.log(check3rdYear(userData?.email!));
+
+      amount = 500;
+    }
   } else if (
     !checkIsFromCse(userData?.email!) &&
     checkIsFromNit(userData?.email!)
@@ -112,9 +122,9 @@ function Dashboard() {
   };
 
   // by Priya raj
-   useEffect(() => {
-     document.body.style.overflowY = "auto";
-   });
+  useEffect(() => {
+    document.body.style.overflowY = "auto";
+  });
 
   return (
     <React.Fragment>

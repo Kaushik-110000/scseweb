@@ -3,7 +3,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { checkIsFromCse, checkIsFromNit } from "@/utils/paychecker";
+import {
+  checkIsFromCse,
+  checkIsFromNit,
+  check3rdYear,
+} from "@/utils/paychecker";
 
 interface UserData {
   userID: string;
@@ -53,6 +57,9 @@ function Page() {
   let amount = 900;
   if (checkIsFromCse(userData?.email!) && checkIsFromNit(userData?.email!)) {
     amount = 650;
+    if (check3rdYear(userData?.email!)) {
+      amount = 500;
+    }
   } else if (
     !checkIsFromCse(userData?.email!) &&
     checkIsFromNit(userData?.email!)
