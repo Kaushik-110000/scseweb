@@ -101,7 +101,7 @@ function Dashboard() {
 
   let amount = 1000;
   if (checkIsFromCse(userData?.email!) && checkIsFromNit(userData?.email!)) {
-    amount = 650;
+    amount = 500;
     console.log(userData?.email);
     if (check3rdYear(userData?.email!)) {
       // console.log(check3rdYear(userData?.email!));

@@ -56,7 +56,7 @@ function Page() {
 
   let amount = 900;
   if (checkIsFromCse(userData?.email!) && checkIsFromNit(userData?.email!)) {
-    amount = 650;
+    amount = 500;
     if (check3rdYear(userData?.email!)) {
       amount = 500;
     }
