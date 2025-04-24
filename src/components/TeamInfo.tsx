@@ -111,6 +111,30 @@ const members: Member[] = [
         email: "2022ugcs076@nitjsr.ac.in",
         linkedin: "https://www.linkedin.com/in/pratap-kr",
     },
+    {
+        name: "Ramavath Devender",
+        role: "Public Relation",
+        image: "/images/devendersir.jpg", // TODO: add image path
+        contact: "6302385671",
+        email: "devendernaik211@gmail.com",
+        linkedin: "http://linkedin.com/in/ramavath-devender-6548a9260/",
+    },
+    {
+        name: "Khushbu Rani",
+        role: "Public Relation",
+        image: "/images/khusboomam.jpg", // TODO: add image path
+        contact: "7250347857",
+        email: "rkhushbu793@gmail.com",
+        linkedin: "https://www.linkedin.com/in/khushbu-rani-a58895265?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    },
+    {
+        name: "Hitanshu Gavri",
+        role: "Technical Team",
+        image: "/images/hitanshusir.jpg", // TODO: add image path
+        contact: "8601103675",
+        email: "2022ugcs093@nitjsr.ac.in",
+        linkedin: "https://www.linkedin.com/in/hitanshu-gavri-ba164028a/",
+    },
 ];
 
 
