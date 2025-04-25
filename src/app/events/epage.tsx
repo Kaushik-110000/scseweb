@@ -637,7 +637,7 @@ export default function Page() {
         _id: "67e1b5d0b1e72e5f2f25d742",
         name: "PUBG, Valorant and FreeFire Tournament",
         description: "Competitive gaming showdown in PUBG, Valorant and FreeFire.",
-        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXBQ6-BnZyw5n-7p4V6bKjaLGi-5gM67FIvw&s",
+        logo: "\events\gaming.png",
         prizepool: 3000,
         regFees: 61,
         more: "Knockout-style tournament with cash prizes for winners.",
