@@ -90,9 +90,9 @@ const comps = [
     prize: "₹2000"
   },
   {
-    title: "PUBG or Valorant Tournament",
+    title: "PUBG, Valorant and FreeFire",
     description:
-      "Battle it out in a competitive gaming tournament featuring PUBG and Valorant.\nGame on and dominate the field!",
+      "Battle it out in a competitive gaming tournament featuring PUBG, Valorant and FreeFire.\nGame on and dominate the field!",
     prize: "₹3000"
   },
   {
