@@ -99,7 +99,7 @@ export default function Navbar() {
       {/* NAVBAR */}
       <nav
         className={`
-          fixed top-0 left-0 w-full z-5000 
+          fixed top-12 left-0 w-full z-5000 
           text-white py-4 px-6 flex justify-between items-center
           transition-colors duration-300
           
