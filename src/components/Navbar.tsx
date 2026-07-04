@@ -82,6 +82,20 @@ export default function Navbar() {
 
   return (
     <>
+
+      <div className="fixed top-0 left-0 w-full z-[6000] bg-black/90 backdrop-blur border-b border-white/10 text-center text-sm text-gray-200 py-2 px-4">
+  This website is an archive of <span className="font-semibold">Xavénir 2025–26</span>.
+  For the latest SCSE website, visit{" "}
+  <a
+    href="https://scse-nitjsr.in"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-400 hover:underline font-semibold"
+  >
+    scse-nitjsr.in →
+  </a>
+</div>
+      
       {/* NAVBAR */}
       <nav
         className={`
